@@ -12,8 +12,8 @@ dp state -> min number of operations that needs to be done at `w1[i]` && `w2[j]`
 Now as there are three operations that could be done, we would check the min out of them.
 
 base cases : 
-1. w1 could be empty ! = we need to insert
-2. w2 could be empty ! = we need to delete
+1. w1 could be empty  = we need to insert
+2. w2 could be empty  = we need to delete
 
 Hence, base cases
 
