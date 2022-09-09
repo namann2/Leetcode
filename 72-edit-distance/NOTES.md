@@ -6,7 +6,8 @@ Possible options :
 1. Brute Force ( would work, since n = 500 ) but brute force would be tough
 2. DP ( would work since, we could define our dp state clearly )
 3. Binary Search
-4. Greedy
+4. BFS
+5. Greedy
 
 dp state -> min number of operations that needs to be done at `w1[i]` && `w2[j]` so that the string becomes equal.
 Now as there are three operations that could be done, we would check the min out of them.
