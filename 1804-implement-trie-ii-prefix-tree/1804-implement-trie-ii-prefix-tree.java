@@ -12,7 +12,7 @@ class Trie {
             if(!curr.children.containsKey(ch))
                 curr.children.put(ch, new Node());
             curr = curr.children.get(ch);
-            curr.length += 1;
+            curr.count += 1;
         }
         curr.isEnd = true;
         curr.ending += 1;
@@ -35,7 +35,7 @@ class Trie {
                 return 0;
             curr = curr.children.get(ch);
         }
-        return curr.length;
+        return curr.count;
     }
     
     public void erase(String word) {
@@ -44,8 +44,8 @@ class Trie {
             if(!curr.children.containsKey(ch))
                 return;
             curr = curr.children.get(ch);
-            curr.length -= 1;
-            curr.length = Math.max(0, curr.length);
+            curr.count -= 1;
+            curr.count = Math.max(0, curr.count); // preventing to go negative
         }
         curr.ending--;
         curr.ending = Math.max(curr.ending, 0);
@@ -56,7 +56,7 @@ class Trie {
     private void cleanup(String word) {
         Node curr = this.root;
         for(char ch : word.toCharArray()) {
-            if(curr.children.containsKey(ch) && curr.children.get(ch).length == 0) {
+            if(curr.children.containsKey(ch) && curr.children.get(ch).count == 0) {
                 Node temp = curr.children.get(ch);
                 curr.children.remove(ch);
                 curr = temp;
@@ -69,11 +69,11 @@ class Node {
     Map<Character, Node> children;
     boolean isEnd;
     int ending; // number of words ending here
-    int length;
+    int count;
     Node() {
         this.children = new HashMap<>();
         this.isEnd = false;
-        this.length = 0;
+        this.count = 0;
         this.ending = 0;
     }
 }
