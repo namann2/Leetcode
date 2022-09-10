@@ -1,3 +1,4 @@
+```
 class Solution {
     public int maxProfit(int[] A, int orders) {
         int n = A.length;
@@ -88,3 +89,4 @@ class Solution {
         return cnt;
     }
 }
+```
