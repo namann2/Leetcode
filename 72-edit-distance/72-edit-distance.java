@@ -4,8 +4,8 @@ class Solution {
         int n = w1.length(), m = w2.length();
         
         if(w1.equals(w2)) return 0;
-        if(n == 0) return m; // delete chars
-        if(m == 0) return n; // insert chars
+        if(n == 0) return m; // insert chars
+        if(m == 0) return n; // delete chars
         
         // This is space optimised solution. Check Notes for O(n^2) SC
         // TC : O(n*m) , SC : O(m)
