@@ -1,12 +1,12 @@
 class Solution {
     public int longestNiceSubarray(int[] A) {
-        // since we are given positive integers, thus we can use sliding window
+        // since we are given positive integers, so we can use sliding window
         int n = A.length;
         int ans = 1;
         int begin = 0, end = 0;
         int mask = 0; // set bits of all numbers in window
         while(end < n) {
-            
+            // unset the bits of A[begin]
             while((mask&A[end]) != 0 && begin<end)
                 mask ^= A[begin++];
             
@@ -18,7 +18,3 @@ class Solution {
         return ans;
     }
 }
-/*
-    1, 3, 8, 48, 10
-    
-*/
