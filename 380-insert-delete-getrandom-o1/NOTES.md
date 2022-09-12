@@ -39,7 +39,7 @@ class RandomizedSet {
         int lastIndex = locations.size()-1;
         int lastValue = locations.get(lastIndex);
         
-        if(indexOfValue < lastIndex) {
+        if(indexOfValue != lastIndex) {
             locations.set(indexOfValue, lastValue);
             hashmap.put(lastValue, indexOfValue);
         }
