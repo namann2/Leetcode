@@ -68,4 +68,7 @@ class Solution {
 
 
 Similar Problem : 
-https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups/
+
+1. https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups/
+2. https://leetcode.com/problems/shifting-letters-ii/
+3. https://leetcode.com/problems/describe-the-painting/
