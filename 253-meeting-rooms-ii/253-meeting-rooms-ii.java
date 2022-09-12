@@ -1,7 +1,10 @@
 class Solution {
     public int minMeetingRooms(int[][] intervals) {
-        int n = intervals.length;
-        int max = 1000001;
+        int n = intervals.length, max = 0;
+        
+        for(int[]interval : intervals)
+            max = Math.max(max, interval[1]);
+        
         int[]ps = new int[max+1];
         for(int[] interval : intervals)
         {
