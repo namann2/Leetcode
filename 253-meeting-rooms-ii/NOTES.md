@@ -65,3 +65,7 @@ class Solution {
     }
 }
 ```
+
+
+Similar Problem : 
+https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups/
