@@ -70,5 +70,6 @@ class Solution {
 Similar Problem : 
 
 1. https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups/
-2. https://leetcode.com/problems/shifting-letters-ii/
-3. https://leetcode.com/problems/describe-the-painting/
+2. https://leetcode.com/problems/maximum-population-year/
+3. https://leetcode.com/problems/shifting-letters-ii/
+4. https://leetcode.com/problems/describe-the-painting/
