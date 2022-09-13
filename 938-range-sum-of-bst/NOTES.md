@@ -20,12 +20,12 @@ class Solution {
             right += rangeSum(root.right, l, h, ans);
         }
         else {
-			if(root.val < l) 
-				right += rangeSum(root.right, l, h, ans);
-            if(root.val > h)
-				left += rangeSum(root.left, l, h, ans);
+		if(root.val < l) 
+			right += rangeSum(root.right, l, h, ans);
+	        if(root.val > h)
+			left += rangeSum(root.left, l, h, ans);
         }
-		return ans + left + right;
+	return ans + left + right;
     }
 }
 
