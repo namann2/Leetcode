@@ -1,5 +1,10 @@
 <h2><a href="https://leetcode.com/problems/merge-k-sorted-lists/">23. Merge k Sorted Lists</a></h2><h3>Hard</h3><hr><div><p>You are given an array of <code>k</code> linked-lists <code>lists</code>, each linked-list is sorted in ascending order.</p>
 
+<br>
+<h3> Similar Problem :</h3>
+<h2><a href="https://www.interviewbit.com/problems/merge-k-sorted-arrays/">Merge k Sorted Arrays</a></h2>
+</br>
+
 <p><em>Merge all the linked-lists into one sorted linked-list and return it.</em></p>
 
 <p>&nbsp;</p>
