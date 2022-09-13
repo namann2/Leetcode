@@ -1,5 +1,6 @@
 class Solution {
     public int rangeSumBST(TreeNode root, int low, int high) {
+        // TC : O(N) - In the worst case, we need to traverse complete tree
         if(root == null)
             return 0;
         
