@@ -18,7 +18,7 @@ class Solution {
                 contribution = i - seen[ch-'A'];
             } else contribution = i+1;
             seen[ch-'A'] = i;
-            L[i] += contribution;
+            L[i] = contribution;
         }
         
         Arrays.fill(seen, -1);
@@ -30,7 +30,7 @@ class Solution {
                 contribution = seen[ch-'A'] - i;
             } else contribution = n-i;
             seen[ch-'A'] = i;
-            R[i] += contribution;
+            R[i] = contribution;
         }
         
         int cnt = 0;
