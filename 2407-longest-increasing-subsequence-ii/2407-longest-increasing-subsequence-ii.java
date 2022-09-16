@@ -1,11 +1,12 @@
 class Solution {
     public int lengthOfLIS(int[] A, int k) {
         int n = A.length;
-        // for each number, count the answer for A[i] - x, where x = 0....k
+        // for each number, count the LIS for [ A[i] - x, A[i] - 1 ] , where x = 0....k -> hence Segment Tree
         int max = 0;
         int size = Arrays.stream(A).max().getAsInt()+1;
         Tree t = new Tree(A, size);
-        // nlogn
+
+        // TC : `O(nlogn)`
         for(int i=0;i<n;i++) {
             int left = Math.max(0, A[i] - k);
             int right = A[i] - 1;
