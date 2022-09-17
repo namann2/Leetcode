@@ -2,9 +2,12 @@ class Solution {
     public String[] reorderLogFiles(String[] logs) {
         if(logs == null || logs.length == 0)
             return logs;
-        // TC : O(nk log n), n is the number of logs, k is the average length of the strings 
-        // SC : O()
+        // Let N be the number of logs in the list and M be the maximum length of a single log.
+        // Time Complexity: O(M⋅N⋅logN)
+        // Space Complexity : O(N)
+        
         Arrays.sort(logs, (l1, l2) -> {
+            
             int idx1 = l1.indexOf(" ");
             int idx2 = l2.indexOf(" ");
             
@@ -23,7 +26,8 @@ class Solution {
             }
             else if(isLetterLog1) { // log2 is a digit log
                 return -1;
-            } else if(isLetterLog2) { // log1 is a digit log
+            } 
+            else if(isLetterLog2) { // log1 is a digit log
                 return 1;
             }
             else return 0;
