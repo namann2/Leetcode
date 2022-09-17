@@ -1,5 +1,8 @@
 class Solution {
     public int findPairs(int[] A, int k) {
+        // a - b = k can be written as a = b + k
+        // a - b = k can also be written as a - k = b
+        // Thus, we need to find if for a number X -> X-k and X+k exists or not.
         int n = A.length, count = 0;
         Map<Integer, Integer> map = new HashMap<>();
         for(int i=0;i<n;i++) {
