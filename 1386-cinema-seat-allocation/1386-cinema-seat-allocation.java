@@ -1,5 +1,7 @@
 class Solution {
     public int maxNumberOfFamilies(int n, int[][] reservedSeats) {
+        // TC : O(N), SC : O(N)
+        // where N is the size of reservedSeats
         Map<Integer, Set<Integer>> occupied = new HashMap<>();
         for(int[] seat : reservedSeats) {
             int row = seat[0], loc = seat[1];
