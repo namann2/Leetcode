@@ -16,10 +16,11 @@ class Solution {
                 break;
             }
         }
+        
         // we need to find the index of such an element for which 
         // when we go incrementally till that index, the unset positions 
-        // of the current number is set such that the number of set bits required
-        // is equal to that of the max_or
+        // of the current number is set such that the number of set bits of current number
+        // is equal to that of the "max_or"
         
         // bit position -> [index of number for which this bit position is set]
         TreeMap<Integer, TreeSet<Integer>> map = new TreeMap<>();
@@ -33,8 +34,6 @@ class Solution {
             }
         }
         
-        // printMap(map);
-        
         for(int i=0;i<n;i++) {
             int cnum = nums[i];
             int max = i;
@@ -47,17 +46,6 @@ class Solution {
             answer[i] = max - i + 1;
         }
         return answer;
-    }
-    
-    public void printMap(TreeMap<Integer, TreeSet<Integer>> map) {
-        for(int i=0;i<32;i++)
-        {   
-            if(map.get(i).size() == 0) continue;
-            System.out.print(i+" th position set of indices : ");
-            for(int index : map.get(i))
-                System.out.print(index+" , ");
-            System.out.println();
-        }
     }
 }
 
