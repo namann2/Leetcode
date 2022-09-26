@@ -3,32 +3,27 @@ class Solution {
         if(equations == null || equations.length == 0)
             return true;
         int n = equations.length;
+        
         UnionFind uf = new UnionFind();
         uf.makeSet(26);
         
-        
-        Set<Integer> indices = new HashSet<>();
+    
         for(int i=0;i<n;i++) {
             String equation = equations[i];
             char op1 = equation.charAt(0),
-                sym1 = equation.charAt(1),
-                sym2 = equation.charAt(2),
-                op2 = equation.charAt(3);
+                    sym1 = equation.charAt(1),
+                        op2 = equation.charAt(3);
             
-            if(sym1 == '=' && sym2 == '=') {
+            if(sym1 == '=') 
                 uf.union(op1-'a', op2-'a');
-                indices.add(i);
-            }
         }
         
         for(int i=0;i<n;i++) {
-            if(indices.add(i)) {
-                String equation = equations[i];
-                char op1 = equation.charAt(0),
+            String equation = equations[i];
+            char op1 = equation.charAt(0),
                     sym1 = equation.charAt(1),
-                    sym2 = equation.charAt(2),
-                    op2 = equation.charAt(3);
-                
+                        op2 = equation.charAt(3);
+            if(sym1 == '!') {
                 Node s1 = uf.findSet(op1-'a');
                 Node s2 = uf.findSet(op2-'a');
                 if(s1.parent == s2.parent)
@@ -46,7 +41,6 @@ class Node {
 
 class UnionFind {
     private Map<Integer, Node> map;
-    private int set;
     
     UnionFind() {
         map = new HashMap<>();
@@ -60,7 +54,6 @@ class UnionFind {
             newNode.parent = newNode;
             map.put(i, newNode);
         }
-        this.set = n;
     }
     
     public Node findSet(int val) {
@@ -91,7 +84,6 @@ class UnionFind {
             pB.rank += 1;
         }
         
-        this.set-- ;
         return true;
     }
 }
