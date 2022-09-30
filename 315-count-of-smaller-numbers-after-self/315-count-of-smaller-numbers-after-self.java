@@ -47,12 +47,10 @@ class Tree {
     }
     
     public void update(int L, int R, int val, int st) {
-        if(L==R && L==val) {
-            tree[st]++;
+        if(L>=R) {
+            if(L==val) tree[st]++;
             return;
         }
-        // this line is additional check
-        if(L > R) return;
         
         int mid = L + (R -L)/2;
         
