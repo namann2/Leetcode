@@ -1,5 +1,6 @@
 class Solution {
     public int maximumRobots(int[] chargeTimes, int[] runningCosts, long budget) {
+        // Similar to : Sliding Window Maximum
         int n = chargeTimes.length;
         Deque<Integer> q = new ArrayDeque<>();
         
