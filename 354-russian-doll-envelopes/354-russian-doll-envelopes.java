@@ -6,6 +6,9 @@ class Solution {
         Arrays.sort(envelopes, (e1, e2) -> {
             return e1[0] != e2[0] ? e1[0] - e2[0] : e2[1] - e1[1]; // sort on the basis of width
         });
+        
+        // apply LIS on height ( we have already sorted on the basis of width )
+        
         List<int[]> list = new ArrayList<>();
         list.add(envelopes[0]);
         
@@ -14,10 +17,12 @@ class Solution {
             int[] last = list.get(list.size()-1);
             if(last[1] < envelopes[i][1]) list.add(envelopes[i]);
             else {
-                int index = findIndex(list, envelopes[i]);
-                list.set(index, envelopes[i]);
+                int index = findIndex(list, envelopes[i]); // find insert position
+                list.set(index, envelopes[i]); // update the index
             }
         }
+        // Note : The sequence ( in list ) just tells us the length of valid answer. It (This method) by no means, give us the actual sequence.
+        // If in doubt, check Striver's video
         return list.size();
     }
     private int findIndex(List<int[]> l, int[] envelope) {
