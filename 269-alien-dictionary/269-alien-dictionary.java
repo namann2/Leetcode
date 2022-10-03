@@ -6,10 +6,6 @@ class Solution {
     
     public String alienOrder(String[] words) {
         
-        // those char which maps with the same words eg : 
-        // ["alien", "alien"] - we can not deduce anything from here, so we add 'a' in sames to check afterwards 
-        // if this char was already seen and picked for ordering
-        // another eg : ["z", "z"]
         boolean[] unique = new boolean[26];
         for(String word : words) {
             for(char ch : word.toCharArray())
@@ -78,7 +74,7 @@ class Solution {
             for(char v : g.get(src)) {
                 COLOR curr = color[v-'a'];
                 if(curr == COLOR.GREY) return false;
-                if(color[v-'a'] == COLOR.WHITE) {
+                if(curr == COLOR.WHITE) {
                     if(!dfs(g, v, color, stack))
                         return false;
                 }
