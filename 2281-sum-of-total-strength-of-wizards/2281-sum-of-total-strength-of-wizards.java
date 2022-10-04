@@ -1,7 +1,3 @@
-// find the strength of all the subarrays
-// we can find the contribution of a particular number 
-// number of subarrays where A[i] is the min and what is the sum of those subarrays
-
 class Solution {
     public int totalStrength(int[] strength) {
         int n = strength.length;
