@@ -11,6 +11,30 @@ Since we just need to traverse every substring once, the total time taken is sum
 https://leetcode.com/problems/palindromic-substrings/discuss/105688/Very-Simple-Java-Solution-with-Detail-Explanation
 ```
 
+# `Code` : TC / SC : O(n^2) / O(1)
+```
+class Solution {
+    public int countSubstrings(String s) {
+        int cnt = 0;
+        int n = s.length();
+        for(int i=0;i<n;i++) {
+            cnt += expandAroundCentre(s, i, i);
+            cnt += expandAroundCentre(s, i, i+1);
+        }
+        return cnt;
+    }
+    private int expandAroundCentre(String s, int i, int j) {
+        int cnt = 0, n = s.length();
+        while(i >= 0 && j < n && s.charAt(i) == s.charAt(j)) {
+            cnt++;
+            i--;
+            j++;
+        }
+        return cnt;
+    }
+}
+```
+
 # `Gap Strategy Approach`
 We have to compute something on a "Substring" i.e. why I am using gap strategy. ( add more points if there are other insights as well )
 
