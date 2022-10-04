@@ -1,7 +1,12 @@
+Helpful for the condition : https://leetcode.com/problems/sum-of-total-strength-of-wizards/discuss/2062017/C%2B%2B-prefix-%2B-monotonic-stack-O(N)-solution-with-thought-process
+​
+​
+# Thought Process :
+We need to get the contribution of A[i] as the minimum element in the subarray.
+We can get the number of arrays where A[i] is the minimum ( can be solved using monotonic stack )
+The only dead-end is to find the summation of the subarrays where A[i] is the minimum element.
+​
 ```
-// find the strength of all the subarrays
-// we can find the contribution of a particular number
-// number of subarrays where A[i] is the min and what is the sum of those subarrays
 ​
 class Solution {
 public int totalStrength(int[] strength) {
@@ -16,21 +21,4 @@ for(int i=1;i<n+1;i++) ps[i] = strength[i-1] % mod + ps[i-1] % mod;
 long[]psps = new long[n+2];
 for(int i=1;i<n+2;i++) psps[i] = (ps[i-1] % mod + psps[i-1] % mod) % mod;
 // System.out.println(Arrays.toString(strength));
-// System.out.println(Arrays.toString(s));
-// System.out.println(Arrays.toString(e));
-// System.out.println(Arrays.toString(psps));
-long ts = 0;
-for(int i=0;i<n;i++) {
-long x1 = psps[i+s[i]+1];
-long x2 = psps[i+1];
-long ex = e[i];
-long y1 = psps[i-e[i]+1];
-long sx = s[i];
-long one = ((x1 - x2) * ex) % mod ;
-long two = ((x2 - y1) * sx) % mod;
-// System.out.println("one : "+one);
-// System.out.println("two : "+two);
-// System.out.println("x1 : "+x1);
-// System.out.println("x2 : "+x2);
-// System.out.println("ex : "+ex);
-​
+int mod = (int)1e9+7;
