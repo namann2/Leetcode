@@ -1,33 +1,30 @@
 class Solution {
     public int largestVariance(String s) {
-        // largest : greedy, dp, brute force, backtracking, bs
-        // since, we need to find largest variance possible among "ALL" substrings -> hence, brute force
+        if(s == null || s.length() == 0)
+            return 0;
         
-        int A = maxVariance(s);
+        int variance1 = findMaxVariance(s);
+        int variance2 = findMaxVariance(new StringBuilder(s).reverse().toString());
         
-        String rev = String.valueOf(new StringBuilder(s).reverse());
-        int B = maxVariance(rev);
-        
-        return Math.max(A, B);
+        return Math.max(variance1, variance2);
     }
-    
-    private int maxVariance(String s) {
-        // vairance = cnt1 - cnt2
-        // to maximize variance -> cnt1 should increase and cnt2 should decrease
+    private int findMaxVariance(String s) {
         int n = s.length();
-        int max = 0;
-        for(char c1 = 'a'; c1 <= 'z'; c1 ++ ) {
-            for(char c2 = 'a'; c2 <= 'z'; c2 ++ ) {
-                int cnt1 = 0, cnt2 = 0;
-                for(int i = 0; i < n; i ++) {
+        int maxi = 0;
+
+        for(char first = 'a';first <= 'z'; first++) {
+            for(char second = 'a'; second <= 'z'; second++) {
+                if(first == second) continue;
+                int cntA = 0, cntB = 0;
+                for(int i = 0; i< n; i++) {
                     char ch = s.charAt(i);
-                    if(ch == c1) cnt1++;
-                    if(ch == c2) cnt2++;
-                    if(cnt1 > 0 && cnt2 > 0) max = Math.max(max, cnt1 - cnt2);
-                    if(cnt2 > cnt1) cnt1 = cnt2 = 0;
+                    if(ch == first) cntA++;
+                    if(ch == second) cntB++;
+                    if(cntA > 0 && cntB > 0) maxi = Math.max(maxi, cntA - cntB);
+                    if(cntB > cntA) cntA = cntB = 0;
                 }
             }
         }
-        return max;
+        return maxi;
     }
 }
