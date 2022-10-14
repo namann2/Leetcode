@@ -1,23 +1,23 @@
 class Solution {
-    public int longestSubarray(int[] A, int limit) {
-        // TC : O(N), SC : O(N)
-        // pre-requisite : Sliding Window Maximum
-        Deque<Integer> min = new LinkedList<>();
-        Deque<Integer> max = new LinkedList<>();
+    public int longestSubarray(int[] nums, int limit) {
+        Deque<Integer> min = new ArrayDeque<>();
+        Deque<Integer> max = new ArrayDeque<>();
         
-        int begin = 0, end = 0, n = A.length, maxLength = 0;
-        while(end < n) {
-            while(!min.isEmpty() && min.peekLast() > A[end]) min.removeLast();
-            while(!max.isEmpty() && max.peekLast() < A[end]) max.removeLast();
-            min.addLast(A[end]);
-            max.addLast(A[end]);
-            while(max.peekFirst() - min.peekFirst() > limit && begin < end) {
-                if(min.peekFirst() == A[begin]) min.removeFirst();
-                if(max.peekFirst() == A[begin]) max.removeFirst();
+        int maxLength = 0;
+        int begin = 0, end = 0, n = nums.length;
+        while(end < n ) {
+            while(!min.isEmpty() && nums[min.peekLast()] > nums[end]) min.removeLast();
+            while(!max.isEmpty() && nums[max.peekLast()] < nums[end]) max.removeLast();
+            min.addLast(end);
+            max.addLast(end);
+            while(nums[max.peekFirst()] - nums[min.peekFirst()] > limit && begin < end) {
+                if(nums[min.peekFirst()] == nums[begin]) min.removeFirst();
+                if(nums[max.peekFirst()] == nums[begin]) max.removeFirst();
                 begin++;
             }
-            maxLength = Math.max(maxLength, end-begin+1);
-            end++;
+            if(nums[max.peekFirst()] - nums[min.peekFirst()] <= limit) 
+                maxLength = Math.max(maxLength, end - begin + 1);
+            end ++;
         }
         return maxLength;
     }
