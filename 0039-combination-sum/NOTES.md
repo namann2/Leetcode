@@ -10,38 +10,45 @@ we have to go on recursive depth equals to the target.
 
 TC : O(2^target) * O(k) where k is the average length of recursive path <br>
 SC : O(n) <br>
-/*
-        As we have disinct elements, we have a choice to either use 
-        for loop approach or pick-notPick approach
+
+As we have disinct elements, we have a choice to either use <br>
+for loop approach or pick-notPick approach <br>
         
-        One thing to consider as well,
-        can we have a repeated output in case of combinations ?
-        like, if we have 2 elements 3,5, we can only select them and
-        not arrange them, because combination means only selection
+One thing to consider as well, <br>
+can we have a repeated output in case of combinations ? <br>
+like, if we have 2 elements 3,5, we can only select them and <br>
+not arrange them, because combination means only selection <br>
         
-        Thus, we are safe to use any of the approaches
-        */
+Thus, we are safe to use any of the approaches
+
 
 # APPROACH 1 :  PICK - NOT PICK [ Subsequence / Subsets ]
 
 ```
- private void cs(int[] can, int start, int n, int target, ArrayList<Integer> temp) {
-        
+ class Solution {
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        List<List<Integer>> answer = new ArrayList<>();
+        combination(candidates, 0, candidates.length, new ArrayList<>(), target, answer);
+        return answer;
+    }
+    private void combination(int[] candidates, int index, int n, List<Integer> temp, int target, List<List<Integer>> answer) {
+        // base case
         if(target == 0) {
-            result.add(new ArrayList<>(temp));
+            answer.add(new ArrayList<>(temp));
             return;
         }
         
-        if(target < 0) return;
+        if(target < 0 || index >= n)
+            return;
         
-        if(start >= n) return; 
-        
-        temp.add(can[start]);
-        cs(can, start, n, target-can[start], temp);
+        // main logic
+        temp.add(candidates[index]);
+        combination(candidates, index, n, temp, target - candidates[index], answer);
         temp.remove(temp.size()-1);
         
-        cs(can, start+1, n, target, temp);
+        combination(candidates, index+1, n, temp, target, answer);
     }
+}
 ```
 
 
