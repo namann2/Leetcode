@@ -2,7 +2,7 @@ Complexity Explained :
 w is the number of words in the wordSet 
 and n is the length of startWord
 
-TC : O(n * w * 26 * n) = O(n^2 * w)
+TC : O(n * w * 26 * n) = O(n^2 * w) <br>
 SC : O(w) + O(w) + O(26 * n) + O( n * n * w - intermediate strings we could make) - O(n^2 * w)
         
 
