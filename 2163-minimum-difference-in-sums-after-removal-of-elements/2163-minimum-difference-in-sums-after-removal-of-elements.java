@@ -4,8 +4,8 @@ class Solution {
         long[]left = findLeft(nums);
         long[]right = findRight(nums);
         
-        System.out.println(Arrays.toString(left));
-        System.out.println(Arrays.toString(right));
+        // System.out.println(Arrays.toString(left));
+        // System.out.println(Arrays.toString(right));
         
         long min = Long.MAX_VALUE;
         int n = nums.length;
