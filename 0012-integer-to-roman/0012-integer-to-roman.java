@@ -17,14 +17,14 @@ class Solution {
         map.put(400, "CD");
         map.put(900, "CM");
 
-        String op = new String("");
+        StringBuilder op = new StringBuilder();
         while(num > 0) {
             int x = map.floorKey(num);
             int freq = num / x;
             num -= x * freq;
             while(freq-- > 0)
-                op += map.get(x);
+                op.append(map.get(x));
         }
-        return op;
+        return op.toString();
     }
 }
