@@ -23,6 +23,10 @@ class Solution {
         
         System.out.println(si +" :: "+li);
         int x = si + n - li - 1;
+        // if in case, we have smallest element to the right of largest element
+        // then, one swap will be made between the smallest and the largest element
+        // hence, we need to reduce one swap
+        // eg : 2 3 '5' 3 2 '1'
         return si > li ? x - 1 : x;
     }
 }
