@@ -1,29 +1,9 @@
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- 
- 1 2 3 4 5
- 2nd largest = 4
- minHeap of size 2
- 
- 4 5
- */
 class Solution {
     public long kthLargestLevelSum(TreeNode root, int k) {
+        // Using quick select
         Queue<TreeNode> q = new LinkedList<>();
         q.offer(root);
-        PriorityQueue<Long> pq = new PriorityQueue<>();
+        List<Long> levelSums = new ArrayList<>();
         while(!q.isEmpty()) {
             int size = q.size();
             long sum = 0;
@@ -33,10 +13,32 @@ class Solution {
                 if(curr.left != null) q.offer(curr.left);
                 if(curr.right != null) q.offer(curr.right);
             }
-            pq.add(sum);
-            if(pq.size() > k) pq.poll();
+            levelSums.add(sum);
         }
-        if(pq.size() < k) return -1;
-        return pq.peek();
+        int n = levelSums.size();
+        k = n - k;
+        if(k > n) return -1;
+        return quickSelect(levelSums, 0, n-1, k);
+    }
+    private long quickSelect(List<Long> sums, int left, int right, int k) {
+        if(left > right) return -1;
+        long pivot = sums.get(right);
+        int pi = partition(sums, left, right, pivot);
+        if(pi == k) return sums.get(pi);
+        else if(pi > k) return quickSelect(sums, left, pi-1, k);
+        else return quickSelect(sums, pi+1, right, k);
+    }
+    private int partition(List<Long> sums, int left, int right, long pivot) {
+        int i=left;
+        while(left <= right) {
+            if(sums.get(left) <= pivot) {
+                long temp = sums.get(i);
+                sums.set(i, sums.get(left));
+                sums.set(left, temp);
+                i++;
+            } 
+            left++;
+        }
+        return i-1;
     }
 }
