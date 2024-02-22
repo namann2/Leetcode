@@ -1,5 +1,6 @@
 class Solution {
     public boolean flipEquiv(TreeNode p, TreeNode q) {
+        // Isomorphic Trees
         if(p == null && q == null) return true;
         if(p == null || q == null) return false;
         
