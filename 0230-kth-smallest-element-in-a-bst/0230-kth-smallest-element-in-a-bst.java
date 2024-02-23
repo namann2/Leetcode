@@ -16,6 +16,9 @@ class Solution {
         // return -1;
         
         // Morris Inorder Traversal : TC : O(3N), SC : O(1)
+
+        // Check Notes for follow-up question
+        
         TreeNode curr = root;
         while(curr != null) {
             if(curr.left != null) {
