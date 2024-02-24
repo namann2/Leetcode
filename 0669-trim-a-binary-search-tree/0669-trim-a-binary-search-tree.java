@@ -20,14 +20,8 @@ class Solution {
         root.left = trimBST(root.left, low, high);
         root.right = trimBST(root.right, low, high);
         
-        if(root.val < low || root.val > high) {
-            return root.val < low ? root.right : root.left;
-            // if(root.val < low) {
-            //     // the left subtree will also be out of range
-            //     return root.right;
-            // } 
-            // return root.left;
-        }
+        if(root.val < low) return root.right;
+        else if(root.val > high) return root.left;
         return root;
     }
 }
