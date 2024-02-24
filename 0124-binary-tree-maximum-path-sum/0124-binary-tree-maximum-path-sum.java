@@ -8,7 +8,8 @@ class Solution {
     }
     private int bottomup(TreeNode root) {
         if(root == null) return 0;
-        
+        // if there is neg value from either subtree, ignore it since
+        // we need to find the maximum sum
         int left = Math.max(0, bottomup(root.left));
         int right = Math.max(0, bottomup(root.right));
         
