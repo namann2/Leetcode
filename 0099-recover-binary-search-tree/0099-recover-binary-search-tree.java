@@ -1,20 +1,33 @@
 class Solution {
     public void recoverTree(TreeNode root) {
-        Stack<TreeNode> stack = new Stack<>();
+        // Morris Traversal
         TreeNode curr = root;
         TreeNode prev = null, first = null, second = null;
-        while(curr != null || !stack.isEmpty()) {
-            while(curr != null) {
-                stack.push(curr);
-                curr = curr.left;
+        while(curr != null) {
+            if(curr.left != null) {
+                TreeNode ptr = curr.left;
+                while(ptr.right != null && ptr.right != curr) 
+                    ptr = ptr.right;
+                if(ptr.right == null) {
+                    ptr.right = curr;
+                    curr = curr.left;
+                } else {
+                    ptr.right = null;
+                    if(prev != null) {
+                        if(prev.val > curr.val && first == null) first = prev;
+                        if(prev.val > curr.val && first != null) second = curr;
+                    }
+                    prev = curr;
+                    curr = curr.right;
+                }
+            } else {
+                if(prev != null) {
+                    if(prev.val > curr.val && first == null) first = prev;
+                    if(prev.val > curr.val && first != null) second = curr;
+                }
+                prev = curr;
+                curr = curr.right;
             }
-            curr = stack.pop();
-            if(prev != null) {
-                if(curr.val < prev.val && first == null) first = prev;
-                if(curr.val < prev.val && first != null) second = curr;
-            }
-            prev = curr;
-            curr = curr.right;
         }
         int temp = first.val;
         first.val = second.val;
