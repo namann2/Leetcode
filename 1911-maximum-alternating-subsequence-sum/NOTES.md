@@ -74,3 +74,50 @@ class Solution {
     }
 }
 ```
+
+
+### Top-Down Approach
+
+```
+class Solution {
+    public long maxAlternatingSum(int[] A) {
+        int n = A.length;
+        // dp state -> max alternating sum of a subsequence ending at ith index if i is an even/odd index
+        long[][]dp = new long[n][2]; 
+        dp[0][0] = A[0];
+        for(int i=1;i<n;i++) {
+            // dp[i][0] = if we include A[i] (even index), what is the max alternating sum subsequence. 
+            dp[i][0] = Math.max(dp[i-1][0], A[i] + dp[i-1][1]);
+            // dp[i][1] = if we do not include A[i] (odd index), we will have to reindex the subsequence
+            dp[i][1] = Math.max(dp[i-1][1], -A[i] + dp[i-1][0]);
+        }
+        return Math.max(dp[n-1][0], dp[n-1][1]);
+    }
+}
+```
+
+Observations from top-down : 
+1. Current state is depending upon prev two values. We can optimise the code even further.
+
+
+### Constant Space
+pE = previous Even Index Maximum
+pO = previous Odd Index Maximum
+cE = current Even Index Value
+cO = current Odd Index Value
+```
+class Solution {
+    public long maxAlternatingSum(int[] A) {
+        int n = A.length;
+        long pE = 0, pO = 0;
+        pE = A[0];
+        for(int i=1;i<n;i++) {
+            long cE = Math.max(pE, A[i] + pO);
+            long cO = Math.max(pO, -A[i] + pE);
+            pE = cE;
+            pO = cO;
+        }
+        return Math.max(pE, pO);
+    }
+}
+```
