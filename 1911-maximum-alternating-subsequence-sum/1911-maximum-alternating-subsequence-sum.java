@@ -1,5 +1,6 @@
 class Solution {
     public long maxAlternatingSum(int[] nums) {
+        // Check notes for other 3 improvisations
         int n = nums.length;
         // dp state -> max alternating sum of a subsequence ending at ith index
         long[][]dp = new long[n][2]; 
