@@ -3,6 +3,7 @@ class Solution {
         // check notes for all approach and a bonus
         int n = nums.length;
         if(n == 1) return nums[0];
+        // current next1 next2 is the sequence for dp[i], dp[i+1], dp[i+2]
         int next2 = nums[n-1];
         int next1 = Math.max(nums[n-2], next2);
         for(int i=n-3;i>=0;i--) {
