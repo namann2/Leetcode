@@ -1,28 +1,18 @@
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        if(head == null) return null;
-        
-        // move currentNode n steps ahead in the list
-        ListNode currentNode = head;
-        for(int i=0;i<n;i++)
-            currentNode = currentNode.next;
-        
-        // head is the node to be removed
-        if(currentNode == null) {
+        ListNode temp = head;
+        while(n > 0) {
+            temp = temp.next;
+            n--;
+        }
+        if(temp == null) 
             return head.next;
+        ListNode curr = head;
+        while(temp.next != null) {
+            curr = curr.next;
+            temp = temp.next;
         }
-        
-        // maintain the gap of n nodes between the two pointers so as to connect them
-        ListNode nodeBeforeNodeToRemove = head;
-        
-        // reach the last node while doing the above operation
-        while(currentNode.next != null) {
-            currentNode = currentNode.next;
-            nodeBeforeNodeToRemove = nodeBeforeNodeToRemove.next;
-        }
-        
-        nodeBeforeNodeToRemove.next = nodeBeforeNodeToRemove.next.next;
-        
+        curr.next = curr.next.next;
         return head;
     }
 }
