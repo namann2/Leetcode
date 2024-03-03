@@ -21,4 +21,6 @@ return 1 + findLinkedListLength(head.next);
 }
 ​
 ```
-return head.next;
+​
+### One pass solution
+https://www.youtube.com/watch?v=ZQizovB_UdI
