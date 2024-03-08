@@ -1,19 +1,20 @@
 class Solution {
     public int jump(int[] nums) {
         int n = nums.length;
-        Integer[]dp = new Integer[n];
-        dp[n-1] = 0;
-        for(int i=n-2;i>=0;i--) {
-            int jump = nums[i];
-            if(jump == 0) continue;
-            dp[i] = Integer.MAX_VALUE;
-            for(int j = 1; j <= jump; j++) {
-                if(i + j <= n-1 && dp[i+j] != null)
-                    dp[i] = Math.min(dp[i], dp[i+j]);
+        int minJump = 0, farthest = 0, currEnd = 0; // currEnd - max length/jump of current ladder/element
+        for(int i = 0; i < n; i++) {
+            // if we have reached the target
+            if(currEnd >= n-1) return minJump;
+            // keep a note of the farthest ladder
+            if(i+nums[i] > farthest) {
+                farthest = nums[i] + i;
             }
-            if(dp[i] != Integer.MAX_VALUE)
-                dp[i] += 1;
+            // if we have exhausted our current ladder, we need to make a jump
+            if(i == currEnd) {
+                minJump++;
+                currEnd = farthest;
+            }
         }
-        return dp[0];
+        return minJump;
     }
 }
