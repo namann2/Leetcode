@@ -4,7 +4,7 @@ class Solution {
         int[] dp = new int[n];
         int maxScore = nums[n-1];
         // TC : O(n * klogk)
-        // SC : O(k)
+        // SC : O(n)
         dp[n-1] = nums[n-1];
         // we want k max values from i so, [i+1....i+k]
         PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> {
