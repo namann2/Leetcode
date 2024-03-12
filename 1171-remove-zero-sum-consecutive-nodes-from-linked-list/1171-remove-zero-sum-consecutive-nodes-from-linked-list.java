@@ -1,5 +1,10 @@
 class Solution {
     public ListNode removeZeroSumSublists(ListNode head) {
+        // TC : in the worst case, we will traverse every node twice : O(2*n) : O(n)
+        // SC : O(n)
+        
+        // FOLLOW-UP : Can we do it in one-pass ?
+        
         // this is same as subarray sum equals 0
         if(head == null)
             return null;
