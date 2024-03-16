@@ -1,13 +1,12 @@
 class Solution {
     public int partitionString(String s) {
-        Set<Character> set = new HashSet<>();
-        int cnt = 1;
+        int mask = 0, cnt = 1;
         for(char ch : s.toCharArray()) {
-            if(!set.add(ch)) {
+            if(((mask >> (ch-'a')) & 1) == 1) {
                 cnt++;
-                set.clear();
-                set.add(ch);
+                mask = 0;
             }
+            mask |= 1 << (ch-'a');
         }
         return cnt;
     }
