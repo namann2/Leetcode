@@ -1,4 +1,58 @@
-# Solution 1 :
+# Solution 1 : 
+
+```
+class Solution {
+    public int[] platesBetweenCandles(String s, int[][] queries) {
+        List<Integer> list = new ArrayList<>();
+        int n = s.length();
+        for(int i=0;i<n;i++)
+            if(s.charAt(i) == '|')
+                list.add(i);
+        
+        int size = queries.length;
+        int[] answer = new int[size];
+        for(int i = 0; i < size; i++) {
+            int l = binary_search_ceil(list, queries[i][0]); // greater or equal
+            int r = binary_search_floor(list, queries[i][1]); // less or equal
+            if(l == -1 || r == -1) {
+                answer[i] = 0;
+                continue;
+            }
+            int cnt_plates = r - l + 1;
+            int total = list.get(r) - list.get(l) + 1;
+            int candies_between_plates = total - cnt_plates;
+            answer[i] = Math.max(0, candies_between_plates);
+        }
+        return answer;
+    }
+    private int binary_search_ceil(List<Integer> list, int val) {
+        int start = 0, end = list.size()-1, ans = -1;
+        while(start <= end) {
+            int mid = start + (end - start) / 2;
+            if(list.get(mid) >= val) {
+                ans = mid;
+                end = mid - 1;
+            } else start = mid + 1;
+        }
+        return ans;
+    }
+    private int binary_search_floor(List<Integer> list, int val) {
+        int start = 0, end = list.size()-1, ans = -1;
+        while(start <= end) {
+            int mid = start + (end - start) / 2;
+            if(list.get(mid) <= val) {
+                ans = mid;
+                start = mid + 1;
+            } else end = mid - 1;
+        }
+        return ans;
+    }
+}
+```
+
+
+
+# Solution 2 :
 
 `TC: O(n + q * log n)`, where `n` is the length of input string and `q` is the length is `Q`.
 
@@ -38,7 +92,7 @@ class Solution {
 }
 ```
 
-# Solution 2 : 
+# Solution 3 : 
 
 `TC: O(n) + O(q)`, where `n` is the length of input string and `q` is the length of `Q`
 
