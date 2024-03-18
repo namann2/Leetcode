@@ -1,5 +1,20 @@
 class Solution {
     public int minimumSwaps(int[] nums) {
+        int n = nums.length, min = 0, max = 0;
+        for(int i = 0;i < n;i++) {
+            if(nums[i] < nums[min]) min = i;
+            if(nums[i] >= nums[max]) max = i;
+        }
+        
+        int swaps = (n - max - 1) + min;
+        return min <= max ? swaps : swaps - 1;
+    }
+}
+
+/*
+
+class Solution {
+    public int minimumSwaps(int[] nums) {
         if(nums == null || nums.length == 1)
             return 0;
         
@@ -30,6 +45,7 @@ class Solution {
         return si > li ? x - 1 : x;
     }
 }
+*/
 
 /*
     Options : 
