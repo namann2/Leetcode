@@ -6,8 +6,6 @@ class Solution {
         int m = q.length;
         int[]answer = new int[m];
         
-        // since subsequence, order does not matter
-        
         Arrays.sort(A);
         int n = A.length;
         int[]ps = new int[n];
