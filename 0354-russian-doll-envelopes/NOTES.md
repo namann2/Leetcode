@@ -1,17 +1,27 @@
+About sorting, <br>
+    [[3,2],[3,2],[2,3],[2,2],[3,4],[3,6],[6,6]] <br>
+            if we sort it like so,<br>
+                </t> if(e1[0] == e2[0]) return e1[1] - e2[1];<br>
+                </t> return e1[0] - e2[0];<br>
+
+what issue is there ? 
+
+Let's only write the height of our so called sorted array<br>
+            2 3 2 2 4 6 6 <br>
+            
+in this case, 3 can allow 2 be put inside but in actual this is wrong, since the width of <br>
+this envelope having h = 2, is same as that of envelope with h = 3. <br>
+Hence, we want to keep the largest of height before to avoid this issue. 
+
+
+<hr>
+
+## Solution : 
+Naive LIS solution won't work here, since the constraints are too high. We will use binary search + LIS
+
+```
 class Solution {
     public int maxEnvelopes(int[][] envelops) {
-        /*
-            About sorting,
-            [[3,2],[3,2],[2,3],[2,2],[3,4],[3,6],[6,6]]
-            if we sort it like so,
-                if(e1[0] == e2[0]) return e1[1] - e2[1];
-                return e1[0] - e2[0];
-            what issue is there ? Let's only write the height of our so called sorted array
-            2 3 2 2 4 6 6 
-            in this case, 3 can allow 2 be put inside but in actual this is wrong, since the width of 
-            this envelope having h = 2, is same as that of envelope with h = 3.
-            Hence, we want to keep the largest of height before to avoid this issue.
-        */
         Arrays.sort(envelops, (e1, e2) -> {
             if(e1[0] == e2[0]) return e2[1] - e1[1];
             return e1[0] - e2[0];
