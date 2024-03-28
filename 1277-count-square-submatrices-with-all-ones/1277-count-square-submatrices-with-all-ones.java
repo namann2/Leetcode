@@ -13,7 +13,6 @@ class Solution {
                 }
                 cnt += curr[j];
             }
-            System.out.println(Arrays.toString(curr));
             next = curr;
         }
         return cnt;
