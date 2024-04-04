@@ -5,17 +5,15 @@ class Solution {
         int[][]dp = new int[n][m];
         
         // first row
-        dp[0][0] = 1;
-        
         for(int j=0;j<m;j++) {
             if(obstacleGrid[0][j] == 1) break;
-            dp[0][j] += j-1 >= 0 ? dp[0][j-1] : 0;
+            dp[0][j] = 1;
         }
         
         // first column
         for(int i=0;i<n;i++) {
             if(obstacleGrid[i][0] == 1) break;
-            dp[i][0] += i-1 >= 0 ? dp[i-1][0] : 0;
+            dp[i][0] = 1;
         }
         
         for(int i=1;i<n;i++) {
