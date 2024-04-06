@@ -13,7 +13,7 @@ class Solution {
             return;
         }
         
-        for(int i = index; i < n; i++) {
+        for(int i = index; i < n && candidates[i] <= target; i++) {
             if(i > index && candidates[i] == candidates[i-1]) continue;
             temp.add(candidates[i]);
             combinationsum(candidates, i+1, n, target - candidates[i], temp, answer);
