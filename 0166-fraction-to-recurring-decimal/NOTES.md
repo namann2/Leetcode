@@ -5,7 +5,7 @@ The time complexity of the fractionToDecimal method primarily depends on
 ​
 ### TC :
 If there's no repeating pattern, this part has a time complexity of `O(log(N/D))` in the worst case
-​
+​<br>
 If there is a repeating pattern, the loop to find the repeating part can iterate at most D times before finding the pattern, hence O(D)
 ​
 ### SC :
