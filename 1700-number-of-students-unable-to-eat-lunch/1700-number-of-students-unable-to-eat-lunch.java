@@ -1,24 +1,20 @@
 class Solution {
     public int countStudents(int[] students, int[] sandwiches) {
-        Deque<Integer> student = new ArrayDeque<>();
-        Deque<Integer> sandwich = new ArrayDeque<>();
-        int n = students.length;
-        for(int i=0;i<n;i++) {
-            student.addLast(students[i]);
-            sandwich.addLast(sandwiches[i]);
+        int zero = 0, one = 0, n = students.length;
+        for(int i = 0;i < n; i++) {
+            if(students[i] == 0) zero++;
+            else one++;
         }
         
-        int cnt = 0;
-        while(cnt != student.size()) {
-            if(student.peekFirst() != sandwich.peekFirst()) {
-                cnt++;
-                student.addLast(student.removeFirst());
+        for(int i = 0; i < n; i++) {
+            if(sandwiches[i] == 0) {
+                if(zero > 0) zero--;
+                else return n - i;
             } else {
-                cnt = 0;
-                student.removeFirst();
-                sandwich.removeFirst();
+                if(one > 0) one--;
+                else return n - i;
             }
         }
-        return student.size();
+        return 0;
     }
 }
