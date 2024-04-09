@@ -1,53 +1,20 @@
 class Solution {
     ListNode left;
-    public boolean isPalindrome(ListNode node) {
-        if(node == null)
-            return true;
-        left = node;
-        return isPalindromeUtil(node);
+    public boolean isPalindrome(ListNode head) {
+        if(head == null || head.next == null) return true;
+        left = head;
+        return isPalindromeHelper(head);
     }
-    private boolean isPalindromeUtil(ListNode right) {
-        if(right == null)
-            return true;
+    private boolean isPalindromeHelper(ListNode right) {
+        // base case
+        if(right == null) return true;
         
-        boolean isPalindrome = isPalindromeUtil(right.next);
+        boolean isPalin = isPalindromeHelper(right.next);
         
-        if(!isPalindrome)
-            return false;
+        if(!isPalin) return false;
         
-        if(left.val != right.val) 
-            return false;
-        
+        if(left.val != right.val) return false;
         left = left.next;
-        
         return true;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
