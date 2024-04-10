@@ -3,19 +3,14 @@ Maintain DLL, Map< Integer, List < Node > > , PQ and update these for every oper
 
 Following is the chart of operations that are performed : 
 
-+-----------+------+------+----------+
-| operation |  DLL |  Map |    PQ    |
-+===========+======+======+==========+
-|    push   | O(1) | O(1) | O(log N) |
-+-----------+------+------+----------+
-|    pop    | O(1) | O(1) | O(log N) |
-+-----------+------+------+----------+
-|    top    | O(1) |   X  |     X    |
-+-----------+------+------+----------+
-|  maxPeek  |   X  |   X  | O(log N) |
-+-----------+------+------+----------+
-|   maxPop  | O(1) | O(1) | O(log N) |
-+-----------+------+------+----------+
+| Operation | DLL  | Map  | PQ      |
+|-----------|------|------|---------|
+| push      | O(1) | O(1) | O(log N)|
+| pop       | O(1) | O(1) | O(log N)|
+| top       | O(1) | X    | X       |
+| maxPeek   | X    | X    | O(log N)|
+| maxPop    | O(1) | O(1) | O(log N)|
+
 
 
 ```
