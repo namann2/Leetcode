@@ -8,7 +8,7 @@ Following is the chart of operations that are performed :
 | push      | O(1) | O(1) | O(log N)|
 | pop       | O(1) | O(1) | O(log N)|
 | top       | O(1) | X    | X       |
-| maxPeek   | X    | X    | O(log N)|
+| maxPeek   | X    | X    | O(1)|
 | maxPop    | O(1) | O(1) | O(log N)|
 
 
