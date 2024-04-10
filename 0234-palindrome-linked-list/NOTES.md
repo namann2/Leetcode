@@ -1,3 +1,8 @@
+## Recursive Approach :
+​
+Drawback : Using the global variable.
+In the recursive approach, we will have to use a global variable, which is not a good approach
+​
 ```
 class Solution {
 ListNode left = null;
@@ -16,3 +21,7 @@ return true;
 }
 }
 ```
+​
+## Iterative Approach :
+​
+​
