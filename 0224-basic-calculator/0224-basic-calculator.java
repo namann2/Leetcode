@@ -1,8 +1,8 @@
 class Solution {
     public int calculate(String s) {
-        Stack<int[]> stack = new Stack<>();
+        Stack<Integer> stack = new Stack<>();
         int n = s.length(), result = 0;
-        int sign = 1;
+        char sign = '+';
         for(int i = 0; i < n ;i++) {
             char ch = s.charAt(i);
             if(Character.isDigit(ch)) {
@@ -12,20 +12,31 @@ class Solution {
                     i++;
                 }
                 i--;
-                result += sign*num;
-                sign = 1;
+                updateStack(stack, sign, num);
+                sign = '+';
             } else if(ch == '(') {
-                stack.push(new int[]{result, sign});
-                result = 0;
-                sign = 1;
-            } else if(ch == ')') {
-                result = stack.peek()[0] + stack.pop()[1] * result;
-            } else if(ch == '+') {
-                sign = 1;
-            } else if(ch == '-') {
-                sign = -1;
-            } else continue;
+                int j = i;
+                int open = 0;
+                while(j < n) {
+                    if(s.charAt(j) == '(') open++;
+                    else if(s.charAt(j) == ')') open--;
+                    if(open == 0) break;
+                    j++;
+                }
+                int num = calculate(s.substring(i+1, j));
+                updateStack(stack, sign, num);
+                sign = '+';
+                i = j;
+            } else if(ch == ' ') continue;
+            else sign = ch;
         }
+        
+        int res = 0;
+        while(!stack.isEmpty()) result += stack.pop();
         return result;
+    }
+    private void updateStack(Stack<Integer> st, char sign, int num) {
+        if(sign == '+') st.push(num);
+        else st.push(-num);
     }
 }
