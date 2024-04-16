@@ -1,6 +1,7 @@
 class Solution {
     public TreeNode addOneRow(TreeNode root, int val, int d) {
-        if(d == 1) {
+        d --;
+        if(d == 0) {
             TreeNode newRoot = new TreeNode(val);
             newRoot.left = root;
             return newRoot;
@@ -9,7 +10,6 @@ class Solution {
         Queue<TreeNode> q = new LinkedList<>();
         q.offer(root);
         
-        d -= 1;
         while(--d > 0) {
             int size = q.size();
             for(int i=0;i<size;i++) {
@@ -22,9 +22,11 @@ class Solution {
         while(!q.isEmpty()) {
             TreeNode curr = q.poll();
             
+            // old links
             TreeNode currLeft = curr.left;
             TreeNode currRight = curr.right;
             
+            // new
             TreeNode newLeftNode = new TreeNode(val);
             TreeNode newRightNode = new TreeNode(val);
             
