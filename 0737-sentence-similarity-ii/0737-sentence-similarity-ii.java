@@ -6,6 +6,8 @@ class Solution {
         Map<String, Set<String>> g = new HashMap<>();
         constructGraph(g, similarPairs);
         
+        // TC : n * ( k * 2n ) = O(k * n^2)
+        // SC : k * 2n for graph + k (for hashset) = O(k * n + k)
         for(int i = 0; i < n ; i++) {
             String w1 = sentence1[i], w2 = sentence2[i];
             if(w1.equals(w2)) continue;
@@ -15,7 +17,8 @@ class Solution {
         return true;
     }
     private void constructGraph(Map<String, Set<String>> g, List<List<String>> similarPairs) {
-        int k = similarPairs.size();
+        int k = similarPairs.size(); 
+        // graph has k nodes and there can be 2n edges
         for(int i = 0; i < k ; i++) {
             g.putIfAbsent(similarPairs.get(i).get(0), new HashSet<>());
             g.putIfAbsent(similarPairs.get(i).get(1), new HashSet<>());
