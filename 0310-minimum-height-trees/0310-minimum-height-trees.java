@@ -1,10 +1,12 @@
 class Solution {
     public List<Integer> findMinHeightTrees(int n, int[][] edges) {
-        if(n==1) {
-            List<Integer> l = new ArrayList<>();
-            l.add(0);
+        List<Integer> l = new ArrayList<>();
+        if(n <= 2) {
+            for(int i = 0; i < n; i++)
+                l.add(i);
             return l;
         }
+        
         int[]degree = new int[n];
         HashMap<Integer, List<Integer>> g = new HashMap<>();
         
@@ -23,17 +25,20 @@ class Solution {
                 q.add(i);
         
         int numRemaining = n;
-        while(numRemaining > 2) {
+        while(n > 2) {
             int size = q.size();
-            numRemaining -= size;
+            n -= size;
             for(int i=0;i<size;i++) {
                 int curr = q.poll();
                 for(int v : g.get(curr)) {
-                    degree[v]--;
+                    degree[v] -= 1;
                     if(degree[v] == 1) q.add(v);
                 }
             }
         }
-        return new ArrayList<>(q);
+        while(!q.isEmpty()) 
+            l.add(q.remove());
+        
+        return l;
     }
 }
