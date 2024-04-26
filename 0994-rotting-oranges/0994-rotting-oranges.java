@@ -1,41 +1,45 @@
 class Solution {
     public int orangesRotting(int[][] grid) {
-        int n = grid.length, m = grid[0].length;
-        int fresh = 0;
-        Deque<int[]> cells = new ArrayDeque<>();
+        int fresh = 0, n = grid.length, m = grid[0].length;
+        Deque<int[]> q = new ArrayDeque<>();
+        boolean[][]visited = new boolean[n][m];
+        
         for(int i = 0; i < n; i++) {
-            for(int j = 0; j < m; j++) {
-                if(grid[i][j] == 1) {
-                    fresh++;
-                }
+            for(int j = 0; j < m; j ++) {
+                if(grid[i][j] == 1) fresh++;
                 else if(grid[i][j] == 2) {
-                    cells.offer(new int[]{i, j});
+                    q.addLast(new int[]{i, j});
+                    visited[i][j] = true;
                 }
             }
         }
-        return fresh > 0 ? bfs(grid, n, m, fresh, cells) : 0;
-    }
-    private int bfs(int[][]grid, int n, int m, int fresh, Deque<int[]> cells) {
-        int[]dx = {-1, 1, 0, 0};
-        int[]dy = {0, 0, -1, 1};
         
+        if(fresh == 0) return 0;
+        if(q.size() == 0 && fresh > 0) return -1;
+        
+        return bfs(q, grid, visited, fresh, n, m);
+    }
+    private int bfs(Deque<int[]> q, int[][] grid, boolean[][] visited, int fresh, int n, int m) {
+        int[] dx = {-1, 1, 0, 0};
+        int[] dy = {0, 0, -1, 1};
         int time = 0;
-        while(!cells.isEmpty()) {
-            int size = cells.size();
-            for(int i = 0; i < size; i++) {
-                int[] curr = cells.poll();
+        while(!q.isEmpty() && fresh > 0) {
+            int size = q.size();
+            for(int i = 0; i < size;i ++) {
+                int[] curr = q.removeFirst();
                 for(int k = 0; k < 4; k++) {
                     int newX = curr[0] + dx[k];
                     int newY = curr[1] + dy[k];
-                    if(newX >= 0 && newX < n && newY >= 0 && newY < m && grid[newX][newY] == 1) {
+                    if(newX >=0 && newX < n && newY >= 0 && newY < m && 
+                       !visited[newX][newY] && grid[newX][newY] == 1) {
                         fresh--;
-                        grid[newX][newY] = 2;
-                        cells.offer(new int[]{newX, newY});
+                        visited[newX][newY] = true;
+                        q.offer(new int[]{newX, newY});
                     }
                 }
             }
             time++;
         }
-        return fresh <= 0 ? time - 1 : -1;
+        return fresh == 0 ? time : -1;
     }
 }
