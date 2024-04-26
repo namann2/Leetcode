@@ -20,6 +20,14 @@
     step 3 : merge name and emails
 
 
+<br>
+
+n different accounts <br>
+k different emails <br>
+
+Total TC : `O(nk) + O(nk * log(nk)) = O(nk * log(nk))` <br>
+Total SC : `O(nk) [ makeSet] + O(nk) [hashmaps] = O(nk)` <br>
+
 ```
 class Solution {
     public List<List<String>> accountsMerge(List<List<String>> accounts) {
