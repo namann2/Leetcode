@@ -1,17 +1,16 @@
 class Solution {
     public int findJudge(int n, int[][] trust) {
-        // see notes
-        int[]trust_count = new int[n+1];
+        int[] indegree = new int[n];
+        int[] outdegree = new int[n];
         
         for(int[] t : trust) {
-            trust_count[t[1]]++;
-            trust_count[t[0]]--;
+            outdegree[t[0]-1]++;
+            indegree[t[1]-1]++;
         }
         
-        // find the candidate
-        for(int i=1;i<n+1;i++) {
-            if(trust_count[i] == n-1) 
-                return i;
+        for(int i = 0; i < n; i++) {
+            if(indegree[i] == n-1 && outdegree[i] == 0)
+                return i+1;
         }
         return -1;
     }
