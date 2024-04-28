@@ -20,26 +20,20 @@ class Solution {
         
         for(int i = 0; i < n; i++) {
             if(states[i] == COLOR.WHITE)
-                if(!bfs(g, i, states))
+                if(!dfs(g, i, COLOR.RED, states))
                     return false;
         }
         
         return true;
     }
-    private boolean bfs(List<List<Integer>> g, int src, COLOR[] states) {
-        Queue<Integer> q = new LinkedList<>();
-        q.offer(src);
-        states[src] = COLOR.RED;
-        
-        while(!q.isEmpty()) {
-            int u = q.poll();
-            for(int v : g.get(u)) {
-                if(states[v] == COLOR.WHITE) {
-                    states[v] = states[u] == COLOR.RED ? COLOR.BLACK : COLOR.RED;
-                    q.offer(v);
-                }
-                if(states[v] == states[u]) return false;
+    private boolean dfs(List<List<Integer>> g, int src, COLOR color, COLOR[] states) {
+        states[src] = color;
+        for(int v : g.get(src)) {
+            if(states[v] == COLOR.WHITE) {
+                if(!dfs(g, v, color == COLOR.RED ? COLOR.BLACK : COLOR.RED, states))
+                    return false;
             }
+            if(states[v] == states[src]) return false;
         }
         return true;
     }
