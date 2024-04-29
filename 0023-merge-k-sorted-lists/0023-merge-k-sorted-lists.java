@@ -1,5 +1,6 @@
 class Solution {
     public ListNode mergeKLists(ListNode[] lists) {
+        // consider every list as an element in an array for a merge sort
         if(lists == null || lists.length == 0) return null;
         return mergeSort(lists, 0, lists.length - 1); // n log k
     }
