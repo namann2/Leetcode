@@ -1,7 +1,7 @@
 class Solution {
     public ListNode mergeKLists(ListNode[] lists) {
         if(lists == null || lists.length == 0) return null;
-        return mergeSort(lists, 0, lists.length - 1);
+        return mergeSort(lists, 0, lists.length - 1); // n log k
     }
     private ListNode mergeSort(ListNode[] lists, int leftStart, int rightEnd) {
         if(leftStart == rightEnd) return lists[leftStart];
@@ -9,8 +9,7 @@ class Solution {
         int mid = leftStart + (rightEnd - leftStart) / 2;
         
         ListNode a = mergeSort(lists, leftStart, mid);
-        ListNode b = mergeSort(lists, mid+1, rightEnd);
-        
+        ListNode b = mergeSort(lists, mid + 1, rightEnd);
         return mergeHalves(a, b);
     }
     private ListNode mergeHalves(ListNode a, ListNode b) {
