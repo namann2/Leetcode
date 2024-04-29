@@ -1,22 +1,49 @@
 class Solution {
     public int[][] kClosest(int[][] points, int k) {
-        PriorityQueue<int[]> pq = new PriorityQueue<>((p1, p2) -> {
-            int x = Math.abs(p1[0] * p1[0]) + Math.abs(p1[1] * p1[1]), 
-            y = Math.abs(p2[0] * p2[0]) + Math.abs(p2[1] * p2[1]);
-            return -1 * Integer.compare(x, y);
-        });
+        int n = points.length;
         
-        for(int[] point : points) {
-            pq.offer(new int[]{point[0], point[1]});
-            if(pq.size() > k) 
-                pq.poll();
-        }
+        k = k == n ? n : quickSelect(points, 0, n-1, k);
         
-        int[][]result = new int[k][2];
+        int[][]ans = new int[k][2];
         int idx = 0;
-        while(!pq.isEmpty()) {
-            result[idx++] = pq.poll();
+        
+        while(idx < k) {
+            ans[idx] = points[idx++];
         }
-        return result;
+        return ans;
+    }
+    
+    private int quickSelect(int[][] points, int left, int right, int k) {
+        int pi = partition(points, left, right);
+        if(pi == k) 
+            return pi;
+        else if(k > pi)
+            return quickSelect(points, pi + 1, right, k);
+        return quickSelect(points, left, pi - 1, k);
+    }
+    
+    private int partition(int[][] points, int left, int right) {
+        int pivot = right;
+        int dis_pivot = dis(points[right]);
+        int i = left, j = left;
+        
+        while(i <= right) {
+            if(dis(points[i]) <= dis_pivot) {
+                swap(points, i, j);
+                i++;
+                j++;
+            } else i++;
+        }
+        return j-1;
+    }
+    
+    private int dis(int[] point) {
+        return point[0] * point[0] + point[1] * point[1];
+    }
+    
+    private void swap(int[][] points, int i, int j) {
+        int[] tmp = points[i];
+        points[i] = points[j];
+        points[j] = tmp;
     }
 }
