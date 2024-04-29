@@ -5,7 +5,7 @@ class Solution {
         cnt = 0;
         while(end < n) {
             cnt += data[end];
-            while(end-begin+1 > k) {
+            while(end-begin+1 > k && begin < end) {
                 if(data[begin++] == 1) cnt--;
             }
             if(end-begin+1 == k)
