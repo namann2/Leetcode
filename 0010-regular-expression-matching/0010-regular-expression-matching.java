@@ -19,15 +19,15 @@ class Solution {
             boolean zeroMatch = isMatch(s, p, i, j+2, n, m, dp);
             if(zeroMatch) return dp[i][j] = true;
             // one or more
-            if(i >= n || j >= m) return dp[i][j] = false;
+            // if(i >= n || j >= m) return dp[i][j] = false;
             
-            if(s.charAt(i) == p.charAt(j) || p.charAt(j) == '.')
+            if(i < n && j < m && (s.charAt(i) == p.charAt(j) || p.charAt(j) == '.'))
                 if(isMatch(s, p, i+1, j, n, m, dp))
                     return dp[i][j] = true;
         } else {
-            if(i >= n || j >= m) return dp[i][j] = false;
+            // if(i >= n || j >= m) return dp[i][j] = false;
             
-            if(s.charAt(i) == p.charAt(j) || p.charAt(j) == '.')
+            if(i < n && j < m && (s.charAt(i) == p.charAt(j) || p.charAt(j) == '.'))
                 if(isMatch(s, p, i+1, j+1, n, m, dp))
                     return dp[i][j] = true;
         }
