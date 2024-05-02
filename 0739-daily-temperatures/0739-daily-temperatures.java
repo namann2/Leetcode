@@ -1,12 +1,12 @@
 class Solution {
-    public int[] dailyTemperatures(int[] T) {
-        int n = T.length;
+    public int[] dailyTemperatures(int[] temperatures) {
+        int n = temperatures.length;
         int[]ans = new int[n];
         Deque<Integer> stack = new ArrayDeque<>();
-        stack.addLast(n-1);
-        for(int i=n-2;i>=0;i--) {
-            while(!stack.isEmpty() && T[stack.peekLast()] <= T[i]) stack.removeLast();
-            ans[i] = stack.size() > 0 ? stack.peekLast() - i : 0;
+        for(int i = n-1; i >= 0; i--) {
+            while(!stack.isEmpty() && temperatures[stack.peekLast()] <= temperatures[i])
+                stack.removeLast();
+            ans[i] = stack.size() == 0 ? 0 : stack.peekLast() - i;
             stack.addLast(i);
         }
         return ans;
