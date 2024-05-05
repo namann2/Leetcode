@@ -20,13 +20,17 @@ class Node {
 class Solution {
     public List<Integer> preorder(Node root) {
         List<Integer> ans = new ArrayList<>();
-        traverse(root, ans);
+        if(root == null) return ans;
+        Deque<Node> stack = new ArrayDeque<>();
+        stack.addLast(root);
+        while(!stack.isEmpty()) {
+            Node curr = stack.removeLast();
+            ans.add(curr.val);
+            int n = curr.children.size();
+            for(int i = n-1; i >= 0; i--) {
+                stack.addLast(curr.children.get(i));
+            }
+        }
         return ans;
-    }
-    private void traverse(Node root, List<Integer> ans) {
-        if(root == null) return;
-        ans.add(root.val);
-        for(Node child : root.children)
-            traverse(child, ans);
     }
 }
