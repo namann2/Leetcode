@@ -9,7 +9,7 @@ class Solution {
         for(int key : map.keySet()) {
             List<Integer> temp = new ArrayList<>();
             for(int[] val : map.get(key)) {
-                temp.add(val[2]);
+                temp.add(val[1]);
             }
             answer.add(temp);
         }
@@ -22,7 +22,7 @@ class Solution {
         
         // main logic
         map.putIfAbsent(hdis, new ArrayList<>());
-        map.get(hdis).add(new int[]{level, hdis, node.val});
+        map.get(hdis).add(new int[]{level, node.val});
         
         traverse(node.left, hdis - 1, level + 1, map);
         traverse(node.right, hdis + 1, level + 1, map);
@@ -31,7 +31,7 @@ class Solution {
         
         Collections.sort(currList, (a, b) -> {
             if(a[0] == b[0]) 
-                return a[1] - b[1];
+                return 0;
             else if(a[0] < b[0]) return -1;
             return 1;
         });
