@@ -1,40 +1,40 @@
 class Solution {
     public List<List<Integer>> verticalOrder(TreeNode root) {
+        
         List<List<Integer>> answer = new ArrayList<>();
-        if(root == null) return answer;
+        
+        if(root == null)
+            return answer;
         
         TreeMap<Integer, List<int[]>> map = new TreeMap<>(); // left to right
-        traverse(root, 0, 0, map);
+        traverse(root, map, 0, 0); 
         
-        for(int key : map.keySet()) {
+        for(int hdis : map.keySet()) {
             List<Integer> temp = new ArrayList<>();
-            for(int[] val : map.get(key)) {
-                temp.add(val[1]);
-            }
+            for(int[] nodeVal : map.get(hdis))
+                temp.add(nodeVal[0]);
             answer.add(temp);
         }
         return answer;
     }
     
-    private void traverse(TreeNode node, int hdis, int level, TreeMap<Integer, List<int[]>> map) {
-        // base case
-        if(node == null) return;
+    private void traverse(TreeNode root, TreeMap<Integer, List<int[]>> map, int hdis, int level) {
+        if(root == null)
+            return;
         
-        // main logic
         map.putIfAbsent(hdis, new ArrayList<>());
-        map.get(hdis).add(new int[]{level, node.val});
+        map.get(hdis).add(new int[]{root.val, level});
         
-        traverse(node.left, hdis - 1, level + 1, map);
-        traverse(node.right, hdis + 1, level + 1, map);
+        traverse(root.left, map, hdis - 1, level + 1);
+        traverse(root.right, map, hdis + 1, level + 1);
         
-        List<int[]> currList = map.get(hdis);
-        
-        Collections.sort(currList, (a, b) -> {
-            if(a[0] == b[0]) 
-                return 0;
-            else if(a[0] < b[0]) return -1;
+        List<int[]> list = map.get(hdis);
+        Collections.sort(list, (l1, l2) -> {
+            if(l1[1] == l2[1]) 
+               return 0;
+            else if(l1[1] < l2[1])
+                return -1;
             return 1;
         });
-        
     }
 }
