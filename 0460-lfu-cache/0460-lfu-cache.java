@@ -1,108 +1,113 @@
 class Node {
     int key, value, count;
     Node prev, next;
-    Node(int key, int value, int count) {
+    public Node(int key, int value, int count) {
         this.key = key;
         this.value = value;
         this.count = count;
     }
 }
 
+
 class DLL {
-    Node dH, dT;
-    int size;
+    
+    private Node dH, dT;
+    private int size;
+    
     public DLL() {
         dH = new Node(-1, -1, -1);
         dT = new Node(-1, -1, -1);
         dH.next = dT;
         dT.prev = dH;
-        size = 0;
+        this.size = 0;
     }
     
-    public void remove(Node node) {
-        node.prev.next = node.next;
-        node.next.prev = node.prev;
-        size--;
+    public int getSize() {
+        return this.size;
+    }
+    
+    public Node getdH() {
+        return this.dH;    
+    }
+    
+    public Node getdT() {
+        return this.dT;    
     }
     
     public void insert(Node node) {
-        dH.next.prev = node;
-        node.next = dH.next;
-        dH.next = node;
-        node.prev = dH;
-        size++;
+        this.dH.next.prev = node;
+        node.next = this.dH.next;
+        this.dH.next = node;
+        node.prev = this.dH;
+        this.size++;
+    }
+    
+    public void remove(Node node) {
+        node.next.prev = node.prev;
+        node.prev.next = node.next;
+        this.size--;
     }
 }
 
 class LFUCache {
 
-    private Map<Integer, Node> map1; // key to node mapping
-    private Map<Integer, DLL> map2; // frequency to DLL of nodes with that freq
-    private int max_capacity, min_freq;
+    private HashMap<Integer, Node> map1; // key -> node ( to know if this key exists)
+    private HashMap<Integer, DLL> map2; // count -> DLL (list of nodes with same count )
+    private int min_freq;
+    private int capacity;
     
     public LFUCache(int capacity) {
+        this.capacity = capacity;
+        this.min_freq = 0;
         map1 = new HashMap<>();
-        this.max_capacity = capacity;
-        map2 = new HashMap<>(max_capacity);
-        min_freq = 0;
+        map2 = new HashMap<>();
     }
     
     public int get(int key) {
         Node node = map1.get(key);
         if(node == null) 
             return -1;
-        
-        update(node);
+        // update the count, update this in map2 and move this node to the front of the DLL
+        update(node); 
         return node.value;
     }
     
     public void put(int key, int value) {
-        if(map1.containsKey(key)) {
+        boolean contains = map1.containsKey(key);
+        if(!contains) {
+            // before inserting, check for capacity
+            if(map1.size() >= capacity) {
+                DLL dll = map2.get(min_freq);
+                Node rm = dll.getdT().prev;
+                dll.remove(rm);
+                map1.remove(rm.key);
+            }
+            Node node = new Node(key, value, 1);
+            map1.put(key, node);
+            min_freq = 1;
+            map2.putIfAbsent(min_freq, new DLL());
+            DLL dll = map2.get(min_freq);
+            dll.insert(node);
+            map2.put(min_freq, dll);
+        } else {
             Node node = map1.get(key);
             node.value = value;
             update(node);
-        } else {
-            if(map1.size() >= max_capacity) { // remove element in LFU or if multiple elements for same freq, in LRU way
-                DLL list = map2.get(min_freq);
-                Node node = list.dT.prev;
-                map1.remove(node.key);
-                list.remove(node);
-            }
-            min_freq = 1;
-            Node node = new Node(key, value, 1);
-            map1.put(key, node);
-            DLL newList = map2.getOrDefault(node.count, new DLL());
-            newList.insert(node);
-            map2.put(node.count, newList);
         }
     }
-    
-    // remove and insert with all logic in DLL and hashmaps
+
     private void update(Node node) {
-        // remove 
-        DLL oldList = map2.get(node.count);
-        oldList.remove(node);
-        // if I am removing the min freq node
-        if(node.count == min_freq && oldList.size == 0) min_freq++;
-        // increment freq of node and update it in the DLL of new freq
+        int count = node.count;
+        DLL dll = map2.get(count);
         
-        // insert
+        dll.remove(node);
+        if(dll.getSize() == 0 && min_freq == node.count) min_freq ++;
+        
         node.count++;
-        DLL newList = map2.getOrDefault(node.count, new DLL());
-        newList.insert(node);
-        map2.put(node.count, newList);
+        
+        map2.putIfAbsent(node.count, new DLL());
+        dll = map2.get(node.count);
+        dll.insert(node);
+        map2.put(node.count, dll);
     }
 }
-
-/**
- * Your LFUCache object will be instantiated and called as such:
- * LFUCache obj = new LFUCache(capacity);
- * int param_1 = obj.get(key);
- * obj.put(key,value);
- */
-
-
-
-
-
-
