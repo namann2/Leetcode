@@ -1,23 +1,31 @@
 class Solution {
     int ans = 0;
     public int maxPathSum(TreeNode root) {
-        if(root == null) return 0;
+        if(root == null) return ans;
         ans = Integer.MIN_VALUE;
         bottomup(root);
         return ans;
     }
+    
     private int bottomup(TreeNode root) {
         if(root == null) return 0;
-        // if there is neg value from either subtree, ignore it since
-        // we need to find the maximum sum
-        int left = Math.max(0, bottomup(root.left));
-        int right = Math.max(0, bottomup(root.right));
         
-        ans = Math.max(ans, root.val); // only root
-        ans = Math.max(ans, root.val + left + right); // consider this subtree
-        ans = Math.max(ans, root.val + Math.max(left, right)); // consider the root and either of the left/right subtree
+        int left = bottomup(root.left);
+        int right = bottomup(root.right);
         
-        // return max sum of current subtree to parent
-        return root.val + Math.max(left, right);
+        int onlyRoot = root.val;
+        int rootLeft = root.val + left;
+        int rootRight = root.val + right;
+        int rootSub = root.val + left + right;
+        
+        int currmax = max(max(onlyRoot, rootLeft), max(rootRight, rootSub));
+        ans = max(ans, currmax);
+        
+        // we need a sequence of path, a path can either go left or right
+        return max(max(onlyRoot, rootLeft), rootRight);
+    }
+    
+    private int max(int a, int b) {
+        return Math.max(a, b);
     }
 }
