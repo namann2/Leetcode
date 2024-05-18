@@ -1,37 +1,35 @@
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
- * }
- */
 class Solution {
     public ListNode reverseKGroup(ListNode head, int k) {
-        if(head == null) return null;
-        int length = findLengthOfLinkedList(head);
-        return swaps(head, k, length);
+        if(head == null) return head;
+        int length = findLength(head);
+        return reverseKGroupUtil(head, length, k);
     }
-    private ListNode swaps(ListNode node, int k, int length) {
-        if(node == null || node.next == null) 
-            return node;
+    
+    // helper
+    private ListNode reverseKGroupUtil(ListNode head, int length, int k) {
+        if(head == null) return head;
         
-        ListNode prev = null, curr = node, next = null;
         int ck = k;
+        ListNode curr = head, prev = null, next = null;
         while(curr != null && ck-- > 0) {
             next = curr.next;
             curr.next = prev;
             prev = curr;
             curr = next;
         }
-        if(length - k >= k) node.next = swaps(curr, k, length - k);  
-        else node.next = curr;
+        
+        int remainingLength = length - k;
+        if(remainingLength >= k)
+            head.next = reverseKGroupUtil(curr, remainingLength, k);
+        else head.next = curr;
+        
         return prev;
     }
-    private int findLengthOfLinkedList(ListNode node) {
-        if(node == null) return 0;
-        return 1 + findLengthOfLinkedList(node.next);
+    
+    // find length of the linkedlist
+    private int findLength(ListNode head) {
+        if(head == null) return 0;
+        return 1 + findLength(head.next);
     }
+    
 }
