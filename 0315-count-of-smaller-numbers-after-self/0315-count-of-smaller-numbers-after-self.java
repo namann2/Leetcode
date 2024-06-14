@@ -1,67 +1,78 @@
 class Pair {
-    int index, value;
+    
+    private int index, value;
+    
     public Pair(int index, int value) {
         this.index = index;
         this.value = value;
     }
+    
+    // getter and setter
+    public int getIndex() {
+        return this.index;
+    }
+    
+    public int getValue() {
+        return this.value;
+    }
 }
 class Solution {
+    
     public List<Integer> countSmaller(int[] nums) {
-        List<Integer> answer = new ArrayList<>();
         int n = nums.length;
         int[] count = new int[n];
         
-        Pair[] OG = new Pair[n];
+        Pair[] indexValue = new Pair[n];
         for(int i = 0; i < n; i++)
-            OG[i] = new Pair(i, nums[i]);
+            indexValue[i] = new Pair(i, nums[i]);
         
-        mergeSort(OG, new Pair[n], count, 0, n-1);
+        mergeSort(indexValue, new Pair[n], count, 0, n-1);
         
-        for(int x : count)
-            answer.add(x);
+        List<Integer> countSmallerNumbers = new ArrayList<>();
+        for(int smallerCount : count)
+            countSmallerNumbers.add(smallerCount);
         
-        return answer;
+        return countSmallerNumbers;
     }
     
-    private void mergeSort(Pair[] OG, Pair[] temp, int[] count, int leftStart, int rightEnd) {
+    private void mergeSort(Pair[] indexValue, Pair[] temp, int[] count, int leftStart, int rightEnd) {
+        // base case
         if(leftStart >= rightEnd)
             return;
-        
         int mid = leftStart + (rightEnd - leftStart) / 2;
-        mergeSort(OG, temp, count, leftStart, mid);
-        mergeSort(OG, temp, count, mid + 1, rightEnd);
-        mergeHalves(OG, temp, count, leftStart, rightEnd);
+        mergeSort(indexValue, temp, count, leftStart, mid);
+        mergeSort(indexValue, temp, count, mid + 1, rightEnd);
+        mergeHalves(indexValue, temp, count, leftStart, rightEnd);
     }
     
-    private void mergeHalves(Pair[] OG, Pair[] temp, int[] count, int leftStart, int rightEnd) {
-        int leftEnd = leftStart + (rightEnd - leftStart) / 2; 
+    private void mergeHalves(Pair[] indexValue, Pair[] temp, int[] count, int leftStart, int rightEnd) {
+        int leftEnd = leftStart + (rightEnd - leftStart) / 2;
         int rightStart = leftEnd + 1;
         
         int left = leftStart, right = rightStart, index = leftStart;
-        
         int cnt = 0;
         while(left <= leftEnd && right <= rightEnd) {
-            if(OG[left].value <= OG[right].value) {
-                count[OG[left].index] += cnt;
-                temp[index ++] = OG[left ++];
-            } else { // left.value > right.value means we need to swap values which are smaller than current number
+            Pair leftPair = indexValue[left];
+            Pair rightPair = indexValue[right];
+            if(leftPair.getValue() > rightPair.getValue()) {
                 cnt++;
-                temp[index ++] = OG[right ++];
+                temp[index ++] = indexValue[right ++];
+            } else { // leftValue <= rightValue
+                count[leftPair.getIndex()] += cnt;
+                temp[index ++] = indexValue[left ++];
             }
         }
         
         while(left <= leftEnd) {
-            count[OG[left].index] += cnt;
-            temp[index ++] = OG[left ++];
+            count[indexValue[left].getIndex()] += cnt;
+            temp[index ++] = indexValue[left ++];
         }
-        while(right <= rightEnd) temp[index ++] = OG[right ++];
         
-        for(int i = leftStart; i <= rightEnd; i++) OG[i] = temp[i];
+        while(right <= rightEnd) {
+            temp[index ++] = indexValue[right ++];
+        }
+        
+        for(int i = leftStart; i <= rightEnd; i++) 
+            indexValue[i] = temp[i];
     }
 }
-
-/*
-1. N^2
-2. 
-
-*/
