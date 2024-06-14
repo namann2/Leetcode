@@ -12,10 +12,13 @@ class Solution {
         
         int cnt = 1;
         for(int i = n-2; i >= 0; i--) {
-            if(map.ceilingKey(A[i]) != null)
-                odd[i] = even[map.get(map.ceilingKey(A[i]))];
+            Integer nextOddJump = map.ceilingKey(A[i]);
+            if(nextOddJump != null)
+                odd[i] = even[map.get(nextOddJump)];
+            
+            Integer nextEvenJump = map.floorKey(A[i]);
             if(map.floorKey(A[i]) != null)
-                even[i] = odd[map.get(map.floorKey(A[i]))];
+                even[i] = odd[map.get(nextEvenJump)];
             
             cnt += odd[i] == true ? 1 : 0;
             map.put(A[i], i);
