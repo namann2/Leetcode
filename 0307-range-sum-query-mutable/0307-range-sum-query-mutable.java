@@ -1,22 +1,20 @@
 class NumArray {
-
     int n;
-    int[] nums, bit;
+    int []nums, bit;
     public NumArray(int[] nums) {
-        this.n = nums.length;
+        n = nums.length;
         this.nums = nums;
         this.bit = new int[n+1];
         buildTree();
     }
     
     private void buildTree() {
-        for(int i = 0; i < n; i++) {
+        for(int i = 0; i < n; i++)
             add(i, nums[i]);
-        }    
     }
     
     private void add(int index, int val) {
-        index ++;
+        index++;
         while(index <= n) {
             bit[index] += val;
             index += (index & -index);
@@ -25,7 +23,7 @@ class NumArray {
     
     private int getSum(int index) {
         int sum = 0;
-        index ++;
+        index++;
         while(index > 0) {
             sum += bit[index];
             index -= (index & -index);
@@ -40,6 +38,6 @@ class NumArray {
     }
     
     public int sumRange(int left, int right) {
-        return getSum(right) - getSum(left - 1);
+        return getSum(right) - getSum(left-1);
     }
 }
