@@ -4,7 +4,8 @@ class Solution {
         ListNode dH = new ListNode(0);
         ListNode tempHead = dH;
         dH.next = head;
-        
+        // 1 2 -2 -1 0 0 5
+        // 
         map.put(0, dH);
         int sum = 0;
         while(head != null) {
