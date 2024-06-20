@@ -6,6 +6,7 @@ class HitCounter {
     }
     
     public void hit(int timestamp) {
+        while(!q.isEmpty() && timestamp - q.peekFirst() >= 300) q.removeFirst();
         q.offer(timestamp);
     }
     
