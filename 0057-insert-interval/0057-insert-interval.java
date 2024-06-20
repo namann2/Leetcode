@@ -1,45 +1,42 @@
 class Solution {
     public int[][] insert(int[][] intervals, int[] newInterval) {
-        // there are three places where we can insert the newInterval
-        // 1. begining : 
-        //          newInterval will be before 0th index if start time of new Interval 
-        //          is earlier than what is present at 0th index
-        // 2. somewhere in the middle
-        // 3. end
-        List<int[]> answer = new ArrayList<>();
         int n = intervals.length;
-        int it = 0;
+        List<int[]> intervalsList = new ArrayList<>();
+        for(int[] interval : intervals)
+            intervalsList.add(interval);
         
-        // case 1 and case 2
-        while(it < n) {
-            if(intervals[it][0] > newInterval[0]) answer.add(newInterval);
-            answer.add(intervals[it++]);
-        }
+        intervalsList.add(newInterval);
         
-        // case 3
-        if(answer.size() == n) answer.add(newInterval);
-        return merged(answer);
+        Collections.sort(intervalsList, (i1, i2) -> {
+            return i1[0] - i2[0];
+        });
+        
+        return mergeIntervals(intervalsList);
     }
-
-    private int[][] merged(List<int[]> list) {
-        List<int[]> result = new ArrayList<>();
-        int n = list.size();
-        for(int i=0;i<n;i++) {
-            if(result.size() == 0) result.add(list.get(i));
+    
+    private int[][] mergeIntervals(List<int[]> intervals) {
+        int n = intervals.size();
+        List<int[]> merged = new ArrayList<>();
+        merged.add(intervals.get(0));
+        
+        for(int i = 1; i < n; i++) {
+            int[] interval = intervals.get(i);
+            int lastIndex = merged.size() - 1;
+            int[] last = intervals.get(lastIndex);
+            // if no overlap in intervals last[0]...last[1]....intervals[0]...intervals[1]
+            if(interval[0] > last[1]) 
+                merged.add(interval);
             else {
-                int size = result.size()-1;
-                int[] last = result.get(size);
-                if(last[1] >= list.get(i)[0]) {
-                    last[1] = Math.max(last[1], list.get(i)[1]);
-                    result.set(size, last);
-                }
-                else result.add(list.get(i));
+                last[1] = Math.max(interval[1], last[1]);
+                merged.set(lastIndex, last);
             }
         }
-        int idx = 0;
-        int[][] answer = new int[result.size()][2];
-        for(int[] l : result)
-            answer[idx++] = l;
-        return answer;
+        n = merged.size();
+        int[][] R = new int[n][2];
+        
+        for(int i = 0; i < n; i++)
+            R[i] = merged.get(i);
+        
+        return R;
     }
 }
