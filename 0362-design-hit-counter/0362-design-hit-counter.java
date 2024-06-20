@@ -1,6 +1,6 @@
 class HitCounter {
-    
-    Deque<Integer> q;
+
+    private Deque<Integer> q;
     public HitCounter() {
         q = new ArrayDeque<>();
     }
@@ -10,12 +10,14 @@ class HitCounter {
     }
     
     public int getHits(int timestamp) {
-        purge(timestamp);
+        while(!q.isEmpty() && timestamp - q.peekFirst() >= 300) q.removeFirst();
         return q.size();
-    }
-    
-    private void purge(int ts) {
-        while(!q.isEmpty() && ts - q.peekFirst() + 1 > 300) q.removeFirst();
     }
 }
 
+/**
+ * Your HitCounter object will be instantiated and called as such:
+ * HitCounter obj = new HitCounter();
+ * obj.hit(timestamp);
+ * int param_2 = obj.getHits(timestamp);
+ */
