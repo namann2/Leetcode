@@ -1,17 +1,22 @@
 class HitCounter {
 
     private Deque<Integer> q;
+    
     public HitCounter() {
         q = new ArrayDeque<>();
     }
     
-    public void hit(int timestamp) {
+    private void purge(int timestamp) {
         while(!q.isEmpty() && timestamp - q.peekFirst() >= 300) q.removeFirst();
+    }
+    
+    public void hit(int timestamp) {
+        purge(timestamp);
         q.offer(timestamp);
     }
     
     public int getHits(int timestamp) {
-        while(!q.isEmpty() && timestamp - q.peekFirst() >= 300) q.removeFirst();
+        purge(timestamp);
         return q.size();
     }
 }
