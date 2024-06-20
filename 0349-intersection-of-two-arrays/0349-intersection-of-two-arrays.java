@@ -5,15 +5,17 @@ class Solution {
             return intersection(B, A);
         
         boolean[] count = new boolean[1001];
-        for(int num : A)
-            count[num] = true;
+        for(int a : A)
+            count[a] = true;
         
-        List<Integer> result = new ArrayList<>();
-        for(int num : B)
-            if(count[num]) {
-                result.add(num);
-                count[num] = false;
+        List<Integer> ans = new ArrayList<>();
+        for(int b : B) {
+            if(count[b]) { 
+                ans.add(b);
+                count[b] = false;
             }
-        return result.stream().mapToInt(i -> i).toArray();
+        }
+        
+        return ans.stream().mapToInt(i -> i).toArray();
     }
 }
