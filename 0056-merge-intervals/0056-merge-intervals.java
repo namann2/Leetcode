@@ -1,28 +1,29 @@
 class Solution {
     public int[][] merge(int[][] intervals) {
+        int n = intervals.length;
         Arrays.sort(intervals, (i1, i2) -> {
             return i1[0] - i2[0];
         });
-        List<int[]> answer = new ArrayList<>();
-        answer.add(intervals[0]);
         
-        int n = intervals.length;
+        List<int[]> merged = new ArrayList<>();
+        merged.add(intervals[0]);
+        
         for(int i = 1; i < n; i++) {
-            int csize = answer.size();
-            int last_end = answer.get(csize - 1)[1];
-            int curr_start = intervals[i][0];
-            if(last_end >= curr_start) {
-                last_end = Math.max(last_end, intervals[i][1]);
-                int[] newInterval = {answer.get(csize-1)[0], last_end};;
-                answer.set(csize-1, newInterval);
-            } else answer.add(intervals[i]);
+            int[] interval = intervals[i];
+            int[] last = merged.get(merged.size()-1);
+            // if no overlap -> last[0]...last[1] .... interval[0].....interval[1]
+            if(interval[0] > last[1]) merged.add(interval);
+            else {
+                last[1] = Math.max(interval[1], last[1]);
+                merged.set(merged.size()-1, last);
+            }
         }
         
-        int index = 0;
-        int[][]A = new int[answer.size()][2];
-        for(int[] interval : answer) {
-            A[index++] = interval;
-        }
-        return A;
+        n = merged.size();
+        int[][] R = new int[n][2];
+        for(int i = 0; i < n; i++) 
+            R[i] = merged.get(i);
+        
+        return R;
     }
 }
