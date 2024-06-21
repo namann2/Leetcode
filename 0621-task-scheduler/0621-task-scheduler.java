@@ -1,40 +1,42 @@
 class Solution {
     public int leastInterval(char[] tasks, int n) {
+        int[] count = new int[26];
+        int m = tasks.length;
+        // get the frequency of each task
+        for(int i = 0; i < m; i++)
+            count[tasks[i]-'A']++;
+        
+        // max heap
+        PriorityQueue<Integer> pq = new PriorityQueue<>((a,b) -> {
+            return Integer.compare(b, a);
+        });
+        
+        for(int i = 0; i < 26; i++) 
+            if(count[i] > 0) 
+                pq.offer(count[i]);
+        
         /*
-            1. more frequent tasks should be picked up first
-            2. less frequent tasks can be done in between while we are waiting for the next cycle for current task
+            A A A B B B, n = 2
+            { A : 1, B : 1 }
+            
+            A B _ A B _ A B 
+            q = A : 0, B : 0
+            interval = 2(t) + 1(c) + 2(t) + 1(c) + 2(t)
         */
-        
-        // get the frequency of all the tasks
-        int[] cnt = new int[26];
-        for(char task : tasks)
-            cnt[task - 'A']++;
-        
-        // process the highly frequent task first
-        PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
-        
-        for(int i = 0; i < 26; i++)
-            if(cnt[i] > 0)
-                pq.offer(cnt[i]);
-        
-        // A A A B B B , n = 2
-        // - - - - - -
-        // A B 1 A B 1 A B
-        // time = 3
-        int time = 0;
+        int intervals = 0;
         while(!pq.isEmpty()) {
-            int cn = n + 1; // number of tasks that can be done in between
-            List<Integer> taskList = new ArrayList<>(); // list of tasks that needs to be picked again
+            int cycle = n + 1; // tasks that can be done in current cycle
             int taskCount = 0;
-            while(!pq.isEmpty() && cn-- > 0) {
-                int curr_task = pq.poll(); // do the curr task
-                curr_task--; // remaining tasks of same type
-                if(curr_task > 0) taskList.add(curr_task);
+            Deque<Integer> q = new ArrayDeque<>();
+            while(!pq.isEmpty() && cycle-- > 0) {
+                int currTask = pq.poll();
+                currTask--;
+                if(currTask > 0) q.offer(currTask);
                 taskCount++;
             }
-            for(int task : taskList) pq.offer(task);
-            time += (pq.size() == 0 ? taskCount : n + 1);
+            while(!q.isEmpty()) pq.offer(q.removeFirst());
+            intervals += pq.isEmpty() ? taskCount : n + 1; // (n + 1 ideally equals = taskCount + cycle )
         }
-        return time;
+        return intervals;
     }
 }
