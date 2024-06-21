@@ -1,16 +1,31 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
 class Solution {
     public ListNode reverseKGroup(ListNode head, int k) {
-        if(head == null) return head;
+        if(head == null) return null;
         int length = findLength(head);
-        return reverseKGroupUtil(head, length, k);
+        return reverse(head, length, k);
     }
     
-    // helper
-    private ListNode reverseKGroupUtil(ListNode head, int length, int k) {
-        if(head == null) return head;
+    private int findLength(ListNode head) {
+        if(head == null) return 0;
+        return 1 + findLength(head.next);
+    }
+    
+    private ListNode reverse(ListNode head, int length, int k) {
+        if(head == null)
+            return head;
         
-        int ck = k;
         ListNode curr = head, prev = null, next = null;
+        int ck = k;
         while(curr != null && ck-- > 0) {
             next = curr.next;
             curr.next = prev;
@@ -18,18 +33,13 @@ class Solution {
             curr = next;
         }
         
-        int remainingLength = length - k;
-        if(remainingLength >= k)
-            head.next = reverseKGroupUtil(curr, remainingLength, k);
-        else head.next = curr;
+        int remain = length - k;
+        if(remain < k) {
+            head.next = curr;
+        } else {
+            head.next = reverse(curr, remain, k);
+        }
         
         return prev;
     }
-    
-    // find length of the linkedlist
-    private int findLength(ListNode head) {
-        if(head == null) return 0;
-        return 1 + findLength(head.next);
-    }
-    
 }
