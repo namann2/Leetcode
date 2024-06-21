@@ -1,40 +1,30 @@
 class Solution {
     public boolean checkValidString(String s) {
-        Stack<Integer> open = new Stack<Integer>();
-        Stack<Integer> star = new Stack<Integer>();
+        Stack<Integer> stack = new Stack<>();
+        Stack<Integer> star = new Stack<>();
         
-        for(int i=0;i<s.length();i++) {
+        int n = s.length();
+        for(int i = 0; i < n; i++) {
             char ch = s.charAt(i);
-            if(ch == '(') {
-                open.push(i);
-            } else if(ch == '*') {
-                star.push(i);
-            } else {
-                if(open.size() == 0 && star.size() == 0) {
-                    return false;
-                } else if(open.size() > 0) {
-                    open.pop();
-                } else if(star.size() > 0) {
-                    star.pop();
-                }
-            }
-        }
-        
-        if(open.size() == 0) return true;
-        
-        // check if we have to balance some ( with *
-        while(open.size() > 0) {
-            if(star.size() == 0) return false;
+            if(ch == '(') stack.push(i);
+            else if(ch == '*') star.push(i);
             else {
-                if(open.peek() < star.peek()) {
-                    open.pop();
-                    star.pop();
-                } else {
-                    return false;
-                }
+                if(stack.isEmpty() && star.isEmpty()) return false;
+                else if(!stack.isEmpty() && s.charAt(stack.peek()) == '(') stack.pop();
+                else if(!star.isEmpty()) star.pop();
+                else stack.push(i);
             }
         }
         
-        return true;
+        if(stack.isEmpty()) return true;
+        
+        while(!stack.isEmpty()) {
+            if(star.isEmpty()) return false;
+            int parenthesis = stack.pop();
+            int starpos = star.pop();
+            if(parenthesis >= starpos) return false;
+        }
+        
+        return stack.isEmpty();
     }
 }
