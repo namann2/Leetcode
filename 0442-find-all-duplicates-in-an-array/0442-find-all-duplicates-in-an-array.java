@@ -5,10 +5,21 @@ class Solution {
         
         
         for(int i = 0; i < n; i++) {
-            int element = Math.abs(nums[i]);
-            int index = element - 1;
-            if(nums[index] < 0) answer.add(element);
-            else nums[index] *= -1;
+            int correctIndex = nums[i] - 1;
+            if(nums[i] == nums[correctIndex]) {
+                continue;
+            } else {
+                int tmp = nums[correctIndex];
+                nums[correctIndex] = nums[i];
+                nums[i] = tmp;
+                i--;
+            }
+        }
+        // observation : Any elements not at the correct index are duplicates
+        System.out.println(Arrays.toString(nums));
+        for(int i = 0; i < n; i++) {
+            if(i+1 != nums[i])
+                answer.add(nums[i]);
         }
         return answer;
     }
