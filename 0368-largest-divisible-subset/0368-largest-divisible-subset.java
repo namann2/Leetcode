@@ -1,37 +1,32 @@
 class Solution {
     public List<Integer> largestDivisibleSubset(int[] nums) {
-        Arrays.sort(nums);
         List<Integer> answer = new ArrayList<>();
-        
         int n = nums.length;
+        Arrays.sort(nums);
         
-        int[]dp = new int[n];
-        int[]prev = new int[n];
-        int max = 0;
-        int lastIndex = -1;
-        
+        int[]dp = new int[n+1];
+        int[] prevIndex = new int[n+1];
+        int maxLength = 0, lastIndex = -1;
         for(int i = 0; i < n; i++) {
             dp[i] = 1;
-            prev[i] = i;
+            prevIndex[i] = i;
             for(int j = 0; j < i; j++) {
-                if(nums[i] % nums[j] == 0 && 1 + dp[j] > dp[i]) {
-                    dp[i] = 1 + dp[j];
-                    prev[i] = j;
+                if((nums[i] % nums[j] == 0 || nums[j] % nums[i] == 0) && dp[i] < dp[j] + 1) {
+                    dp[i] = dp[j] + 1;
+                    prevIndex[i] = j;
                 }
             }
-            if(dp[i] > max) {
-                max = dp[i];
+            if(maxLength < dp[i]) {
+                maxLength = dp[i];
                 lastIndex = i;
             }
         }
         
         answer.add(nums[lastIndex]);
-        while(lastIndex != prev[lastIndex]) {
-            lastIndex = prev[lastIndex];
+        while(prevIndex[lastIndex] != lastIndex) {
+            lastIndex = prevIndex[lastIndex];
             answer.add(nums[lastIndex]);
         }
-        
-        Collections.reverse(answer);
         return answer;
     }
 }
