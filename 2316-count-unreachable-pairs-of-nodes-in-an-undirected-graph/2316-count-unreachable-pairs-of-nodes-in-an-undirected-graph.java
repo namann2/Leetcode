@@ -1,55 +1,62 @@
 class Solution {
     public long countPairs(int n, int[][] edges) {
         UnionFind uf = new UnionFind();
-        uf.makeSet(n); // O(V)
+        uf.makeSet(n);
         
-        
-        for(int[] edge : edges) { // E
-            uf.union(edge[0], edge[1]); // alpha(n)
+        for(int[] edge : edges) {
+            uf.union(edge[0], edge[1]);
         }
+        
+        return getCount(uf, n);
+    }
+    
+    private long getCount(UnionFind uf, int n) {
         
         Map<Integer, Integer> map = new HashMap<>();
-        for(int i = 0; i < n; i++) { // V
-            Node node = uf.findSet(i); // V
-            map.put(node.data, node.size);
+        
+        for(int i = 0; i < n; i++) {
+            Node parent = uf.findSet(i);
+            map.putIfAbsent(parent.data, parent.size);
         }
         
-        if(map.size() == 1) return 0;
+        long distinctComponents = map.size();
         
-        long sum = 0;
-        for(int num : map.values()) sum += num;
+        if(distinctComponents == 1) return 0l;
         
-        long ans = 0;
-        for(int num : map.values()) { // V
-            sum -= num;
-            ans += sum * num;
+        long allNodes = n * 1L;
+        
+        long count = 0l; 
+        for(int parent : map.keySet()) {
+            long remainingNodes = allNodes - map.get(parent);
+            count += remainingNodes * map.get(parent);
+            allNodes = remainingNodes;
         }
-        return ans;
         
-        // TC : V + E * alpha(n) + V^2 + V
-        // SC : V(uf->map) + V(map)
+        return count;
     }
 }
 
 class Node {
     int data, rank, size;
     Node parent;
-    Node(int data, int rank, int size) {
-        this.data = data;
-        this.rank = rank;
-        this.size = size;
-    }
+    
+    public Node(){}
 }
 
 class UnionFind {
+    
     Map<Integer, Node> map;
-    UnionFind() {
-        map = new HashMap<>();
+
+    public UnionFind() {
+        this.map = new HashMap<>();
     }
     
     public void makeSet(int n) {
         for(int i = 0; i < n; i++) {
-            Node newNode = new Node(i, 0, 1);
+            Node newNode = new Node();
+            newNode.data = i;
+            newNode.rank = 0;
+            newNode.size = 1;
             newNode.parent = newNode;
             map.put(i, newNode);
         }
@@ -58,30 +65,29 @@ class UnionFind {
     public Node findSet(int a) {
         return findSet(map.get(a));
     }
-    
     private Node findSet(Node node) {
-        if(node == null) return null;
-        if(node.parent == node) return node;
+        if(node == null || node.parent == node)
+            return node;
         Node newParent = findSet(node.parent);
         node.parent = newParent;
         return newParent;
     }
     
-    public boolean union(int a, int b) {
+    public void union(int a, int b) {
         Node pA = findSet(map.get(a));
         Node pB = findSet(map.get(b));
         
-        if(pA == pB) return false;
+        if(pA == pB) return;
         
         if(pA.rank >= pB.rank) {
             pB.parent = pA;
-            pA.rank = pA.rank == pB.rank ? pA.rank : pA.rank + 1;
+            pA.rank = pA.rank == pB.rank ? pA.rank + 1 : pA.rank;
             pA.size += pB.size;
         } else {
             pA.parent = pB;
-            pB.rank = pB.rank + 1;
+            pB.rank ++;
             pB.size += pA.size;
         }
-        return true;
     }
+    
 }
