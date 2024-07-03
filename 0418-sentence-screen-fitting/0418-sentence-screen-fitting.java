@@ -4,14 +4,15 @@ class Solution {
         while(rows > 0) {
             for(int i = 0; i < n; i++) {
                 String curr = sentence[i];
+                int currLength = curr.length();
                 // if curr word can not be placed because of cols limit
-                if(curr.length() > cols) return cnt;
+                if(currLength > cols) return cnt;
                 
-                if(length + curr.length() <= cols) { // can we add curr word to current row ?
-                    length += curr.length() + 1;
+                if(length + currLength <= cols) { // can we add curr word to current row ?
+                    length += currLength + 1;
                 } else { // add curr word to new row
                     rows--;
-                    length = curr.length() + 1;
+                    length = currLength + 1;
                 }
                 
                 if(rows == 0) return cnt;
