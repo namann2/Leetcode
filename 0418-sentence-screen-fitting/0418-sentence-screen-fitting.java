@@ -9,12 +9,13 @@ class Solution {
                 if(currLength > cols) return cnt;
                 
                 if(length + currLength <= cols) { // can we add curr word to current row ?
-                    length += currLength + 1;
+                    // length += currLength + 1;
                 } else { // add curr word to new row
                     rows--;
-                    length = currLength + 1;
+                    length = 0;
+                    // length = currLength + 1;
                 }
-                
+                length += currLength + 1;
                 if(rows == 0) return cnt;
             }
             cnt++;
