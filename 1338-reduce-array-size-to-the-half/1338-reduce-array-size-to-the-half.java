@@ -13,18 +13,18 @@ class Solution {
         }
         
         Arrays.sort(A);
+        
         int left = 0, right = n - 1, ans = 0;
-        int total = n, removed = 0;
+        int total = n, removed = 0, remaining = total;
         while(left <= right) {
-            if(total - removed - A[right] > total - removed - A[left]) {
-                removed += A[left];
-                left++;
+            if(remaining - A[right] > remaining - A[left]) {
+                removed += A[left++];
             } else {
-                removed += A[right];
-                right--;
+                removed += A[right--];
             }
             ans++;
-            if(total - removed <= total / 2) return ans;
+            remaining = total - removed;
+            if(remaining <= total / 2) return ans;
         }
         return ans;
     }
