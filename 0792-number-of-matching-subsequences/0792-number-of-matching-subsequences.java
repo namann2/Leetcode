@@ -13,21 +13,20 @@ class Solution {
         for(String word : words) {
             int wordLength = word.length();
             int prevIndex = -1;
-            boolean isMatched = true;
+            int charMatched = 0;
             for(int i = 0; i < wordLength; i++) {
                 char ch = word.charAt(i);
                 if(map.get(ch) == null) {
-                    isMatched = false;
                     break;
                 }
                 Integer nextIndex = map.get(ch).higher(prevIndex);
                 if(nextIndex == null) {
-                    isMatched = false;
                     break;
                 }
+                charMatched++;
                 prevIndex = nextIndex;
             }
-            if(isMatched) match++;
+            if(charMatched == wordLength) match++;
         }
         return match;
     }
