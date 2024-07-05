@@ -1,40 +1,42 @@
 class Solution {
     public int minimumSemesters(int n, int[][] relations) {
-        List<List<Integer>> g = new ArrayList<>();
-        for(int i = 0; i < n; i++) 
-            g.add(new ArrayList<>());
-        
-        int[] indegree = new int[n];
-        for(int[] rel : relations) {
-            g.get(rel[0]-1).add(rel[1]-1);
-            indegree[rel[1]-1]++;
+        Map<Integer, List<Integer>> g = new HashMap<>();
+        for(int[] relation : relations) {
+            g.putIfAbsent(relation[0], new ArrayList<>());
+            g.get(relation[0]).add(relation[1]);
         }
         
-        Deque<Integer> q = new ArrayDeque<>();
-        for(int i = 0; i < n; i++)
-            if(indegree[i] == 0) q.addLast(i);
+        // this can be done with above step
+        int[] indegree = new int[n+1];
+        for(int[] relation : relations) {
+            indegree[relation[1]]++;
+        }
         
-        // this indicates that there is no node with 0 indegree i.e. no node can be a start 
-        if(q.size() == 0) return -1;
+        Queue<Integer> q = new LinkedList<>();
+        for(int i = 1; i < n+1; i++) {
+            if(indegree[i] == 0)
+                q.offer(i);
+        }
         
-        int semester = 0;
+        if(q.isEmpty()) return -1;
+        
+        int semester = 1;
         while(!q.isEmpty()) {
-            int k = q.size();
-            for(int i = 0; i < k; i++) {
-                int u = q.removeFirst();
-                for(int v : g.get(u)) {
-                    indegree[v] -= 1;
-                    if(indegree[v] == 0) {
-                        q.addLast(v);
-                    }
-                }
+            int size = q.size();
+            for(int i = 0; i < size; i++) {
+                int curr = q.poll();
+                if(!g.containsKey(curr)) continue;
+                for(int next : g.get(curr)) {
+                    indegree[next]--;
+                    if(indegree[next] == 0) q.offer(next);
+                }   
             }
             semester++;
         }
         
-        for(int i = 0; i < n; i++)
+        for(int i = 1; i < n+1; i++)
             if(indegree[i] != 0) return -1;
         
-        return semester;
+        return semester - 1;
     }
 }
