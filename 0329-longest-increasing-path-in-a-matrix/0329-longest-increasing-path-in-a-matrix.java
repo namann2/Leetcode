@@ -1,40 +1,41 @@
 class Solution {
+    int[][]dp ;
     public int longestIncreasingPath(int[][] matrix) {
         int n = matrix.length, m = matrix[0].length;
-        int length = 0;
-        int[][] dp = new int[n][m];
+        dp = new int[n][m];
         
-        for(int[]row : dp)
+        for(int[] row : dp)
             Arrays.fill(row, -1);
         
-        for(int i=0;i<n;i++) {
-            for(int j=0;j<m;j++) {
-                int currLength = dfs(matrix, -1, i, j, n, m, dp);
-                if(length < currLength)
-                    length = currLength;
+        int ans = 1;
+        for(int i = 0; i < n; i++) {
+            for(int j = 0; j < m; j++) {
+                ans = Math.max(ans, dfs(matrix, i, j, n, m, -1));
             }
         }
-        return length;
+        return ans;
     }
-    private int dfs(int[][] grid, int last, int i, int j, int n, int m, int[][]dp) {
-        // main logic
-        boolean isCurrentCellSafe = isSafe(grid, last, i, j, n, m);
+    
+    private int dfs(int[][] matrix, int i, int j, int n, int m, int lastCellValue) {
+        boolean isCurrentCellSafe = isSafe(matrix, i, j, n, m, lastCellValue);
         if(isCurrentCellSafe) {
-            if(dp[i][j] != -1) return dp[i][j];
+            if(dp[i][j] != -1)
+                return dp[i][j];
             
-            int left = dfs(grid, grid[i][j], i, j-1, n, m, dp);
-            int right = dfs(grid, grid[i][j], i, j+1, n, m, dp);
-            int top = dfs(grid, grid[i][j], i-1, j, n, m, dp);
-            int bottom = dfs(grid, grid[i][j], i+1, j, n, m, dp);
+            int l = dfs(matrix, i, j-1, n, m, matrix[i][j]);
+            int r = dfs(matrix, i, j+1, n, m, matrix[i][j]);
+            int u = dfs(matrix, i-1, j, n, m, matrix[i][j]);
+            int d = dfs(matrix, i+1, j, n, m, matrix[i][j]);
             
-            dp[i][j] = 1 + Math.max(dp[i][j], Math.max(Math.max(left, right), Math.max(top, bottom)));
-            return dp[i][j];
+            return dp[i][j] = 1 + Math.max(Math.max(l, r), Math.max(u, d));
         }
         return 0;
     }
     
-    private boolean isSafe(int[][] grid, int last, int i, int j, int n, int m) {
-        if(i >= 0 && i < n && j >= 0 && j < m && grid[i][j] > last) return true;
+    private boolean isSafe(int[][] matrix, int i, int j, int n, int m, int lastCellValue) {
+        if(i >= 0 && i < n && j >= 0 && j < m && matrix[i][j] > lastCellValue) {
+            return true;
+        }
         return false;
     }
 }
