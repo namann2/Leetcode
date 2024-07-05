@@ -12,7 +12,8 @@ class Solution {
         
         int[] dx = {0, 0, -1, 1};
         int[] dy = {-1, 1, 0 , 0};
-        
+        // TC : O(n*m x log n*m)
+        // SC : O(n*m)
         while(!pq.isEmpty()) {
             int[] curr = pq.poll();
             
