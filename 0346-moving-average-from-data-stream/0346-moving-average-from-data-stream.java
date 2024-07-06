@@ -10,7 +10,7 @@ class MovingAverage {
         q.addLast(val);
         sum += val;
         csize++;
-        while(q.size() > wsize) {
+        if(q.size() > wsize) {
             sum -= q.removeFirst();
             csize = wsize;
         }
