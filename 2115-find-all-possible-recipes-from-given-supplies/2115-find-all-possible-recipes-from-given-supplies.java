@@ -1,38 +1,46 @@
 class Solution {
     public List<String> findAllRecipes(String[] recipes, List<List<String>> ingredients, String[] supplies) {
-        List<String> answer = new ArrayList<>();
-        Map<String, List<String>> g = new HashMap<>();
-        Map<String, Integer> wordIndex = new HashMap<>();
-
+        Map<String, Integer> recipesIndex = new HashMap<>();
         int n = recipes.length;
+        // create a map of recipe -> index of recipe in recipes[i]
+        for(int i = 0; i < n; i++)
+            recipesIndex.put(recipes[i], i);
+        
+        // update the indegree of recipes
         int[] indegree = new int[n];
         
-        for(int i = 0; i < n ; i++) {
-            List<String> in = ingredients.get(i);
-            for(String word : in) {
-                g.putIfAbsent(word, new ArrayList<>());
-                g.get(word).add(recipes[i]);
-                indegree[i]++;
+        // map of ingredient -> recipe
+        Map<String, List<Integer>> ingredientsRecipe = new HashMap<>();
+        
+        int in = ingredients.size();
+        for(int i = 0; i < in; i++) {
+            indegree[i] = ingredients.get(i).size();
+            for(String ingredient : ingredients.get(i)) {
+                ingredientsRecipe.putIfAbsent(ingredient, new ArrayList<>());
+                ingredientsRecipe.get(ingredient).add(i);
             }
-            wordIndex.put(recipes[i], i);
         }
         
-        Deque<String> q = new LinkedList<>();
-        for(String supply : supplies) q.addLast(supply);
+        // iterate with all the supplies
+        Queue<String> suppliesInHand = new LinkedList<>();
+        for(String supply : supplies) 
+            suppliesInHand.offer(supply);
         
-        while(!q.isEmpty()) {
-            String word = q.removeFirst();
-            if(wordIndex.containsKey(word)) answer.add(word);
-            if(!g.containsKey(word)) continue;
-            for(String w : g.get(word)) {
-                int idx = wordIndex.get(w);
-                indegree[idx] -= 1;
-                if(indegree[idx] == 0) {
-                    q.addLast(w);
+        List<String> receipesThatCanBeCreated = new ArrayList<>();
+        
+        while(!suppliesInHand.isEmpty()) {
+            String currSupply = suppliesInHand.remove();
+            if(ingredientsRecipe.containsKey(currSupply)) {
+                for(int recipeIndex : ingredientsRecipe.get(currSupply)) {
+                    indegree[recipeIndex]--;
+                    if(indegree[recipeIndex] == 0) {
+                        receipesThatCanBeCreated.add(recipes[recipeIndex]);
+                        suppliesInHand.offer(recipes[recipeIndex]);
+                    }
                 }
             }
         }
-            
-        return answer;
+        
+        return receipesThatCanBeCreated;
     }
 }
