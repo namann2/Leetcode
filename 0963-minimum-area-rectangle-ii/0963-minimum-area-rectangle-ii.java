@@ -5,6 +5,8 @@ class Solution {
         
         HashMap<Centre, List<int[]>> map = new HashMap<>(); 
         
+        // O(n^2)
+        // build the graph
         for(int i = 0; i < n; i++) {
             int[] x = points[i];
             for(int j = i+1; j < n; j++) {
@@ -20,19 +22,36 @@ class Solution {
             }
         }
         
-        // System.out.println(map);
         double minArea = Double.MAX_VALUE;
-        for(Centre c : map.keySet()) {
+        /*
+            Iterating over each Centre in the map : There are at most O(n^2) centres since each pair of points defines a unique centre.
+            For each Centre, the nested loops iterate over pairs in point, which has at most O(n) pairs.
+            Hence : 
+            TC : O(n^4)
+            SC : O(n^2)
+            
+            This is a loose bound to the solution. How ?
+            
+            To form a rectangle from n points, we need two pairs of parallel sides. 
+            This involves specific arrangements and geometric properties of the points, not just any four points.
+            The number of rectangles formed by n points is generally less than (nC4) 
+            because not all combinations of four points will form a rectangle.
+            
+        */
+        for(Centre c : map.keySet()) { // O(n^2)
             List<int[]> point = map.get(c);
             int size = point.size();
             if(size < 2) continue;
-            for(int i = 0; i < size; i++) {
+            for(int i = 0; i < size; i++) { // O(n)
                 int p1 = point.get(i)[0];
                 int p2 = point.get(i)[1];
-                for(int j = i+1; j < size; j++) {
+                for(int j = i+1; j < size; j++) { // O(n)
                     int p3 = point.get(j)[0];
                     int p4 = point.get(j)[1];
                     // p1 and p2 are diagonal points and so is, p3 and p4
+                    // note : the order of p1,p2 with p3,p4 does not matter
+                    // in any combination of points [p1-p3, p2-p4] or [p1-p4, p2-p3] bcz
+                    // we are considering the two different sides of rectangle.
                     double l1 = distanceBetweenPoints(points[p1], points[p3]);
                     double l2 = distanceBetweenPoints(points[p2], points[p4]);
                     double l3 = distanceBetweenPoints(points[p1], points[p4]);
