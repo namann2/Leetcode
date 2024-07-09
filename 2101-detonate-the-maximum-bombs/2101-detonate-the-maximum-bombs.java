@@ -45,7 +45,8 @@ class Solution {
     private boolean detonates(int[] A, int[] B) {
         int x1 = A[0], y1 = A[1], x2 = B[0], y2 = B[1];
         // if the distance b/w the two points is less than the radius of A then, B overlaps with A
-        return 1d * 1l * A[2] >= Math.sqrt((1l * (x2 - x1) * (x2 - x1)) + (1l * (y2 - y1) * (y2 - y1)));
+        // return 1d * 1l * A[2] >= Math.sqrt((1l * (x2 - x1) * (x2 - x1)) + (1l * (y2 - y1) * (y2 - y1)));
+        return 1d * 1l * A[2] * A[2] >= (1l * (x2 - x1) * (x2 - x1)) + (1l * (y2 - y1) * (y2 - y1));
     }
     
     // check the number of bombs a particular bomb can trigger in a ripple manner
