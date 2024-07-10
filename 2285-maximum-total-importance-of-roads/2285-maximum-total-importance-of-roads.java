@@ -6,14 +6,10 @@ class Solution {
             count[road[1]]++;
         }
         
-        PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
-        for(int i = 0; i < n; i++) {
-            pq.offer(count[i]);
-        }
-        
-        long ans = 0;
-        while(!pq.isEmpty()) {
-            ans += 1l * pq.poll() * n--;
+        Arrays.sort(count);
+        long ans = 0, contribution = 1l * n;
+        for(int i = n-1; i >= 0; i--) {
+            ans = ans + count[i] * contribution--;
         }
         
         return ans;
