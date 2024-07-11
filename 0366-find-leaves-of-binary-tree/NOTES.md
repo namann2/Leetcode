@@ -6,6 +6,78 @@ https://leetcode.com/problems/find-leaves-of-binary-tree/discuss/83778/10-lines-
 <br>
 More Mind-Fuck approach : Use topological sort -_- <br>
 
+In the other approaches, we are actually updating the links of node with its parent, but see the below question : <br>
+This is actually a question from Google : <br>
+<br>
+Q. Given a tree, you need to select a leaf and remove it, and repeat this process until all the nodes are removed. <br>
+Return the removal sequence. You don’t need to mutate the tree by cutting edges to remove nodes. <br>
+Also, if a leaf is removed and its parent becomes a new leaf, then the new leaf must be removed before all other current leaves. <br>
+
+            1
+        2       4
+    3
+    
+required ans : [3, 2, 4, 1]<br>
+
+```
+class Solution {
+    public List<Integer> findLeaves(TreeNode root) {
+        List<Integer> answer = new ArrayList<>();
+        if(root == null)
+            return answer;
+        
+        List<Integer> A = new ArrayList<>();
+        Map<TreeNode, TreeNode> parent = new HashMap<>();
+        Map<TreeNode, Integer> indegree = new HashMap<>();
+        
+        traversal(root, parent, indegree);
+        
+        Deque<TreeNode> q = new ArrayDeque<>();
+        for(TreeNode node : indegree.keySet()) {
+            if(indegree.get(node) == 0)
+                q.offer(node);
+        }
+        
+        while(!q.isEmpty()) {
+            TreeNode curr = q.poll();
+            A.add(curr.val);
+            TreeNode parentNode = parent.get(curr);
+            if(parentNode != null) {
+                indegree.put(parentNode, indegree.get(parentNode) - 1);
+                // add first because we need to remove the parent which became a leaf before removing any other node 
+                if(indegree.get(parentNode) == 0) 
+                    q.addFirst(parentNode);
+            }
+        }
+        
+        return answer;
+    }
+    
+    private void traversal(TreeNode node, Map<TreeNode, TreeNode> parent, Map<TreeNode, Integer> indegree) {
+        if(node == null) return;
+        
+        if(node.left == null && node.right == null) {
+            indegree.put(node, 0);
+            return;
+        }
+        
+        if(node.left != null) {
+            indegree.put(node, indegree.getOrDefault(node, 0) + 1);
+            parent.put(node.left, node);
+        }
+        if(node.right != null) {
+            indegree.put(node, indegree.getOrDefault(node, 0) + 1);
+            parent.put(node.right, node);
+        }
+        
+        traversal(node.left, parent, indegree);
+        traversal(node.right, parent, indegree);
+    }
+}
+
+```
+
+Leetcode question solution : <br>
 <br>
 
 ```
