@@ -48,9 +48,8 @@ class Solution {
 
         Queue<JugState> q = new LinkedList<>();
         q.offer(startState);
-        // temp state
 
-        while(!q.isEmpty()) { // TODO : verify the iteration logic
+        while(!q.isEmpty()) { 
             
             JugState curr = q.poll();
 
