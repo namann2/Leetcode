@@ -25,11 +25,11 @@ class Solution {
     int sum = 0, n;
     public Solution(int[] w) {
         this.n = w.length;
-        sum = Arrays.stream(w).sum();
         prefix = new int[n];
         prefix[0] = w[0];
         for(int i=1;i<n; i++)
             prefix[i] = prefix[i-1] + w[i];
+        sum = prefix[n-1];
     }
     
     public int pickIndex() {
