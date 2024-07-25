@@ -17,6 +17,7 @@ w = [1, 2, 3, 4]
   0      1          3               6                   10      this corresponds to the prefix sum
   
 Now, if we pick a random number from the prefix sum and check which range it lies, we need to check where it lies.
+Once we randomly generate the random sum, the task is now boiled down to finding the range that this random_sum falls into.
 
 */
 class Solution {
