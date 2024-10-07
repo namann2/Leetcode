@@ -97,3 +97,27 @@ class Solution {
 # Post Submission Thoughts : 
 Can the solution be optimised ? 
 YES, since the current dp state `dp[i][j]` depends only on the previous row, we can optimise the solution.
+
+```
+class Solution {
+    public int minDistance(String A, String B) {
+        int n = A.length(), m = B.length();
+        int[] prev = new int[m+1];
+        for(int i = 1; i < m+1; i++)
+            prev[i] = i;
+        for(int i = 1; i < n+1; i++) {
+            int[] curr = new int[m+1];
+            curr[0] = i;
+            for(int j = 1; j < m+1; j++) {
+                if(A.charAt(i-1) == B.charAt(j-1)) {
+                    curr[j] = prev[j-1];
+                } else {
+                    curr[j] = 1 + Math.min(prev[j], Math.min(curr[j-1], prev[j-1]));
+                }
+            }
+            prev = curr;
+        }
+        return prev[m];
+    }
+}
+```
