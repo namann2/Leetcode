@@ -1,3 +1,16 @@
+/*
+Complexity Analysis
+
+Time complexity: 
+O(5⋅logn)+O(1)≈O(logn).
+    At worst, there are three heap insertions and two heap deletions from the top. Each of these takes about O(logn) time. 
+    Finding the median takes constant O(1), since the tops of heaps are directly accessible.
+
+Space complexity: 
+O(n) linear space to hold input in containers.
+
+*/
+
 class MedianFinder {
     
     PriorityQueue<Integer> maxHeap, minHeap;
