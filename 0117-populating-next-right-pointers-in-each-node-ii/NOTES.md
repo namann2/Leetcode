@@ -1,6 +1,6 @@
 # Solution 1 : Level Order Traversal
 
-`TC : O(n)`
+`TC : O(n)` <br>
 `SC : O(n)`
 
 Keep the "next i.e. dummy node" node on the right side and connect right nodes first.
@@ -64,6 +64,9 @@ class Solution {
 
 
 # Solution  3 : Using previously established next pointers
+
+`TC : O(n)` <br>
+`SC : O(1)`
 
 Keeping the dummy node on left and connecting next pointers from left to right i.e left nodes and then right nodes
 [ This logic is built on top of Solution 1 ]
