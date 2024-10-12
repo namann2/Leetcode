@@ -1,12 +1,17 @@
 class Solution {
     public int maxDistance(int[] position, int m) {
+        // The min distance between any two balls will be from the consecutive baskets, hence
+        // sorting the array
         Arrays.sort(position);
-        int n = position.length;
         
-        int start = 1, end = position[n-1] - position[0], ans = -1;
+        int n = position.length, 
+        start = 1,  // min distance b/w any two balls
+        end = position[n-1] - position[0]; // max distance b/w any two balls
+        
+        int ans = -1;
         while(start <= end) {
             int mid = start + (end - start) / 2;
-            if(canPlaceMBalls(position, mid, n, m)) {
+            if(true == countArrangement(position, mid, m)) { // we can increase the distance b/w balls
                 ans = mid;
                 start = mid + 1;
             } else end = mid - 1;
@@ -14,14 +19,17 @@ class Solution {
         return ans;
     }
     
-    private boolean canPlaceMBalls(int[] position, int force, int n, int m) {
-        int prevPosition = 0, cnt = 1;
-        for(int i = 1; i < n; i++) {
-            if(position[i] - position[prevPosition] >= force) {
+    private boolean countArrangement(int[] position, int distance, int reqBalls) {
+        int cnt = 1, // greedily starting of with placing the value at 0th index
+        n = position.length, lastPosition = position[0];
+        
+         for(int i=1;i<n;i++) {
+            if(position[i] - lastPosition >= distance) {
                 cnt++;
-                prevPosition = i;
+                if(reqBalls == cnt) return true;
+                lastPosition = position[i];
             }
         }
-        return cnt >= m;
+        return reqBalls == cnt;
     }
 }
