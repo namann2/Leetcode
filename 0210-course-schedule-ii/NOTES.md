@@ -10,67 +10,56 @@ Also, the dependency should be clear [ which course is dependant on another ]
 ## Approach 1: DFS
 
 ```
+enum COLOR {
+    WHITE, GREY, BLACK;
+}
 class Solution {
-    static enum COLOR {
-        WHITE, GRAY, BLACK;
-    }
-    
-    boolean isDAG = true;
-    
-    public int[] findOrder(int numCourses, int[][] pr) {
-        
-        if(numCourses == 0 || pr == null) return new int[]{};
-        
-        COLOR[] states = new COLOR[numCourses];
-        for(int i=0;i<numCourses;i++)
-            states[i] = COLOR.WHITE;
-        
-        ArrayList<ArrayList<Integer>> adj = new ArrayList();
-        for(int i=0;i<numCourses;i++)
-            adj.add(i, new ArrayList<Integer>());
-        
-            // [ai, bi] indicates that you must take 
-            // course bi first if you want to take course ai
-        
-        
-        for(int[] course : pr) {
-            adj.get(course[1]).add(course[0]);
+    public int[] findOrder(int N, int[][] prerequisites) {
+        // topo sort 
+        // DFS
+        List<List<Integer>> g = new ArrayList<>();
+        for(int i = 0; i < N; i++)
+            g.add(new ArrayList<>());
+
+        // topo sort order of nodes
+        for(int[] pre : prerequisites) {
+            g.get(pre[0]).add(pre[1]);
         }
         
-        Stack<Integer> stack = new Stack<>();
-        for(int i=0;i<numCourses;i++) {
-            if(states[i] == COLOR.WHITE) {
-                dfs(adj, i, states, stack);
+        Deque<Integer> stack = new ArrayDeque<>();
+        COLOR[] state = new COLOR[N];
+        Arrays.fill(state, COLOR.WHITE);
+        
+        for(int i = 0; i < N; i++) {
+            if(state[i] == COLOR.WHITE) {
+                if(!dfs(g, i, state, stack))
+                    return new int[]{};
             }
         }
         
-        // check if all courses can be finished
-        if(!isDAG) {
-            return new int[]{};
-        }
-        // formulate the final result;
-        int[] result = new int[stack.size()];
+        int[] answer = new int[N];
         int idx = 0;
-        while(stack.size() > 0) {
-            result[idx++] = stack.pop();
+        while(!stack.isEmpty()) {
+            answer[idx++] = stack.removeFirst();
         }
-        return result;
+        
+        return answer;
     }
-    private void dfs(ArrayList<ArrayList<Integer>> adj, int src, COLOR[] states, Stack<Integer> stack) {
-        states[src] = COLOR.GRAY;
-        for(int i : adj.get(src)) {
-            if(states[i] == COLOR.GRAY) {
-                isDAG = false;
-                return;
-            }
-            if(states[i] == COLOR.WHITE) {
-                dfs(adj, i, states, stack);
+    
+    private boolean dfs(List<List<Integer>> g, int u, COLOR[] state, Deque<Integer> stack) {
+        state[u] = COLOR.GREY;
+        for(int v : g.get(u)) {
+            if(state[v] == COLOR.GREY) return false;
+            if(state[v] == COLOR.WHITE) {
+                if(!dfs(g, v, state, stack))
+                    return false;
             }
         }
-        stack.push(src);
-        states[src] = COLOR.BLACK;
+        stack.addLast(u);
+        state[u] = COLOR.BLACK;
+        return true;
     }
-}​
+}
 ```
 
 ## Approach 2 : Topological Sort
