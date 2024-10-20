@@ -1,37 +1,45 @@
 enum COLOR {
-    WHITE, GREY, BLACK;    
+    WHITE, GREY, BLACK;
 }
+
 class Solution {
-    public boolean canFinish(int N, int[][] prerequisites) {
+    public boolean canFinish(int numCourses, int[][] prerequisites) {
+        
         List<List<Integer>> g = new ArrayList<>();
-        for(int i = 0; i < N; i++)
+        for(int i = 0; i < numCourses; i++)
             g.add(new ArrayList<>());
-            
-        for(int[] p : prerequisites) {
-            g.get(p[1]).add(p[0]);
+        
+        // topo sort order of vertices
+        for(int [] pre : prerequisites) {
+            g.get(pre[0]).add(pre[1]);
         }
         
-        // check if there is a cycle
-        COLOR[] states = new COLOR[N];
-        Arrays.fill(states, COLOR.WHITE);
+        Deque<Integer> stack = new ArrayDeque<>();
+        COLOR[] visited = new COLOR[numCourses];
+        Arrays.fill(visited, COLOR.WHITE);
         
-        for(int i = 0; i < N; i++) {
-            if(states[i] == COLOR.WHITE) {
-                if(dfs(g, i, states))
+        for(int i = 0; i < numCourses; i++) {
+            if(visited[i] == COLOR.WHITE) {
+                if(!dfs(g, i, visited, stack))
                     return false;
             }
         }
         
         return true;
     }
-    private boolean dfs(List<List<Integer>> g, int u, COLOR[] states) {
-        states[u] = COLOR.GREY;
+    
+    static boolean dfs(List<List<Integer>> g, int u, COLOR[] visited, Deque<Integer> stack) {
+        visited[u] = COLOR.GREY;
         for(int v : g.get(u)) {
-            if(states[v] == COLOR.GREY) return true;
-            if(states[v] == COLOR.WHITE) 
-                if(dfs(g, v, states)) return true;
+            if(visited[v] == COLOR.GREY) {
+                return false;
+            }
+            if(visited[v] == COLOR.WHITE) {
+                if(!dfs(g, v, visited, stack))
+                    return false;
+            }
         }
-        states[u] = COLOR.BLACK;
-        return false;
+        visited[u] = COLOR.BLACK;
+        return true;
     }
 }
