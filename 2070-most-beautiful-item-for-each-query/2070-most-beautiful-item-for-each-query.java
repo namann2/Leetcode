@@ -1,20 +1,17 @@
 class Solution {
     public int[] maximumBeauty(int[][] items, int[] queries) {
         // create a mapping of max beauty for a price
-        TreeMap<Integer, Integer> maxBeauty = new TreeMap<>();
-        // O(n log m) + O(q log m)
-        for(int[] item : items) { // O(n)
-            maxBeauty.putIfAbsent(item[0], item[1]);
-            int max = Math.max(maxBeauty.get(item[0]), item[1]);
-            maxBeauty.put(item[0], max);
-        }
+        Arrays.sort(items, (item1, item2) -> {
+            return item1[0] - item2[0];
+        });
         
-        int max = -1;
-        for(int itemPrice : maxBeauty.keySet()) {
-            int currMax = maxBeauty.get(itemPrice);
-            max = Math.max(max, currMax);
-            maxBeauty.put(itemPrice, max);
+        int maxBeautySoFar = -1;
+        TreeMap<Integer, Integer> maxBeauty = new TreeMap<>();
+        for(int[] item : items) { // O(n)
+            maxBeautySoFar = Math.max(maxBeautySoFar, item[1]);
+            maxBeauty.put(item[0], maxBeautySoFar);
         }
+
         
         int n = queries.length;
         int[] answer = new int[n];
@@ -28,5 +25,4 @@ class Solution {
         
         return answer;
     }
-    
 }
