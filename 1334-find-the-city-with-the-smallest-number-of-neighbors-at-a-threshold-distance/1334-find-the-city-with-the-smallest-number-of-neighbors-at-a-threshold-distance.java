@@ -12,6 +12,7 @@ class Solution {
             
             Note : We are given that the distances b/w cities will always be positive hence, we can use
                 - Djikstra
+                - Bellman Ford
                 - Flyod Warshal
                 
             I am going ahead with Floyd Warshal given that it is simple in implementation and could hold for the given constraints
