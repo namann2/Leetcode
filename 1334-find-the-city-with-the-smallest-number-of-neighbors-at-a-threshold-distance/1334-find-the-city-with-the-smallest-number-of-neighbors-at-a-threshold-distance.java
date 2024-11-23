@@ -23,8 +23,9 @@ class Solution {
         // constructs the graph
         int[][] matrix = new int[n][n];
         for(int[] edge : edges) {
-            matrix[edge[0]][edge[1]] = matrix[edge[1]][edge[0]] = edge[2];
-            matrix[edge[0]][edge[0]] = matrix[edge[1]][edge[1]] = 0;
+            int src = edge[0], dest = edge[1], weight = edge[2];
+            matrix[src][dest] = matrix[dest][src] = weight;
+            matrix[src][src] = matrix[dest][dest] = 0;
         }
         
         
