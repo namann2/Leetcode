@@ -22,18 +22,13 @@ class Solution {
         // AIM : find the latest time for us to board the bus
         // if the capacity of last bus is filled then, we need to come before the time at which the last person arrived
         --prev; // last passanger to board the bus
-        if(currCapacity == 0 && prev >= 0) {
+        if(prev >= 0 && (currCapacity == 0 || buses[busesLength - 1] == passengers[prev])) {
             // we need to reach before this person
             int lastArrivalTime = passengers[prev];
             while(!arrivalTimes.add(lastArrivalTime)) --lastArrivalTime;
             return lastArrivalTime;
         }
         // or else, there is still capacity left for us to board
-        if(prev >= 0 && buses[busesLength - 1] == passengers[prev]) {
-            int lastArrivalTime = passengers[prev];
-            while(!arrivalTimes.add(lastArrivalTime)) --lastArrivalTime;
-            return lastArrivalTime;
-        }
         return buses[busesLength-1];
     }
 }
