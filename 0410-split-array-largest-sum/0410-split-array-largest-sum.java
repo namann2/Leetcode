@@ -22,7 +22,12 @@ class Solution {
             max = Math.max(max, nums[i]);
             sum += nums[i];
         }
-        
+        /*
+            I was not really confident on the range of end here. 
+            Acc to my understanding, at best/worst k = 1, the largest summation a partition could have is sum - something. 
+            Now, since we do not know what that something is, we expand the range and say end = sum. Ideally, since the array 
+            is not sorted, we can not say sum - min(or A[0]). Hence, it is better to keep the range sub-optimal.
+        */
         int start = max, end = sum, ans = 0;
         while(start <= end) {
             int mid = start + (end - start) / 2;
