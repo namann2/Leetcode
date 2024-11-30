@@ -1,42 +1,38 @@
 class Solution {
     public int minOperations(int[] nums) {
         int n = nums.length;
-        Set<Integer> uniques = new HashSet<>();
-        for(int num : nums) uniques.add(num);
+        HashSet<Integer> uniqueElements = new HashSet<>();
+        for(int num : nums) 
+            uniqueElements.add(num);
         
-        int uniqueLength = uniques.size();
-        int[] unique = new int[uniqueLength];
+        int uniqueLength = uniqueElements.size();
+        int[] uniques = new int[uniqueLength];
         int idx = 0;
-        for(int num : uniques)
-            unique[idx++] = num;
-        
-        Arrays.sort(unique);
-        
-        // max - min = n - 1;
-        // max = n + min - 1;
-        int minOperations = Integer.MAX_VALUE;
-        for(int i = 0; i < uniqueLength; i++) {
-            int min = unique[i];
-            int max = n + min - 1;
-            int insertIndex = findNumberOfOperations(unique, max);
-            int inRange = (insertIndex - i);
-            int toChange = (n - inRange);
-            // System.out.println(min+" :: "+max+" :: "+insertIndex + ":: "+inRange+" :: "+toChange);
-            minOperations = Math.min(minOperations, toChange);
+        for(int number : uniqueElements) {
+            uniques[idx++] = number;
         }
         
-        return minOperations;
+        Arrays.sort(uniques);
+        
+        int minNumber = n;
+        for(int i = 0; i < uniqueLength; i++) {
+            int min = uniques[i];
+            int max = min + n - 1; // max = min + n - 1
+            int index = findIndex(uniques, max, 0, uniqueLength - 1, n);
+            int toChange = n - (index - i);
+            minNumber = Math.min(minNumber, toChange);
+        }
+        return minNumber;
     }
     
-    private int findNumberOfOperations(int[] unique, int num) {
-        // ....start...ans....end.......
-        int n = unique.length;
-        int start = 0, end = n-1;
-        int ans = 0;
+    private int findIndex(int[] uniques, int target, int start, int end, int n) {
+        int ans = -1;
         while(start <= end) {
             int mid = start + (end - start) / 2;
-            if(unique[mid] <= num) {
-                ans = mid + 1; // mid is still in range
+            // 1 2 2 3
+            // 2
+            if(target >= uniques[mid]) {
+                ans = mid + 1;
                 start = mid + 1;
             } else end = mid - 1;
         }
