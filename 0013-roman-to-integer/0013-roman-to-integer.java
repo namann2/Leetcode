@@ -21,20 +21,3 @@ class Solution {
         return num;
     }
 }
-
-/*
-CXLIII
-I, II, III, IV, 1-4
-V, VI, VII, VIII, IX 5-9
-X, XI, XII, XIII, XIV, .....XL(40), XLI, XLII....XLIX, L
-
-IV - 4
-IX - 9
-XIV - 14
-XIX - 19
-XXIV - 24
-XXIX - 29
-XXXIV - 34
-XXXIX - 39
-XL - 40
-*/
