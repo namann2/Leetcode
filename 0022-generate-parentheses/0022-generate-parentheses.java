@@ -1,35 +1,32 @@
 class Solution {
-    
-    private static final char OP = '(';
-    private static final char CP = ')';
-    
+
+    private static final String OPEN = "(", CLOSE = ")";
     public List<String> generateParenthesis(int n) {
         List<String> answer = new ArrayList<>();
-        generateParenthesis(n, n, new StringBuilder(), answer);
+        generateParenthesis(n, n, new StringBuilder(), answer); // TODO : update the usage of string to stringbuilder
         return answer;
     }
-    
+
     private void generateParenthesis(int open, int close, StringBuilder temp, List<String> answer) {
-        // base case
         if(open == 0 && close == 0) {
             answer.add(temp.toString());
             return;
         }
-        
         if(open == close) {
-            temp.append(OP);
+            temp.append(OPEN);
             generateParenthesis(open - 1, close, temp, answer);
-            temp.deleteCharAt(temp.length() - 1);
-        } else {
+            temp.deleteCharAt(temp.length()-1);
+        }
+        else if(open < close) {
             if(open > 0) {
-                temp.append(OP);
+                temp.append(OPEN);
                 generateParenthesis(open - 1, close, temp, answer);
-                temp.deleteCharAt(temp.length() - 1);
+                temp.deleteCharAt(temp.length()-1);
             }
             if(close > 0) {
-                temp.append(CP);
+                temp.append(CLOSE);
                 generateParenthesis(open, close - 1, temp, answer);
-                temp.deleteCharAt(temp.length() - 1);
+                temp.deleteCharAt(temp.length()-1);
             }
         }
     }
