@@ -6,6 +6,7 @@
 ## Array
 |  |
 | ------- |
+| [0051-n-queens](https://github.com/namann2/Leetcode/tree/master/0051-n-queens) |
 | [2375-minimum-obstacle-removal-to-reach-corner](https://github.com/namann2/Leetcode/tree/master/2375-minimum-obstacle-removal-to-reach-corner) |
 ## Breadth-First Search
 |  |
@@ -39,4 +40,5 @@
 |  |
 | ------- |
 | [0022-generate-parentheses](https://github.com/namann2/Leetcode/tree/master/0022-generate-parentheses) |
+| [0051-n-queens](https://github.com/namann2/Leetcode/tree/master/0051-n-queens) |
 <!---LeetCode Topics End-->
