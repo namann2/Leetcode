@@ -31,6 +31,7 @@
 ## String
 |  |
 | ------- |
+| [0017-letter-combinations-of-a-phone-number](https://github.com/namann2/Leetcode/tree/master/0017-letter-combinations-of-a-phone-number) |
 | [0022-generate-parentheses](https://github.com/namann2/Leetcode/tree/master/0022-generate-parentheses) |
 ## Dynamic Programming
 |  |
@@ -39,6 +40,11 @@
 ## Backtracking
 |  |
 | ------- |
+| [0017-letter-combinations-of-a-phone-number](https://github.com/namann2/Leetcode/tree/master/0017-letter-combinations-of-a-phone-number) |
 | [0022-generate-parentheses](https://github.com/namann2/Leetcode/tree/master/0022-generate-parentheses) |
 | [0051-n-queens](https://github.com/namann2/Leetcode/tree/master/0051-n-queens) |
+## Hash Table
+|  |
+| ------- |
+| [0017-letter-combinations-of-a-phone-number](https://github.com/namann2/Leetcode/tree/master/0017-letter-combinations-of-a-phone-number) |
 <!---LeetCode Topics End-->
