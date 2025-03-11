@@ -7,13 +7,9 @@ class Solution {
 
     private void restoreIPAddress(String s, int startIndex, int n, List<String> temp, List<String> result) {
         // base case
+        if(temp.size() > 4) return;
         if(startIndex >= n && temp.size() == 4) {
-            StringBuilder curr = new StringBuilder();
-            for(int i = 0; i < 4; i++) {
-                curr.append(temp.get(i)).append(".");
-            }
-            curr.deleteCharAt(curr.length()-1);
-            result.add(new String(curr));
+            result.add(String.join(".", temp));
             return;
         }
         // main logic
