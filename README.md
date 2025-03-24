@@ -12,11 +12,13 @@
 | [0078-subsets](https://github.com/namann2/Leetcode/tree/master/0078-subsets) |
 | [0090-subsets-ii](https://github.com/namann2/Leetcode/tree/master/0090-subsets-ii) |
 | [0216-combination-sum-iii](https://github.com/namann2/Leetcode/tree/master/0216-combination-sum-iii) |
+| [0971-shortest-bridge](https://github.com/namann2/Leetcode/tree/master/0971-shortest-bridge) |
 | [2375-minimum-obstacle-removal-to-reach-corner](https://github.com/namann2/Leetcode/tree/master/2375-minimum-obstacle-removal-to-reach-corner) |
 | [2711-minimum-time-to-visit-a-cell-in-a-grid](https://github.com/namann2/Leetcode/tree/master/2711-minimum-time-to-visit-a-cell-in-a-grid) |
 ## Breadth-First Search
 |  |
 | ------- |
+| [0971-shortest-bridge](https://github.com/namann2/Leetcode/tree/master/0971-shortest-bridge) |
 | [2375-minimum-obstacle-removal-to-reach-corner](https://github.com/namann2/Leetcode/tree/master/2375-minimum-obstacle-removal-to-reach-corner) |
 | [2711-minimum-time-to-visit-a-cell-in-a-grid](https://github.com/namann2/Leetcode/tree/master/2711-minimum-time-to-visit-a-cell-in-a-grid) |
 ## Graph
@@ -32,6 +34,7 @@
 ## Matrix
 |  |
 | ------- |
+| [0971-shortest-bridge](https://github.com/namann2/Leetcode/tree/master/0971-shortest-bridge) |
 | [2375-minimum-obstacle-removal-to-reach-corner](https://github.com/namann2/Leetcode/tree/master/2375-minimum-obstacle-removal-to-reach-corner) |
 | [2711-minimum-time-to-visit-a-cell-in-a-grid](https://github.com/namann2/Leetcode/tree/master/2711-minimum-time-to-visit-a-cell-in-a-grid) |
 ## Shortest Path
@@ -70,4 +73,8 @@
 | ------- |
 | [0078-subsets](https://github.com/namann2/Leetcode/tree/master/0078-subsets) |
 | [0090-subsets-ii](https://github.com/namann2/Leetcode/tree/master/0090-subsets-ii) |
+## Depth-First Search
+|  |
+| ------- |
+| [0971-shortest-bridge](https://github.com/namann2/Leetcode/tree/master/0971-shortest-bridge) |
 <!---LeetCode Topics End-->
