@@ -29,12 +29,11 @@ class Solution {
                 for(int i = 0; i < 4; i++) {
                     int newX = curr[0] + dx[i];
                     int newY = curr[1] + dy[i];
-                    int newD = curr[2] + 1;
                     if(newX >= 0 && newX < rows && newY >= 0 && newY < cols && !visited[newX][newY]) {
                         if(grid[newX][newY] == 1) 
                             return flips;
                         visited[newX][newY] = true;
-                        q.offer(new int[]{newX, newY, newD});
+                        q.offer(new int[]{newX, newY});
                     }
                 }
             }
@@ -47,7 +46,7 @@ class Solution {
         boolean isCurrentCellSafe = isSafe(grid, i, j, rows, cols, visited);
         if(isCurrentCellSafe) {
             visited[i][j] = true;
-            q.offer(new int[]{i, j, 0});
+            q.offer(new int[]{i, j});
             dfs(grid, q, i-1, j, rows, cols, visited);
             dfs(grid, q, i+1, j, rows, cols, visited);
             dfs(grid, q, i, j-1, rows, cols, visited);
