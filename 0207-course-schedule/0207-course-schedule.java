@@ -1,45 +1,40 @@
 enum COLOR {
     WHITE, GREY, BLACK;
 }
-
 class Solution {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
-        
-        List<List<Integer>> g = new ArrayList<>();
-        for(int i = 0; i < numCourses; i++)
-            g.add(new ArrayList<>());
-        
-        // topo sort order of vertices
-        for(int [] pre : prerequisites) {
-            g.get(pre[0]).add(pre[1]);
+        // if two courses depend on each other then, it is not possible ->> cycle detection in directed graph
+
+        // construct graph
+        Map<Integer, List<Integer>> g = new HashMap<>();
+        for(int[] prerequisite : prerequisites) {
+            g.putIfAbsent(prerequisite[0], new ArrayList<>());
+            g.get(prerequisite[0]).add(prerequisite[1]);
         }
-        
-        Deque<Integer> stack = new ArrayDeque<>();
-        COLOR[] visited = new COLOR[numCourses];
-        Arrays.fill(visited, COLOR.WHITE);
-        
+
+        COLOR[] state = new COLOR[numCourses];
+        Arrays.fill(state, COLOR.WHITE);
+
+        // we are not sure if the given graph is connected
         for(int i = 0; i < numCourses; i++) {
-            if(visited[i] == COLOR.WHITE) {
-                if(!dfs(g, i, visited, stack))
-                    return false;
+            if(state[i] == COLOR.WHITE) {
+                if(dfs(g, i, state)) return false;
             }
         }
-        
         return true;
     }
-    
-    static boolean dfs(List<List<Integer>> g, int u, COLOR[] visited, Deque<Integer> stack) {
-        visited[u] = COLOR.GREY;
-        for(int v : g.get(u)) {
-            if(visited[v] == COLOR.GREY) {
-                return false;
-            }
-            if(visited[v] == COLOR.WHITE) {
-                if(!dfs(g, v, visited, stack))
-                    return false;
-            }
+
+    private boolean dfs(Map<Integer, List<Integer>> g, int u, COLOR[] state) {
+        state[u] = COLOR.GREY;
+        if(g.containsKey(u)) {
+            for(int v : g.get(u)) {
+                if(state[v] == COLOR.GREY) return true;
+                if(state[v] == COLOR.WHITE) {
+                    if(dfs(g, v, state)) return true;
+                }
+            } 
         }
-        visited[u] = COLOR.BLACK;
-        return true;
+        state[u] = COLOR.BLACK;
+        return false;
     }
 }
