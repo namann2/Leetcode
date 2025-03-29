@@ -20,6 +20,7 @@
 | ------- |
 | [0207-course-schedule](https://github.com/namann2/Leetcode/tree/master/0207-course-schedule) |
 | [0210-course-schedule-ii](https://github.com/namann2/Leetcode/tree/master/0210-course-schedule-ii) |
+| [0820-find-eventual-safe-states](https://github.com/namann2/Leetcode/tree/master/0820-find-eventual-safe-states) |
 | [0971-shortest-bridge](https://github.com/namann2/Leetcode/tree/master/0971-shortest-bridge) |
 | [2375-minimum-obstacle-removal-to-reach-corner](https://github.com/namann2/Leetcode/tree/master/2375-minimum-obstacle-removal-to-reach-corner) |
 | [2711-minimum-time-to-visit-a-cell-in-a-grid](https://github.com/namann2/Leetcode/tree/master/2711-minimum-time-to-visit-a-cell-in-a-grid) |
@@ -28,6 +29,7 @@
 | ------- |
 | [0207-course-schedule](https://github.com/namann2/Leetcode/tree/master/0207-course-schedule) |
 | [0210-course-schedule-ii](https://github.com/namann2/Leetcode/tree/master/0210-course-schedule-ii) |
+| [0820-find-eventual-safe-states](https://github.com/namann2/Leetcode/tree/master/0820-find-eventual-safe-states) |
 | [2375-minimum-obstacle-removal-to-reach-corner](https://github.com/namann2/Leetcode/tree/master/2375-minimum-obstacle-removal-to-reach-corner) |
 | [2711-minimum-time-to-visit-a-cell-in-a-grid](https://github.com/namann2/Leetcode/tree/master/2711-minimum-time-to-visit-a-cell-in-a-grid) |
 ## Heap (Priority Queue)
@@ -82,10 +84,12 @@
 | ------- |
 | [0207-course-schedule](https://github.com/namann2/Leetcode/tree/master/0207-course-schedule) |
 | [0210-course-schedule-ii](https://github.com/namann2/Leetcode/tree/master/0210-course-schedule-ii) |
+| [0820-find-eventual-safe-states](https://github.com/namann2/Leetcode/tree/master/0820-find-eventual-safe-states) |
 | [0971-shortest-bridge](https://github.com/namann2/Leetcode/tree/master/0971-shortest-bridge) |
 ## Topological Sort
 |  |
 | ------- |
 | [0207-course-schedule](https://github.com/namann2/Leetcode/tree/master/0207-course-schedule) |
 | [0210-course-schedule-ii](https://github.com/namann2/Leetcode/tree/master/0210-course-schedule-ii) |
+| [0820-find-eventual-safe-states](https://github.com/namann2/Leetcode/tree/master/0820-find-eventual-safe-states) |
 <!---LeetCode Topics End-->
