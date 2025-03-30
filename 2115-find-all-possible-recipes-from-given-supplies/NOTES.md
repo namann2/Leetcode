@@ -1,21 +1,48 @@
+TC : R * I + S <br>
+SC : R * I + S <br>
+
+<hr>
+
 ```
 class Solution {
-public List<String> findAllRecipes(String[] recipes, List<List<String>> ingredients, String[] supplies) {
-List<String> result = new ArrayList<>();
-// create graph
-// ArrayList<ArrayList<String>> adj = new ArrayList();
-HashMap<String, List<String>> map` = new HashMap<>(); // graph
-HashMap<String, Integer> indegree = new HashMap<>(); // node and indegree
-int N = recipes.length;
-// construct graph
-for(int i=0;i<N;i++)
-{   //mapping is ingredient -> recipe
-List<String> In = ingredients.get(i);
-indegree.put(recipes[i], indegree.getOrDefault(recipes[i], 0)+In.size());
-for(String ing : In) {
-if(!map.containsKey(ing))
-map.put(ing, new ArrayList<String>());
-map.get(ing).add(recipes[i]);
+    public List<String> findAllRecipes(String[] recipes, List<List<String>> ingredients, String[] supplies) {
+        List<String> recipesThatCanBeCreated = new ArrayList<>();
+        // topological sort
+        Map<String, List<Integer>> ingredientsRecipeMap = new HashMap<>();
+        int n = ingredients.size();
+        // indegree array
+        int[] indegree = new int[n];
+        // consruct ingredient -> List<Recipe> map
+        for(int i = 0; i < n; i++) { // R
+            List<String> currIngredientsList = ingredients.get(i);
+            indegree[i] = currIngredientsList.size();
+            for(String ingredient : currIngredientsList) { // I
+                ingredientsRecipeMap.putIfAbsent(ingredient, new ArrayList<>());
+                ingredientsRecipeMap.get(ingredient).add(i);
+            }
+        }
+
+        // all supplies
+        Queue<String> suppliesInHand = new LinkedList<>();
+        for(String supply : supplies) // S
+            suppliesInHand.offer(supply);
+        // hashSet
+        Set<String> recipesSet = new HashSet<>(Arrays.asList(recipes));
+
+        while(!suppliesInHand.isEmpty()) {
+            String currSupply = suppliesInHand.poll();
+            if(recipesSet.contains(currSupply)) 
+                recipesThatCanBeCreated.add(currSupply);
+            if(!ingredientsRecipeMap.containsKey(currSupply)) continue;
+            for(int recipeIndex : ingredientsRecipeMap.get(currSupply)) {
+                if(--indegree[recipeIndex] == 0) {
+                    suppliesInHand.offer(recipes[recipeIndex]);
+                    recipesSet.add(recipes[recipeIndex]);
+                }
+            }
+        }
+
+        return recipesThatCanBeCreated;
+    }
 }
-}
-// initially we have a list of supplies to start from
+```
