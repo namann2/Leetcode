@@ -1,16 +1,10 @@
 class Solution {
     public List<Integer> findMinHeightTrees(int n, int[][] edges) {
-        List<Integer> l = new ArrayList<>();
-        if(n <= 2) {
-            for(int i = 0; i < n; i++)
-                l.add(i);
-            return l;
-        }
-        
-        int[]degree = new int[n];
-        HashMap<Integer, List<Integer>> g = new HashMap<>();
-        
-        for(int[]edge : edges) {
+        if(n == 1) return List.of(0);
+        int[] degree = new int[n];
+        Map<Integer, List<Integer>> g = new HashMap<>();
+        List<Integer> answer = new ArrayList<>();
+        for (int[] edge : edges) {
             g.putIfAbsent(edge[0], new ArrayList<>());
             g.putIfAbsent(edge[1], new ArrayList<>());
             g.get(edge[0]).add(edge[1]);
@@ -18,27 +12,32 @@ class Solution {
             degree[edge[0]]++;
             degree[edge[1]]++;
         }
-        
-        Queue<Integer> q = new LinkedList<>();
-        for(int i=0;i<n;i++)
-            if(degree[i] == 1)
-                q.add(i);
-        
-        int numRemaining = n;
-        while(n > 2) {
-            int size = q.size();
+
+        Queue<Integer> leaves = new LinkedList<>();
+        for (int i = 0; i < n; i++) {
+            if (degree[i] == 1)
+                leaves.offer(i);
+        }
+
+        while (n > 2) {
+            int size = leaves.size();
             n -= size;
-            for(int i=0;i<size;i++) {
-                int curr = q.poll();
-                for(int v : g.get(curr)) {
-                    degree[v] -= 1;
-                    if(degree[v] == 1) q.add(v);
+            // remove all leafves at one level
+            for (int i = 0; i < size; i++) {
+                int currLeaf = leaves.poll();
+                if (g.containsKey(currLeaf)) {
+                    for (int connectedNode : g.get(currLeaf)) {
+                        if (--degree[connectedNode] == 1) {
+                            leaves.offer(connectedNode);
+                        }
+                    }
                 }
             }
         }
-        while(!q.isEmpty()) 
-            l.add(q.remove());
-        
-        return l;
+
+        while (!leaves.isEmpty()) {
+            answer.add(leaves.poll());
+        }
+        return answer;
     }
 }
