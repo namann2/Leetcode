@@ -22,6 +22,7 @@
 | ------- |
 | [0207-course-schedule](https://github.com/namann2/Leetcode/tree/master/0207-course-schedule) |
 | [0210-course-schedule-ii](https://github.com/namann2/Leetcode/tree/master/0210-course-schedule-ii) |
+| [0310-minimum-height-trees](https://github.com/namann2/Leetcode/tree/master/0310-minimum-height-trees) |
 | [0820-find-eventual-safe-states](https://github.com/namann2/Leetcode/tree/master/0820-find-eventual-safe-states) |
 | [0971-shortest-bridge](https://github.com/namann2/Leetcode/tree/master/0971-shortest-bridge) |
 | [2375-minimum-obstacle-removal-to-reach-corner](https://github.com/namann2/Leetcode/tree/master/2375-minimum-obstacle-removal-to-reach-corner) |
@@ -31,6 +32,7 @@
 | ------- |
 | [0207-course-schedule](https://github.com/namann2/Leetcode/tree/master/0207-course-schedule) |
 | [0210-course-schedule-ii](https://github.com/namann2/Leetcode/tree/master/0210-course-schedule-ii) |
+| [0310-minimum-height-trees](https://github.com/namann2/Leetcode/tree/master/0310-minimum-height-trees) |
 | [0820-find-eventual-safe-states](https://github.com/namann2/Leetcode/tree/master/0820-find-eventual-safe-states) |
 | [2220-find-all-possible-recipes-from-given-supplies](https://github.com/namann2/Leetcode/tree/master/2220-find-all-possible-recipes-from-given-supplies) |
 | [2364-longest-path-with-different-adjacent-characters](https://github.com/namann2/Leetcode/tree/master/2364-longest-path-with-different-adjacent-characters) |
@@ -91,6 +93,7 @@
 | ------- |
 | [0207-course-schedule](https://github.com/namann2/Leetcode/tree/master/0207-course-schedule) |
 | [0210-course-schedule-ii](https://github.com/namann2/Leetcode/tree/master/0210-course-schedule-ii) |
+| [0310-minimum-height-trees](https://github.com/namann2/Leetcode/tree/master/0310-minimum-height-trees) |
 | [0820-find-eventual-safe-states](https://github.com/namann2/Leetcode/tree/master/0820-find-eventual-safe-states) |
 | [0971-shortest-bridge](https://github.com/namann2/Leetcode/tree/master/0971-shortest-bridge) |
 | [2364-longest-path-with-different-adjacent-characters](https://github.com/namann2/Leetcode/tree/master/2364-longest-path-with-different-adjacent-characters) |
@@ -99,6 +102,7 @@
 | ------- |
 | [0207-course-schedule](https://github.com/namann2/Leetcode/tree/master/0207-course-schedule) |
 | [0210-course-schedule-ii](https://github.com/namann2/Leetcode/tree/master/0210-course-schedule-ii) |
+| [0310-minimum-height-trees](https://github.com/namann2/Leetcode/tree/master/0310-minimum-height-trees) |
 | [0820-find-eventual-safe-states](https://github.com/namann2/Leetcode/tree/master/0820-find-eventual-safe-states) |
 | [2220-find-all-possible-recipes-from-given-supplies](https://github.com/namann2/Leetcode/tree/master/2220-find-all-possible-recipes-from-given-supplies) |
 | [2364-longest-path-with-different-adjacent-characters](https://github.com/namann2/Leetcode/tree/master/2364-longest-path-with-different-adjacent-characters) |
