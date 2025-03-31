@@ -1,5 +1,26 @@
 class Solution {
     public int largestComponentSize(int[] nums) {
+        /*
+            Given
+                there are n nodes 
+                undirected graph b/w u and v, if gcf(u, v) > 1
+            Solution : 
+            - we need to find the size of largest group of nodes. This relates to UF.
+            - O(n^2) is doable solution but the constraints limit us to make solution more performant.
+            - How to improve TC ?
+
+            4 - 2, 4
+            6 - 2, 3
+            15 - 3, 5 ,15
+            35 - 5, 7, 35
+
+            Create a map of factors and add the numbers to the same group. Now, it is an observation that we do 
+            not actually need all factors, prime factors would suffice the need for this.
+
+            Idea : Get prime factors of all the numbers we are given.
+            Create the makeSet for all the prime factors.
+            While iterating over the factors of each number if the factor is prime increase the size of the group  
+        */
         int n = nums.length;
         int maxNumber = Arrays.stream(nums).max().getAsInt();
         UnionFind uf = new UnionFind();
