@@ -1,5 +1,17 @@
 class Solution {
     public String smallestStringWithSwaps(String s, List<List<Integer>> pairs) {
+        /*
+            Group the indices and their chars together to choose from
+            s = dcab, pairs = [[0,3],[1,2]]
+            group1 : 0, 3, <- b d
+            group2 : 2, 1  <- a c <- we want to store the chars in group in lexi order
+            
+            To group the characters, I can use union find and create a parent mapping
+            Map of
+            
+            parentGroupId : pq<Characters>
+            
+        */
         int n = s.length();
         UnionFind uf = new UnionFind();
         uf.makeSet(n); // O(V)
