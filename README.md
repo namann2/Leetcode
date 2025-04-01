@@ -14,6 +14,7 @@
 | [0090-subsets-ii](https://github.com/namann2/Leetcode/tree/master/0090-subsets-ii) |
 | [0216-combination-sum-iii](https://github.com/namann2/Leetcode/tree/master/0216-combination-sum-iii) |
 | [0399-evaluate-division](https://github.com/namann2/Leetcode/tree/master/0399-evaluate-division) |
+| [0698-partition-to-k-equal-sum-subsets](https://github.com/namann2/Leetcode/tree/master/0698-partition-to-k-equal-sum-subsets) |
 | [0971-shortest-bridge](https://github.com/namann2/Leetcode/tree/master/0971-shortest-bridge) |
 | [1308-smallest-string-with-swaps](https://github.com/namann2/Leetcode/tree/master/1308-smallest-string-with-swaps) |
 | [2220-find-all-possible-recipes-from-given-supplies](https://github.com/namann2/Leetcode/tree/master/2220-find-all-possible-recipes-from-given-supplies) |
@@ -79,6 +80,7 @@
 |  |
 | ------- |
 | [0022-generate-parentheses](https://github.com/namann2/Leetcode/tree/master/0022-generate-parentheses) |
+| [0698-partition-to-k-equal-sum-subsets](https://github.com/namann2/Leetcode/tree/master/0698-partition-to-k-equal-sum-subsets) |
 ## Backtracking
 |  |
 | ------- |
@@ -92,6 +94,7 @@
 | [0090-subsets-ii](https://github.com/namann2/Leetcode/tree/master/0090-subsets-ii) |
 | [0093-restore-ip-addresses](https://github.com/namann2/Leetcode/tree/master/0093-restore-ip-addresses) |
 | [0216-combination-sum-iii](https://github.com/namann2/Leetcode/tree/master/0216-combination-sum-iii) |
+| [0698-partition-to-k-equal-sum-subsets](https://github.com/namann2/Leetcode/tree/master/0698-partition-to-k-equal-sum-subsets) |
 ## Hash Table
 |  |
 | ------- |
@@ -103,6 +106,7 @@
 | ------- |
 | [0078-subsets](https://github.com/namann2/Leetcode/tree/master/0078-subsets) |
 | [0090-subsets-ii](https://github.com/namann2/Leetcode/tree/master/0090-subsets-ii) |
+| [0698-partition-to-k-equal-sum-subsets](https://github.com/namann2/Leetcode/tree/master/0698-partition-to-k-equal-sum-subsets) |
 ## Depth-First Search
 |  |
 | ------- |
@@ -137,4 +141,12 @@
 |  |
 | ------- |
 | [1308-smallest-string-with-swaps](https://github.com/namann2/Leetcode/tree/master/1308-smallest-string-with-swaps) |
+## Memoization
+|  |
+| ------- |
+| [0698-partition-to-k-equal-sum-subsets](https://github.com/namann2/Leetcode/tree/master/0698-partition-to-k-equal-sum-subsets) |
+## Bitmask
+|  |
+| ------- |
+| [0698-partition-to-k-equal-sum-subsets](https://github.com/namann2/Leetcode/tree/master/0698-partition-to-k-equal-sum-subsets) |
 <!---LeetCode Topics End-->
