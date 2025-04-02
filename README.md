@@ -27,6 +27,7 @@
 | ------- |
 | [0207-course-schedule](https://github.com/namann2/Leetcode/tree/master/0207-course-schedule) |
 | [0210-course-schedule-ii](https://github.com/namann2/Leetcode/tree/master/0210-course-schedule-ii) |
+| [0301-remove-invalid-parentheses](https://github.com/namann2/Leetcode/tree/master/0301-remove-invalid-parentheses) |
 | [0310-minimum-height-trees](https://github.com/namann2/Leetcode/tree/master/0310-minimum-height-trees) |
 | [0399-evaluate-division](https://github.com/namann2/Leetcode/tree/master/0399-evaluate-division) |
 | [0744-network-delay-time](https://github.com/namann2/Leetcode/tree/master/0744-network-delay-time) |
@@ -73,6 +74,7 @@
 | [0017-letter-combinations-of-a-phone-number](https://github.com/namann2/Leetcode/tree/master/0017-letter-combinations-of-a-phone-number) |
 | [0022-generate-parentheses](https://github.com/namann2/Leetcode/tree/master/0022-generate-parentheses) |
 | [0093-restore-ip-addresses](https://github.com/namann2/Leetcode/tree/master/0093-restore-ip-addresses) |
+| [0301-remove-invalid-parentheses](https://github.com/namann2/Leetcode/tree/master/0301-remove-invalid-parentheses) |
 | [0399-evaluate-division](https://github.com/namann2/Leetcode/tree/master/0399-evaluate-division) |
 | [1308-smallest-string-with-swaps](https://github.com/namann2/Leetcode/tree/master/1308-smallest-string-with-swaps) |
 | [2220-find-all-possible-recipes-from-given-supplies](https://github.com/namann2/Leetcode/tree/master/2220-find-all-possible-recipes-from-given-supplies) |
@@ -96,6 +98,7 @@
 | [0090-subsets-ii](https://github.com/namann2/Leetcode/tree/master/0090-subsets-ii) |
 | [0093-restore-ip-addresses](https://github.com/namann2/Leetcode/tree/master/0093-restore-ip-addresses) |
 | [0216-combination-sum-iii](https://github.com/namann2/Leetcode/tree/master/0216-combination-sum-iii) |
+| [0301-remove-invalid-parentheses](https://github.com/namann2/Leetcode/tree/master/0301-remove-invalid-parentheses) |
 | [0473-matchsticks-to-square](https://github.com/namann2/Leetcode/tree/master/0473-matchsticks-to-square) |
 | [0698-partition-to-k-equal-sum-subsets](https://github.com/namann2/Leetcode/tree/master/0698-partition-to-k-equal-sum-subsets) |
 ## Hash Table
