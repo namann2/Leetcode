@@ -16,7 +16,7 @@ class Solution {
         }
         // main logic
         for(int i = 0; i < 3; i++) {
-            if(start + i >= n) continue;
+            if(start + i >= n) return;
             String substring = s.substring(start, start + i + 1);
             if(isValid(substring)) {
                 temp.add(substring);
