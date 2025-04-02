@@ -23,7 +23,7 @@ class Solution {
         if(target < 0) return false;
         // main logic
         for(int i = index; i < n; i++) {
-            if(used[i]) continue;
+            if(used[i] || target - nums[i] < 0) continue;
             used[i] = true;
             if(canPartition(nums, i + 1, n, orgTarget, target - nums[i], count, used))
                 return true;
