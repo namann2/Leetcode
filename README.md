@@ -100,6 +100,7 @@
 | [0090-subsets-ii](https://github.com/namann2/Leetcode/tree/master/0090-subsets-ii) |
 | [0093-restore-ip-addresses](https://github.com/namann2/Leetcode/tree/master/0093-restore-ip-addresses) |
 | [0216-combination-sum-iii](https://github.com/namann2/Leetcode/tree/master/0216-combination-sum-iii) |
+| [0254-factor-combinations](https://github.com/namann2/Leetcode/tree/master/0254-factor-combinations) |
 | [0301-remove-invalid-parentheses](https://github.com/namann2/Leetcode/tree/master/0301-remove-invalid-parentheses) |
 | [0465-optimal-account-balancing](https://github.com/namann2/Leetcode/tree/master/0465-optimal-account-balancing) |
 | [0473-matchsticks-to-square](https://github.com/namann2/Leetcode/tree/master/0473-matchsticks-to-square) |
