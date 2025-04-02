@@ -1,34 +1,35 @@
 class Solution {
     public List<String> restoreIpAddresses(String s) {
-        List<String> result = new ArrayList<>();
-        restoreIPAddress(s, 0, s.length(), new ArrayList<>(), result);
-        return result;
+        int n = s.length();
+        List<String> validIPAddress = new ArrayList<>();
+        if(n == 0 || s == null) return validIPAddress;
+        restoreAddress(s, 0, s.length(), new ArrayList<>(), validIPAddress);
+        return validIPAddress;
     }
 
-    private void restoreIPAddress(String s, int startIndex, int n, List<String> temp, List<String> result) {
+    private void restoreAddress(String s, int start, int n, List<String> temp, List<String> validIPAddress) {
         // base case
-        if(temp.size() > 4) return;
-        if(startIndex >= n && temp.size() == 4) {
-            result.add(String.join(".", temp));
+        if(start >= n && temp.size() == 4) {
+            String address = String.join(".", temp);
+            validIPAddress.add(address);
             return;
         }
         // main logic
         for(int i = 0; i < 3; i++) {
-            int endIndex = startIndex + i + 1;
-            if(endIndex > n) continue;
-            String curr = s.substring(startIndex, endIndex);
-            if(isValid(curr)) {
-                temp.add(curr);
-                restoreIPAddress(s, endIndex, n, temp, result);
+            if(start + i >= n) continue;
+            String substring = s.substring(start, start + i + 1);
+            if(isValid(substring)) {
+                temp.add(substring);
+                restoreAddress(s, start + i + 1, n, temp, validIPAddress);
                 temp.remove(temp.size()-1);
             }
         }
     }
 
     private boolean isValid(String s) {
-        if(s.length() > 1 && s.charAt(0) == '0') return false;
-        if(s.length() > 3) return false;
-        if(Integer.valueOf(s) > 255) return false;
+        int value = Integer.valueOf(s);
+        if(value > 255) return false;
+        if(s.charAt(0) == '0' && s.length() > 1) return false;
         return true;
     }
 }
