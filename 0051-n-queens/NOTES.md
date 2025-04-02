@@ -19,55 +19,92 @@ so `O(N! + S(N) * N^2)` = O(N! + S(N) ∗ N^2)= `O(N!)` <br>
 ​
 ```
 class Solution {
+    boolean[] cols;
+    boolean[] ndiag;
+    boolean[] rdiag;
     public List<List<String>> solveNQueens(int n) {
-        List<List<String>> answer = new ArrayList<>();
-        char[][] grid = new char[n][n];
-        for(char[] row : grid) {
+        /*
+        TC : 
+        
+        If for every cell, we traverse the whole matrix and check if we can 
+        place the queen there or not, this will take 
+        
+        O(n^n) time complexity. 
+        
+        but as we are backtracking from a possible invalid cell
+        
+        for every cell, we have two options 
+        1. we can place the queen 
+        2. we can not place the queen
+        
+        i.e. 2^n
+        
+        and we are also copying the valid ans to our result
+        
+        i.e n2
+        
+        total : 2^n
+        
+        */
+        List<List<String>> result = new ArrayList();
+        
+        char[][] board = new char[n][n];
+        for(char[] row : board) {
             Arrays.fill(row, '.');
         }
-
-        boolean[] rdiag = new boolean[2*n-1];
-        boolean[] ndiag = new boolean[2*n-1];
-        boolean[] cols = new boolean[n];
-
-        nQueens(grid, 0, n, answer, rdiag, ndiag, cols);
-        return answer;
+        
+        cols = new boolean[n];
+        ndiag = new boolean[2*n-1];
+        rdiag = new boolean[2*n-1];
+        
+        nQueens(board, 0, n, result);
+        
+        return result;
     }
-
-    private void nQueens(char[][] grid, int r, int n, List<List<String>> answer, boolean[] rdiag, boolean[] ndiag, boolean[] cols) {
-        // base case
-        if(r == n) {
-            List<String> temp = new ArrayList<>();
-            for(char[] row : grid) {
-                temp.add(String.valueOf(row));
+    
+    public void nQueens(char[][] board, int row, int n, List<List<String>> result) {
+        
+        if(row >= n) {
+            ArrayList<String> temp = new ArrayList<>();
+            for(int i=0;i<n;i++) {
+                StringBuilder str = new StringBuilder();
+                for(int j=0;j<n;j++) {
+                    str.append(board[i][j]);
+                }
+                temp.add(str.toString());
             }
-            answer.add(temp);
+            result.add(temp);
             return;
         }
-        // main logic
-        for(int c = 0; c < n; c++) {
-            boolean isCurrentCellSafe = isSafe(grid, r, c, n, rdiag, ndiag, cols);
+        
+        for(int col=0;col<n;col++) {
+            boolean isCurrentCellSafe = isSafe(board, row, col, n);
             if(isCurrentCellSafe) {
-                grid[r][c] = 'Q';
-                ndiag[r - c + n - 1] = true;
-                rdiag[r + c] = true;
-                cols[c] = true;
-
-                nQueens(grid, r + 1, n, answer, rdiag, ndiag, cols);
-
-                grid[r][c] = '.';
-                ndiag[r - c + n - 1] = false;
-                rdiag[r + c] = false;
-                cols[c] = false;
+                
+                board[row][col] = 'Q';
+                cols[col] = true;
+                ndiag[row+col] = true;
+                rdiag[row-col+board.length-1] = true;
+                
+                nQueens(board, row+1, n, result);
+                
+                board[row][col] = '.';
+                cols[col] = false;
+                ndiag[row+col] = false;
+                rdiag[row-col+board.length-1] = false;
+                
             }
         }
     }
-
-    private boolean isSafe(char[][] grid, int r, int c, int n, boolean[] rdiag, boolean[] ndiag, boolean[] cols) {
-        return grid[r][c] == '.' && 
-                !ndiag[r - c + n - 1] && 
-                    !rdiag[r + c] && 
-                        !cols[c];
+    
+    private boolean isSafe(char[][]board, int row, int col, int n) {
+        if(// kya in positions pr kuch pada hai
+            cols[col] == false &&
+            ndiag[row+col] == false &&
+            rdiag[row-col+board.length-1] == false) {
+            return true;
+        }
+        return false;
     }
 }
 ```
