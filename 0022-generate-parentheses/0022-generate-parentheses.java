@@ -1,33 +1,37 @@
 class Solution {
 
-    private static final String OPEN = "(", CLOSE = ")";
+    private static final char OPEN = '(', CLOSE = ')';
+
     public List<String> generateParenthesis(int n) {
-        List<String> answer = new ArrayList<>();
-        generateParenthesis(n, n, new StringBuilder(), answer); // TODO : update the usage of string to stringbuilder
-        return answer;
+        List<String> parenthesis = new ArrayList<>();
+        generateParenthesis(n, n, new StringBuilder(), parenthesis);
+        return parenthesis;
     }
 
-    private void generateParenthesis(int open, int close, StringBuilder temp, List<String> answer) {
+    private void generateParenthesis(int open , int close, StringBuilder temp, List<String> parenthesis) {
+        // base case
         if(open == 0 && close == 0) {
-            answer.add(temp.toString());
+            parenthesis.add(String.valueOf(temp));
             return;
         }
+        // main logic
         if(open == close) {
             temp.append(OPEN);
-            generateParenthesis(open - 1, close, temp, answer);
-            temp.deleteCharAt(temp.length()-1);
-        }
-        else if(open < close) {
+            generateParenthesis(open - 1, close, temp, parenthesis);
+            temp.deleteCharAt(temp.length() - 1);
+        } else {
             if(open > 0) {
                 temp.append(OPEN);
-                generateParenthesis(open - 1, close, temp, answer);
-                temp.deleteCharAt(temp.length()-1);
+                generateParenthesis(open - 1, close, temp, parenthesis);
+                temp.deleteCharAt(temp.length() - 1);
             }
+
             if(close > 0) {
                 temp.append(CLOSE);
-                generateParenthesis(open, close - 1, temp, answer);
-                temp.deleteCharAt(temp.length()-1);
+                generateParenthesis(open, close - 1, temp, parenthesis);
+                temp.deleteCharAt(temp.length() - 1);
             }
         }
+
     }
 }
