@@ -37,6 +37,7 @@
 | [0971-shortest-bridge](https://github.com/namann2/Leetcode/tree/master/0971-shortest-bridge) |
 | [1308-smallest-string-with-swaps](https://github.com/namann2/Leetcode/tree/master/1308-smallest-string-with-swaps) |
 | [2375-minimum-obstacle-removal-to-reach-corner](https://github.com/namann2/Leetcode/tree/master/2375-minimum-obstacle-removal-to-reach-corner) |
+| [2558-minimum-number-of-operations-to-sort-a-binary-tree-by-level](https://github.com/namann2/Leetcode/tree/master/2558-minimum-number-of-operations-to-sort-a-binary-tree-by-level) |
 | [2711-minimum-time-to-visit-a-cell-in-a-grid](https://github.com/namann2/Leetcode/tree/master/2711-minimum-time-to-visit-a-cell-in-a-grid) |
 ## Graph
 |  |
@@ -146,6 +147,7 @@
 |  |
 | ------- |
 | [2364-longest-path-with-different-adjacent-characters](https://github.com/namann2/Leetcode/tree/master/2364-longest-path-with-different-adjacent-characters) |
+| [2558-minimum-number-of-operations-to-sort-a-binary-tree-by-level](https://github.com/namann2/Leetcode/tree/master/2558-minimum-number-of-operations-to-sort-a-binary-tree-by-level) |
 ## Union Find
 |  |
 | ------- |
@@ -169,4 +171,8 @@
 |  |
 | ------- |
 | [0679-24-game](https://github.com/namann2/Leetcode/tree/master/0679-24-game) |
+## Binary Tree
+|  |
+| ------- |
+| [2558-minimum-number-of-operations-to-sort-a-binary-tree-by-level](https://github.com/namann2/Leetcode/tree/master/2558-minimum-number-of-operations-to-sort-a-binary-tree-by-level) |
 <!---LeetCode Topics End-->
