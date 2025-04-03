@@ -13,6 +13,7 @@
 | [0078-subsets](https://github.com/namann2/Leetcode/tree/master/0078-subsets) |
 | [0090-subsets-ii](https://github.com/namann2/Leetcode/tree/master/0090-subsets-ii) |
 | [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/namann2/Leetcode/tree/master/0105-construct-binary-tree-from-preorder-and-inorder-traversal) |
+| [0106-construct-binary-tree-from-inorder-and-postorder-traversal](https://github.com/namann2/Leetcode/tree/master/0106-construct-binary-tree-from-inorder-and-postorder-traversal) |
 | [0216-combination-sum-iii](https://github.com/namann2/Leetcode/tree/master/0216-combination-sum-iii) |
 | [0399-evaluate-division](https://github.com/namann2/Leetcode/tree/master/0399-evaluate-division) |
 | [0465-optimal-account-balancing](https://github.com/namann2/Leetcode/tree/master/0465-optimal-account-balancing) |
@@ -114,6 +115,7 @@
 | ------- |
 | [0017-letter-combinations-of-a-phone-number](https://github.com/namann2/Leetcode/tree/master/0017-letter-combinations-of-a-phone-number) |
 | [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/namann2/Leetcode/tree/master/0105-construct-binary-tree-from-preorder-and-inorder-traversal) |
+| [0106-construct-binary-tree-from-inorder-and-postorder-traversal](https://github.com/namann2/Leetcode/tree/master/0106-construct-binary-tree-from-inorder-and-postorder-traversal) |
 | [1308-smallest-string-with-swaps](https://github.com/namann2/Leetcode/tree/master/1308-smallest-string-with-swaps) |
 | [2220-find-all-possible-recipes-from-given-supplies](https://github.com/namann2/Leetcode/tree/master/2220-find-all-possible-recipes-from-given-supplies) |
 ## Bit Manipulation
@@ -153,6 +155,7 @@
 | ------- |
 | [0094-binary-tree-inorder-traversal](https://github.com/namann2/Leetcode/tree/master/0094-binary-tree-inorder-traversal) |
 | [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/namann2/Leetcode/tree/master/0105-construct-binary-tree-from-preorder-and-inorder-traversal) |
+| [0106-construct-binary-tree-from-inorder-and-postorder-traversal](https://github.com/namann2/Leetcode/tree/master/0106-construct-binary-tree-from-inorder-and-postorder-traversal) |
 | [0144-binary-tree-preorder-traversal](https://github.com/namann2/Leetcode/tree/master/0144-binary-tree-preorder-traversal) |
 | [0145-binary-tree-postorder-traversal](https://github.com/namann2/Leetcode/tree/master/0145-binary-tree-postorder-traversal) |
 | [2364-longest-path-with-different-adjacent-characters](https://github.com/namann2/Leetcode/tree/master/2364-longest-path-with-different-adjacent-characters) |
@@ -185,6 +188,7 @@
 | ------- |
 | [0094-binary-tree-inorder-traversal](https://github.com/namann2/Leetcode/tree/master/0094-binary-tree-inorder-traversal) |
 | [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/namann2/Leetcode/tree/master/0105-construct-binary-tree-from-preorder-and-inorder-traversal) |
+| [0106-construct-binary-tree-from-inorder-and-postorder-traversal](https://github.com/namann2/Leetcode/tree/master/0106-construct-binary-tree-from-inorder-and-postorder-traversal) |
 | [0144-binary-tree-preorder-traversal](https://github.com/namann2/Leetcode/tree/master/0144-binary-tree-preorder-traversal) |
 | [0145-binary-tree-postorder-traversal](https://github.com/namann2/Leetcode/tree/master/0145-binary-tree-postorder-traversal) |
 | [2558-minimum-number-of-operations-to-sort-a-binary-tree-by-level](https://github.com/namann2/Leetcode/tree/master/2558-minimum-number-of-operations-to-sort-a-binary-tree-by-level) |
@@ -198,4 +202,5 @@
 |  |
 | ------- |
 | [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/namann2/Leetcode/tree/master/0105-construct-binary-tree-from-preorder-and-inorder-traversal) |
+| [0106-construct-binary-tree-from-inorder-and-postorder-traversal](https://github.com/namann2/Leetcode/tree/master/0106-construct-binary-tree-from-inorder-and-postorder-traversal) |
 <!---LeetCode Topics End-->
