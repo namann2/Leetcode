@@ -1,29 +1,16 @@
 class Solution {
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> answer = new ArrayList<>();
-        if(root == null) 
-            return answer;
-        
-        TreeNode curr = root;
-        while(curr != null) {
-            if(curr.left != null) {
-                TreeNode runner = curr.left;
-                while(runner.right != null && runner.right != curr) {
-                    runner = runner.right;
-                }
-                if(runner.right == null) {
-                    runner.right = curr;
-                    answer.add(curr.val);
-                    curr = curr.left;
-                } else {
-                    runner.right = null;
-                    curr = curr.right;
-                }
-            } else {
-                answer.add(curr.val);
-                curr = curr.right;
-            }
-        }
+        if(root == null) return answer;
+        preorderTraversal(root, answer);
         return answer;
+    }
+
+    /* helper functions */
+    private void preorderTraversal(TreeNode root, List<Integer> answer) {
+        if(root == null) return;
+        answer.add(root.val);
+        preorderTraversal(root.left, answer);
+        preorderTraversal(root.right, answer);
     }
 }
