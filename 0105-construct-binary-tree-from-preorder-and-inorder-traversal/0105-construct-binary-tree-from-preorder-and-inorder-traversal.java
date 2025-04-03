@@ -1,25 +1,27 @@
 class Solution {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         Map<Integer, Integer> inorderMap = new HashMap<>();
-        int n = inorder.length;
         int[] preIndex = {0};
+        int n = inorder.length;
         for(int i = 0; i < n; i++) {
             inorderMap.put(inorder[i], i);
         }
-        
-        return construct(preorder, inorderMap, 0, n-1, preIndex);
+        return constructTree(preorder, inorderMap, preIndex, 0, n-1);
     }
-    
-    private TreeNode construct(int[] preorder, Map<Integer, Integer> inorderMap, int left, int right, int[] preIndex) {
+
+    /* helper function */
+    private TreeNode constructTree(int[] preorder, Map<Integer, Integer> inorderMap, int[] preIndex, int left, int right) {
         // base case
         if(left > right) {
             return null;
         }
-        // main case
-        TreeNode root = new TreeNode(preorder[preIndex[0]++]);
-        int inIndex = inorderMap.get(root.val);
-        root.left = construct(preorder, inorderMap, left, inIndex - 1, preIndex);
-        root.right = construct(preorder, inorderMap, inIndex + 1, right, preIndex);
+        // main logic
+        TreeNode root = new TreeNode(preorder[preIndex[0]]);
+        int index = inorderMap.get(preorder[preIndex[0]++]);
+
+        root.left = constructTree(preorder, inorderMap, preIndex, left, index - 1);
+        root.right = constructTree(preorder, inorderMap, preIndex, index + 1, right);
+
         return root;
     }
 }
