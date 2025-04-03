@@ -28,6 +28,7 @@
 | [2364-longest-path-with-different-adjacent-characters](https://github.com/namann2/Leetcode/tree/master/2364-longest-path-with-different-adjacent-characters) |
 | [2375-minimum-obstacle-removal-to-reach-corner](https://github.com/namann2/Leetcode/tree/master/2375-minimum-obstacle-removal-to-reach-corner) |
 | [2711-minimum-time-to-visit-a-cell-in-a-grid](https://github.com/namann2/Leetcode/tree/master/2711-minimum-time-to-visit-a-cell-in-a-grid) |
+| [3151-minimum-processing-time](https://github.com/namann2/Leetcode/tree/master/3151-minimum-processing-time) |
 ## Breadth-First Search
 |  |
 | ------- |
@@ -174,6 +175,7 @@
 | ------- |
 | [0611-valid-triangle-number](https://github.com/namann2/Leetcode/tree/master/0611-valid-triangle-number) |
 | [1308-smallest-string-with-swaps](https://github.com/namann2/Leetcode/tree/master/1308-smallest-string-with-swaps) |
+| [3151-minimum-processing-time](https://github.com/namann2/Leetcode/tree/master/3151-minimum-processing-time) |
 ## Memoization
 |  |
 | ------- |
@@ -222,4 +224,5 @@
 |  |
 | ------- |
 | [0611-valid-triangle-number](https://github.com/namann2/Leetcode/tree/master/0611-valid-triangle-number) |
+| [3151-minimum-processing-time](https://github.com/namann2/Leetcode/tree/master/3151-minimum-processing-time) |
 <!---LeetCode Topics End-->
