@@ -1,23 +1,31 @@
 class Solution {
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> answer = new ArrayList<>();
-        if(root == null) return answer;
+        if(root == null)
+            return answer;
 
-        Deque<TreeNode> stack = new ArrayDeque<>();
         TreeNode curr = root;
 
-        while(!stack.isEmpty() || curr != null) {
-            // go to leftmost subnode of the curr node
-            while(curr != null) {
-                stack.addLast(curr);
-                curr = curr.left;
+        while(curr != null) {
+            if(curr.left != null) {
+                // 1. constructing the thread
+                TreeNode runner = curr.left;
+                while(runner != null && runner.right != null && runner.right != curr) {
+                    runner = runner.right;
+                }
+                if(runner.right == null) {
+                    runner.right = curr;
+                    curr = curr.left;
+                } else { // threaded path is already there from runner, hence, we need to break it
+                    answer.add(curr.val);
+                    curr = curr.right;
+                    runner.right = null;
+                }
+            } else {
+                answer.add(curr.val);
+                curr = curr.right;
             }
-            curr = stack.removeLast();
-            answer.add(curr.val);
-            // explore the right subtree of the curr node
-            curr = curr.right;
         }
-
         return answer;
     }
 }
