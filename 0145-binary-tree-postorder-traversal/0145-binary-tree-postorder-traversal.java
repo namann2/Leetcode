@@ -2,15 +2,17 @@ class Solution {
     public List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> answer = new ArrayList<>();
         if(root == null) return answer;
-        postorderTraversal(root, answer);
-        return answer;        
-    }
 
-    /* helper functions */
-    private void postorderTraversal(TreeNode root, List<Integer> answer) {
-        if(root == null) return;
-        postorderTraversal(root.left, answer);
-        postorderTraversal(root.right, answer);
-        answer.add(root.val);
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        stack.addLast(root);
+
+        while(!stack.isEmpty()) {
+            TreeNode curr = stack.removeLast();
+            if(curr.left != null) stack.addLast(curr.left);
+            if(curr.right != null) stack.addLast(curr.right);
+            answer.add(curr.val);
+        }
+        Collections.reverse(answer);
+        return answer;
     }
 }
