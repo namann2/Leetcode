@@ -3,14 +3,29 @@ class Solution {
         List<Integer> answer = new ArrayList<>();
         if(root == null) return answer;
 
-        Deque<TreeNode> stack = new ArrayDeque<>();
-        stack.addLast(root);
+        TreeNode curr = root;
 
-        while(!stack.isEmpty()) {
-            TreeNode curr = stack.removeLast();
-            answer.add(curr.val);
-            if(curr.right != null) stack.addLast(curr.right);
-            if(curr.left != null) stack.addLast(curr.left);
+        while(curr != null) {
+            if(curr.left != null) {
+                // 1. constructing the thread
+                TreeNode runner = curr.left;
+                while(runner != null && runner.right != null && runner.right != curr) {
+                    runner = runner.right;
+                }
+                if(runner.right == null) {
+                    // printing the while creating the threads, this is because we create threads only once
+                    // but visit the node multiple times.
+                    answer.add(curr.val); 
+                    runner.right = curr;
+                    curr = curr.left;
+                } else { // threaded path is already there from runner, hence, we need to break it
+                    curr = curr.right;
+                    runner.right = null;
+                }
+            } else {
+                answer.add(curr.val);
+                curr = curr.right;
+            }
         }
         return answer;
     }
