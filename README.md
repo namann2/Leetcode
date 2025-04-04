@@ -144,6 +144,7 @@
 | [0210-course-schedule-ii](https://github.com/namann2/Leetcode/tree/master/0210-course-schedule-ii) |
 | [0310-minimum-height-trees](https://github.com/namann2/Leetcode/tree/master/0310-minimum-height-trees) |
 | [0399-evaluate-division](https://github.com/namann2/Leetcode/tree/master/0399-evaluate-division) |
+| [0563-binary-tree-tilt](https://github.com/namann2/Leetcode/tree/master/0563-binary-tree-tilt) |
 | [0744-network-delay-time](https://github.com/namann2/Leetcode/tree/master/0744-network-delay-time) |
 | [0820-find-eventual-safe-states](https://github.com/namann2/Leetcode/tree/master/0820-find-eventual-safe-states) |
 | [0971-shortest-bridge](https://github.com/namann2/Leetcode/tree/master/0971-shortest-bridge) |
@@ -168,6 +169,7 @@
 | [0111-minimum-depth-of-binary-tree](https://github.com/namann2/Leetcode/tree/master/0111-minimum-depth-of-binary-tree) |
 | [0144-binary-tree-preorder-traversal](https://github.com/namann2/Leetcode/tree/master/0144-binary-tree-preorder-traversal) |
 | [0145-binary-tree-postorder-traversal](https://github.com/namann2/Leetcode/tree/master/0145-binary-tree-postorder-traversal) |
+| [0563-binary-tree-tilt](https://github.com/namann2/Leetcode/tree/master/0563-binary-tree-tilt) |
 | [0925-construct-binary-tree-from-preorder-and-postorder-traversal](https://github.com/namann2/Leetcode/tree/master/0925-construct-binary-tree-from-preorder-and-postorder-traversal) |
 | [2364-longest-path-with-different-adjacent-characters](https://github.com/namann2/Leetcode/tree/master/2364-longest-path-with-different-adjacent-characters) |
 | [2558-minimum-number-of-operations-to-sort-a-binary-tree-by-level](https://github.com/namann2/Leetcode/tree/master/2558-minimum-number-of-operations-to-sort-a-binary-tree-by-level) |
@@ -206,6 +208,7 @@
 | [0111-minimum-depth-of-binary-tree](https://github.com/namann2/Leetcode/tree/master/0111-minimum-depth-of-binary-tree) |
 | [0144-binary-tree-preorder-traversal](https://github.com/namann2/Leetcode/tree/master/0144-binary-tree-preorder-traversal) |
 | [0145-binary-tree-postorder-traversal](https://github.com/namann2/Leetcode/tree/master/0145-binary-tree-postorder-traversal) |
+| [0563-binary-tree-tilt](https://github.com/namann2/Leetcode/tree/master/0563-binary-tree-tilt) |
 | [0925-construct-binary-tree-from-preorder-and-postorder-traversal](https://github.com/namann2/Leetcode/tree/master/0925-construct-binary-tree-from-preorder-and-postorder-traversal) |
 | [2558-minimum-number-of-operations-to-sort-a-binary-tree-by-level](https://github.com/namann2/Leetcode/tree/master/2558-minimum-number-of-operations-to-sort-a-binary-tree-by-level) |
 ## Stack
