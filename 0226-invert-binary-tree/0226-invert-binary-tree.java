@@ -1,16 +1,14 @@
 class Solution {
-    // this is the bottom up manner to solve this. One can also do it in top-down manner, which get struck at the
-    // crunch time
     public TreeNode invertTree(TreeNode root) {
-        if(root == null) 
-            return root;
-        invertTree(root.left);
-        invertTree(root.right);
-        
-        TreeNode temp = root.left;
-        root.left = root.right;
+        if(root == null) return null;
+
+        TreeNode left = invertTree(root.left);
+        TreeNode right = invertTree(root.right);
+
+        TreeNode temp = left;
+        root.left = right;
         root.right = temp;
-        
-        return root;
+
+        return root;   
     }
 }
