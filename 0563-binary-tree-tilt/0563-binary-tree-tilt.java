@@ -1,27 +1,21 @@
 class Solution {
     public int findTilt(TreeNode root) {
+        int tilt[] = {0};
         if(root == null) return 0;
-        // Every node will return [tilt, summation of all nodes in curr subtree]
-        return findTilt2(root)[0];
+        findTiltHelper(root, tilt);
+        return tilt[0];
     }
 
-    private int[] findTilt2(TreeNode root) {
+    private int findTiltHelper(TreeNode root, int[] tilt) {
         // base case
-        if(root == null) 
-            return new int[]{0, 0};
-        // leaf node
-        if(root.left == null && root.right == null) {
-            return new int[]{0, root.val};
-        }
+        if(root == null) return 0;
+        if(root.left == null && root.right == null) return root.val;
+
         // main logic
-        int[] left = findTilt2(root.left);
-        int[] right = findTilt2(root.right);
+        int left = findTiltHelper(root.left, tilt);
+        int right = findTiltHelper(root.right, tilt);
 
-        int leftSubtreeTilt = left[0], rightSubtreeTilt = right[0];
-        int currTilt = Math.abs(left[1] - right[1]);
-        
-        int overallTilt = leftSubtreeTilt + rightSubtreeTilt + currTilt;
-
-        return new int[]{overallTilt, root.val + left[1] + right[1]};
+        tilt[0] += Math.abs(left - right);
+        return root.val + left + right;
     }
 }
