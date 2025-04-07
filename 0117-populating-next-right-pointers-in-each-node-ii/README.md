@@ -1,6 +1,7 @@
-<h2><a href="https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/">117. Populating Next Right Pointers in Each Node II</a></h2><h3>Medium</h3><hr><div><p>Given a binary tree</p>
+<h2><a href="https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii">117. Populating Next Right Pointers in Each Node II</a></h2><h3>Medium</h3><hr><p>Given a binary tree</p>
 
-<pre>struct Node {
+<pre>
+struct Node {
   int val;
   Node *left;
   Node *right;
@@ -14,15 +15,17 @@
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2019/02/15/117_sample.png" style="width: 500px; height: 171px;">
-<pre><strong>Input:</strong> root = [1,2,3,4,5,null,7]
+<img alt="" src="https://assets.leetcode.com/uploads/2019/02/15/117_sample.png" style="width: 500px; height: 171px;" />
+<pre>
+<strong>Input:</strong> root = [1,2,3,4,5,null,7]
 <strong>Output:</strong> [1,#,2,3,#,4,5,7,#]
-<strong>Explanation: </strong>Given the above binary tree (Figure A), your function should populate each next pointer to point to its next right node, just like in Figure B. The serialized output is in level order as connected by the next pointers, with '#' signifying the end of each level.
+<strong>Explanation: </strong>Given the above binary tree (Figure A), your function should populate each next pointer to point to its next right node, just like in Figure B. The serialized output is in level order as connected by the next pointers, with &#39;#&#39; signifying the end of each level.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre><strong>Input:</strong> root = []
+<pre>
+<strong>Input:</strong> root = []
 <strong>Output:</strong> []
 </pre>
 
@@ -41,4 +44,3 @@
 	<li>You may only use constant extra space.</li>
 	<li>The recursive approach is fine. You may assume implicit stack space does not count as extra space for this problem.</li>
 </ul>
-</div>
