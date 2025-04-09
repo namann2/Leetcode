@@ -103,6 +103,7 @@
 | [0465-optimal-account-balancing](https://github.com/namann2/Leetcode/tree/master/0465-optimal-account-balancing) |
 | [0473-matchsticks-to-square](https://github.com/namann2/Leetcode/tree/master/0473-matchsticks-to-square) |
 | [0698-partition-to-k-equal-sum-subsets](https://github.com/namann2/Leetcode/tree/master/0698-partition-to-k-equal-sum-subsets) |
+| [1008-binary-tree-cameras](https://github.com/namann2/Leetcode/tree/master/1008-binary-tree-cameras) |
 ## Backtracking
 |  |
 | ------- |
@@ -164,6 +165,7 @@
 | [0832-binary-tree-pruning](https://github.com/namann2/Leetcode/tree/master/0832-binary-tree-pruning) |
 | [0971-shortest-bridge](https://github.com/namann2/Leetcode/tree/master/0971-shortest-bridge) |
 | [0988-flip-equivalent-binary-trees](https://github.com/namann2/Leetcode/tree/master/0988-flip-equivalent-binary-trees) |
+| [1008-binary-tree-cameras](https://github.com/namann2/Leetcode/tree/master/1008-binary-tree-cameras) |
 | [1308-smallest-string-with-swaps](https://github.com/namann2/Leetcode/tree/master/1308-smallest-string-with-swaps) |
 | [2364-longest-path-with-different-adjacent-characters](https://github.com/namann2/Leetcode/tree/master/2364-longest-path-with-different-adjacent-characters) |
 | [2461-amount-of-time-for-binary-tree-to-be-infected](https://github.com/namann2/Leetcode/tree/master/2461-amount-of-time-for-binary-tree-to-be-infected) |
@@ -196,6 +198,7 @@
 | [0832-binary-tree-pruning](https://github.com/namann2/Leetcode/tree/master/0832-binary-tree-pruning) |
 | [0925-construct-binary-tree-from-preorder-and-postorder-traversal](https://github.com/namann2/Leetcode/tree/master/0925-construct-binary-tree-from-preorder-and-postorder-traversal) |
 | [0988-flip-equivalent-binary-trees](https://github.com/namann2/Leetcode/tree/master/0988-flip-equivalent-binary-trees) |
+| [1008-binary-tree-cameras](https://github.com/namann2/Leetcode/tree/master/1008-binary-tree-cameras) |
 | [2364-longest-path-with-different-adjacent-characters](https://github.com/namann2/Leetcode/tree/master/2364-longest-path-with-different-adjacent-characters) |
 | [2461-amount-of-time-for-binary-tree-to-be-infected](https://github.com/namann2/Leetcode/tree/master/2461-amount-of-time-for-binary-tree-to-be-infected) |
 | [2558-minimum-number-of-operations-to-sort-a-binary-tree-by-level](https://github.com/namann2/Leetcode/tree/master/2558-minimum-number-of-operations-to-sort-a-binary-tree-by-level) |
@@ -244,6 +247,7 @@
 | [0832-binary-tree-pruning](https://github.com/namann2/Leetcode/tree/master/0832-binary-tree-pruning) |
 | [0925-construct-binary-tree-from-preorder-and-postorder-traversal](https://github.com/namann2/Leetcode/tree/master/0925-construct-binary-tree-from-preorder-and-postorder-traversal) |
 | [0988-flip-equivalent-binary-trees](https://github.com/namann2/Leetcode/tree/master/0988-flip-equivalent-binary-trees) |
+| [1008-binary-tree-cameras](https://github.com/namann2/Leetcode/tree/master/1008-binary-tree-cameras) |
 | [2461-amount-of-time-for-binary-tree-to-be-infected](https://github.com/namann2/Leetcode/tree/master/2461-amount-of-time-for-binary-tree-to-be-infected) |
 | [2558-minimum-number-of-operations-to-sort-a-binary-tree-by-level](https://github.com/namann2/Leetcode/tree/master/2558-minimum-number-of-operations-to-sort-a-binary-tree-by-level) |
 ## Stack
