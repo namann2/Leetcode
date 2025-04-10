@@ -156,6 +156,7 @@
 | [0207-course-schedule](https://github.com/namann2/Leetcode/tree/master/0207-course-schedule) |
 | [0210-course-schedule-ii](https://github.com/namann2/Leetcode/tree/master/0210-course-schedule-ii) |
 | [0226-invert-binary-tree](https://github.com/namann2/Leetcode/tree/master/0226-invert-binary-tree) |
+| [0236-lowest-common-ancestor-of-a-binary-tree](https://github.com/namann2/Leetcode/tree/master/0236-lowest-common-ancestor-of-a-binary-tree) |
 | [0310-minimum-height-trees](https://github.com/namann2/Leetcode/tree/master/0310-minimum-height-trees) |
 | [0399-evaluate-division](https://github.com/namann2/Leetcode/tree/master/0399-evaluate-division) |
 | [0513-find-bottom-left-tree-value](https://github.com/namann2/Leetcode/tree/master/0513-find-bottom-left-tree-value) |
@@ -193,6 +194,7 @@
 | [0144-binary-tree-preorder-traversal](https://github.com/namann2/Leetcode/tree/master/0144-binary-tree-preorder-traversal) |
 | [0145-binary-tree-postorder-traversal](https://github.com/namann2/Leetcode/tree/master/0145-binary-tree-postorder-traversal) |
 | [0226-invert-binary-tree](https://github.com/namann2/Leetcode/tree/master/0226-invert-binary-tree) |
+| [0236-lowest-common-ancestor-of-a-binary-tree](https://github.com/namann2/Leetcode/tree/master/0236-lowest-common-ancestor-of-a-binary-tree) |
 | [0513-find-bottom-left-tree-value](https://github.com/namann2/Leetcode/tree/master/0513-find-bottom-left-tree-value) |
 | [0563-binary-tree-tilt](https://github.com/namann2/Leetcode/tree/master/0563-binary-tree-tilt) |
 | [0832-binary-tree-pruning](https://github.com/namann2/Leetcode/tree/master/0832-binary-tree-pruning) |
@@ -242,6 +244,7 @@
 | [0144-binary-tree-preorder-traversal](https://github.com/namann2/Leetcode/tree/master/0144-binary-tree-preorder-traversal) |
 | [0145-binary-tree-postorder-traversal](https://github.com/namann2/Leetcode/tree/master/0145-binary-tree-postorder-traversal) |
 | [0226-invert-binary-tree](https://github.com/namann2/Leetcode/tree/master/0226-invert-binary-tree) |
+| [0236-lowest-common-ancestor-of-a-binary-tree](https://github.com/namann2/Leetcode/tree/master/0236-lowest-common-ancestor-of-a-binary-tree) |
 | [0513-find-bottom-left-tree-value](https://github.com/namann2/Leetcode/tree/master/0513-find-bottom-left-tree-value) |
 | [0563-binary-tree-tilt](https://github.com/namann2/Leetcode/tree/master/0563-binary-tree-tilt) |
 | [0832-binary-tree-pruning](https://github.com/namann2/Leetcode/tree/master/0832-binary-tree-pruning) |
