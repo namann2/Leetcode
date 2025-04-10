@@ -168,6 +168,7 @@
 | [0988-flip-equivalent-binary-trees](https://github.com/namann2/Leetcode/tree/master/0988-flip-equivalent-binary-trees) |
 | [1008-binary-tree-cameras](https://github.com/namann2/Leetcode/tree/master/1008-binary-tree-cameras) |
 | [1308-smallest-string-with-swaps](https://github.com/namann2/Leetcode/tree/master/1308-smallest-string-with-swaps) |
+| [1780-lowest-common-ancestor-of-a-binary-tree-ii](https://github.com/namann2/Leetcode/tree/master/1780-lowest-common-ancestor-of-a-binary-tree-ii) |
 | [2364-longest-path-with-different-adjacent-characters](https://github.com/namann2/Leetcode/tree/master/2364-longest-path-with-different-adjacent-characters) |
 | [2461-amount-of-time-for-binary-tree-to-be-infected](https://github.com/namann2/Leetcode/tree/master/2461-amount-of-time-for-binary-tree-to-be-infected) |
 ## Topological Sort
@@ -201,6 +202,7 @@
 | [0925-construct-binary-tree-from-preorder-and-postorder-traversal](https://github.com/namann2/Leetcode/tree/master/0925-construct-binary-tree-from-preorder-and-postorder-traversal) |
 | [0988-flip-equivalent-binary-trees](https://github.com/namann2/Leetcode/tree/master/0988-flip-equivalent-binary-trees) |
 | [1008-binary-tree-cameras](https://github.com/namann2/Leetcode/tree/master/1008-binary-tree-cameras) |
+| [1780-lowest-common-ancestor-of-a-binary-tree-ii](https://github.com/namann2/Leetcode/tree/master/1780-lowest-common-ancestor-of-a-binary-tree-ii) |
 | [2364-longest-path-with-different-adjacent-characters](https://github.com/namann2/Leetcode/tree/master/2364-longest-path-with-different-adjacent-characters) |
 | [2461-amount-of-time-for-binary-tree-to-be-infected](https://github.com/namann2/Leetcode/tree/master/2461-amount-of-time-for-binary-tree-to-be-infected) |
 | [2558-minimum-number-of-operations-to-sort-a-binary-tree-by-level](https://github.com/namann2/Leetcode/tree/master/2558-minimum-number-of-operations-to-sort-a-binary-tree-by-level) |
@@ -251,6 +253,7 @@
 | [0925-construct-binary-tree-from-preorder-and-postorder-traversal](https://github.com/namann2/Leetcode/tree/master/0925-construct-binary-tree-from-preorder-and-postorder-traversal) |
 | [0988-flip-equivalent-binary-trees](https://github.com/namann2/Leetcode/tree/master/0988-flip-equivalent-binary-trees) |
 | [1008-binary-tree-cameras](https://github.com/namann2/Leetcode/tree/master/1008-binary-tree-cameras) |
+| [1780-lowest-common-ancestor-of-a-binary-tree-ii](https://github.com/namann2/Leetcode/tree/master/1780-lowest-common-ancestor-of-a-binary-tree-ii) |
 | [2461-amount-of-time-for-binary-tree-to-be-infected](https://github.com/namann2/Leetcode/tree/master/2461-amount-of-time-for-binary-tree-to-be-infected) |
 | [2558-minimum-number-of-operations-to-sort-a-binary-tree-by-level](https://github.com/namann2/Leetcode/tree/master/2558-minimum-number-of-operations-to-sort-a-binary-tree-by-level) |
 ## Stack
