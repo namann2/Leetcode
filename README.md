@@ -48,6 +48,7 @@
 | [0744-network-delay-time](https://github.com/namann2/Leetcode/tree/master/0744-network-delay-time) |
 | [0820-find-eventual-safe-states](https://github.com/namann2/Leetcode/tree/master/0820-find-eventual-safe-states) |
 | [0971-shortest-bridge](https://github.com/namann2/Leetcode/tree/master/0971-shortest-bridge) |
+| [1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/namann2/Leetcode/tree/master/1218-lowest-common-ancestor-of-deepest-leaves) |
 | [1308-smallest-string-with-swaps](https://github.com/namann2/Leetcode/tree/master/1308-smallest-string-with-swaps) |
 | [2375-minimum-obstacle-removal-to-reach-corner](https://github.com/namann2/Leetcode/tree/master/2375-minimum-obstacle-removal-to-reach-corner) |
 | [2461-amount-of-time-for-binary-tree-to-be-infected](https://github.com/namann2/Leetcode/tree/master/2461-amount-of-time-for-binary-tree-to-be-infected) |
@@ -130,6 +131,7 @@
 | [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/namann2/Leetcode/tree/master/0105-construct-binary-tree-from-preorder-and-inorder-traversal) |
 | [0106-construct-binary-tree-from-inorder-and-postorder-traversal](https://github.com/namann2/Leetcode/tree/master/0106-construct-binary-tree-from-inorder-and-postorder-traversal) |
 | [0925-construct-binary-tree-from-preorder-and-postorder-traversal](https://github.com/namann2/Leetcode/tree/master/0925-construct-binary-tree-from-preorder-and-postorder-traversal) |
+| [1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/namann2/Leetcode/tree/master/1218-lowest-common-ancestor-of-deepest-leaves) |
 | [1308-smallest-string-with-swaps](https://github.com/namann2/Leetcode/tree/master/1308-smallest-string-with-swaps) |
 | [1790-lowest-common-ancestor-of-a-binary-tree-iii](https://github.com/namann2/Leetcode/tree/master/1790-lowest-common-ancestor-of-a-binary-tree-iii) |
 | [1816-lowest-common-ancestor-of-a-binary-tree-iv](https://github.com/namann2/Leetcode/tree/master/1816-lowest-common-ancestor-of-a-binary-tree-iv) |
@@ -169,6 +171,7 @@
 | [0971-shortest-bridge](https://github.com/namann2/Leetcode/tree/master/0971-shortest-bridge) |
 | [0988-flip-equivalent-binary-trees](https://github.com/namann2/Leetcode/tree/master/0988-flip-equivalent-binary-trees) |
 | [1008-binary-tree-cameras](https://github.com/namann2/Leetcode/tree/master/1008-binary-tree-cameras) |
+| [1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/namann2/Leetcode/tree/master/1218-lowest-common-ancestor-of-deepest-leaves) |
 | [1308-smallest-string-with-swaps](https://github.com/namann2/Leetcode/tree/master/1308-smallest-string-with-swaps) |
 | [1780-lowest-common-ancestor-of-a-binary-tree-ii](https://github.com/namann2/Leetcode/tree/master/1780-lowest-common-ancestor-of-a-binary-tree-ii) |
 | [1816-lowest-common-ancestor-of-a-binary-tree-iv](https://github.com/namann2/Leetcode/tree/master/1816-lowest-common-ancestor-of-a-binary-tree-iv) |
@@ -205,6 +208,7 @@
 | [0925-construct-binary-tree-from-preorder-and-postorder-traversal](https://github.com/namann2/Leetcode/tree/master/0925-construct-binary-tree-from-preorder-and-postorder-traversal) |
 | [0988-flip-equivalent-binary-trees](https://github.com/namann2/Leetcode/tree/master/0988-flip-equivalent-binary-trees) |
 | [1008-binary-tree-cameras](https://github.com/namann2/Leetcode/tree/master/1008-binary-tree-cameras) |
+| [1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/namann2/Leetcode/tree/master/1218-lowest-common-ancestor-of-deepest-leaves) |
 | [1780-lowest-common-ancestor-of-a-binary-tree-ii](https://github.com/namann2/Leetcode/tree/master/1780-lowest-common-ancestor-of-a-binary-tree-ii) |
 | [1790-lowest-common-ancestor-of-a-binary-tree-iii](https://github.com/namann2/Leetcode/tree/master/1790-lowest-common-ancestor-of-a-binary-tree-iii) |
 | [1816-lowest-common-ancestor-of-a-binary-tree-iv](https://github.com/namann2/Leetcode/tree/master/1816-lowest-common-ancestor-of-a-binary-tree-iv) |
@@ -258,6 +262,7 @@
 | [0925-construct-binary-tree-from-preorder-and-postorder-traversal](https://github.com/namann2/Leetcode/tree/master/0925-construct-binary-tree-from-preorder-and-postorder-traversal) |
 | [0988-flip-equivalent-binary-trees](https://github.com/namann2/Leetcode/tree/master/0988-flip-equivalent-binary-trees) |
 | [1008-binary-tree-cameras](https://github.com/namann2/Leetcode/tree/master/1008-binary-tree-cameras) |
+| [1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/namann2/Leetcode/tree/master/1218-lowest-common-ancestor-of-deepest-leaves) |
 | [1780-lowest-common-ancestor-of-a-binary-tree-ii](https://github.com/namann2/Leetcode/tree/master/1780-lowest-common-ancestor-of-a-binary-tree-ii) |
 | [1790-lowest-common-ancestor-of-a-binary-tree-iii](https://github.com/namann2/Leetcode/tree/master/1790-lowest-common-ancestor-of-a-binary-tree-iii) |
 | [1816-lowest-common-ancestor-of-a-binary-tree-iv](https://github.com/namann2/Leetcode/tree/master/1816-lowest-common-ancestor-of-a-binary-tree-iv) |
