@@ -32,6 +32,7 @@ class Solution {
                 unvisitedChildren++;
         }
 
+        // if there are no childpath to explore
         if(unvisitedChildren == 0) 
             return currNode == target ? 1d : 0d;
 
@@ -39,6 +40,8 @@ class Solution {
         for(int child : g.get(currNode)) {
             if(!visited[child]) {
                 double prob_path_from_child = dfs(g, child, time - 1, target, visited);
+                // prob_path_from_child > 0 means that there exist a path which passes through this child
+                // that contains a node that equals target
                 if(prob_path_from_child > 0)
                     return prob_path_from_child * prob_child;
             }
