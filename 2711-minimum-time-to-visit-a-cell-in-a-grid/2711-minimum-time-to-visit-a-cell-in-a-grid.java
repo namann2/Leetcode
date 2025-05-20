@@ -1,42 +1,47 @@
 class Solution {
     public int minimumTime(int[][] grid) {
-        // Each move you make takes 1 second, if we're unable to move -> GAME OVER
+        int rows = grid.length, cols = grid[0].length;
+        // if we can not move to adjacent cells from the start position, return -1
         if(grid[0][1] > 1 && grid[1][0] > 1) return -1;
 
+        // x, y, time
         PriorityQueue<int[]> q = new PriorityQueue<>((p1, p2) -> {
             return p1[2] - p2[2];
         });
 
-        int rows = grid.length, cols = grid[0].length;
-        boolean[][] visited = new boolean[rows][cols];
-
+        boolean[][]visited = new boolean[rows][cols];
         q.offer(new int[]{0, 0, grid[0][0]});
         visited[0][0] = true;
 
-
-        int[]dx = {-1, 1, 0, 0};
-        int[]dy = {0, 0, -1, 1};
-
+        int[] dx = {0, 0, -1, 1}, dy = {-1, 1, 0, 0};
+        
         while(!q.isEmpty()) {
-            int[] currCell = q.poll();
-            int currX = currCell[0], currY = currCell[1], timeToReachCell = currCell[2];
-            if(currX == rows - 1 && currY == cols - 1) return timeToReachCell;
+            int[] curr = q.poll();
+            int currX = curr[0], currY = curr[1], currTime = curr[2];
+            // early break
+            if(currX == rows - 1 && currY == cols - 1) return currTime;
+            // explore 4 options from each cell
             for(int i = 0; i < 4; i++) {
-                int newX = currX + dx[i];
-                int newY = currY + dy[i];
-                if(newX >= 0 && newX < rows && newY >= 0 && newY < cols && !visited[newX][newY]) {
-                    // if we can reach the next cell
-                    if(grid[newX][newY] <= timeToReachCell + 1) q.offer(new int[]{newX, newY, timeToReachCell + 1});
+                int newX = currX + dx[i], 
+                newY = currY + dy[i];
+                // if it is actually possible to reach newCell
+                if(isSafe(grid, newX, newY, rows, cols, visited)) {
+                    int minTimeRequiredToReachNewCell = grid[newX][newY];
+                    if(minTimeRequiredToReachNewCell <= currTime + 1) q.offer(new int[]{newX, newY, currTime + 1});
                     else {
-                        // we've got to make a move -> jump b/w previous cell and current cell 
-                        int timeForWhichWeNeedToHop = grid[newX][newY] - timeToReachCell;
-                        if(timeForWhichWeNeedToHop % 2 == 1) q.offer(new int[]{newX, newY, grid[newX][newY]});
-                        else q.offer(new int[]{newX, newY, grid[newX][newY] + 1});
+                        int timeToOscillate = minTimeRequiredToReachNewCell - currTime;
+                        if(timeToOscillate % 2 == 1) q.offer(new int[]{newX, newY, currTime + timeToOscillate});
+                        else q.offer(new int[]{newX, newY, currTime + 1 + timeToOscillate});
                     }
                     visited[newX][newY] = true;
                 }
             }
         }
         return -1;
+    }
+
+    private boolean isSafe(int[][] grid, int i, int j, int rows, int cols, boolean[][] visited) {
+        if(i >= 0 && i < rows && j >= 0 && j < cols && !visited[i][j]) return true;
+        return false;
     }
 }
