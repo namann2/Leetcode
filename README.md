@@ -73,6 +73,7 @@
 | [0399-evaluate-division](https://github.com/namann2/Leetcode/tree/master/0399-evaluate-division) |
 | [0744-network-delay-time](https://github.com/namann2/Leetcode/tree/master/0744-network-delay-time) |
 | [0820-find-eventual-safe-states](https://github.com/namann2/Leetcode/tree/master/0820-find-eventual-safe-states) |
+| [1144-optimize-water-distribution-in-a-village](https://github.com/namann2/Leetcode/tree/master/1144-optimize-water-distribution-in-a-village) |
 | [1493-frog-position-after-t-seconds](https://github.com/namann2/Leetcode/tree/master/1493-frog-position-after-t-seconds) |
 | [2206-detonate-the-maximum-bombs](https://github.com/namann2/Leetcode/tree/master/2206-detonate-the-maximum-bombs) |
 | [2220-find-all-possible-recipes-from-given-supplies](https://github.com/namann2/Leetcode/tree/master/2220-find-all-possible-recipes-from-given-supplies) |
@@ -83,6 +84,7 @@
 |  |
 | ------- |
 | [0744-network-delay-time](https://github.com/namann2/Leetcode/tree/master/0744-network-delay-time) |
+| [1144-optimize-water-distribution-in-a-village](https://github.com/namann2/Leetcode/tree/master/1144-optimize-water-distribution-in-a-village) |
 | [2375-minimum-obstacle-removal-to-reach-corner](https://github.com/namann2/Leetcode/tree/master/2375-minimum-obstacle-removal-to-reach-corner) |
 | [2711-minimum-time-to-visit-a-cell-in-a-grid](https://github.com/namann2/Leetcode/tree/master/2711-minimum-time-to-visit-a-cell-in-a-grid) |
 ## Matrix
@@ -241,6 +243,7 @@
 |  |
 | ------- |
 | [0399-evaluate-division](https://github.com/namann2/Leetcode/tree/master/0399-evaluate-division) |
+| [1144-optimize-water-distribution-in-a-village](https://github.com/namann2/Leetcode/tree/master/1144-optimize-water-distribution-in-a-village) |
 | [1308-smallest-string-with-swaps](https://github.com/namann2/Leetcode/tree/master/1308-smallest-string-with-swaps) |
 | [2035-count-sub-islands](https://github.com/namann2/Leetcode/tree/master/2035-count-sub-islands) |
 ## Sorting
@@ -332,4 +335,8 @@
 |  |
 | ------- |
 | [3732-calculate-score-after-performing-instructions](https://github.com/namann2/Leetcode/tree/master/3732-calculate-score-after-performing-instructions) |
+## Minimum Spanning Tree
+|  |
+| ------- |
+| [1144-optimize-water-distribution-in-a-village](https://github.com/namann2/Leetcode/tree/master/1144-optimize-water-distribution-in-a-village) |
 <!---LeetCode Topics End-->
