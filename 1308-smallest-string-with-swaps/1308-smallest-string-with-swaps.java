@@ -5,38 +5,34 @@ class Solution {
         uf.makeSet(n);
 
         for(List<Integer> pair : pairs) {
-            int a = uf.findSet(pair.get(0));
-            int b = uf.findSet(pair.get(1));
-            uf.union(a, b);
+            uf.union(pair.get(0), pair.get(1));
         }
 
         Map<Integer, PriorityQueue<Character>> g = new HashMap<>();
         for(int i = 0; i < n; i++) {
-            char ch = s.charAt(i);
-            int key = uf.findSet(i);
-            g.putIfAbsent(key, new PriorityQueue<>());
-            g.get(key).offer(ch);
+            int parent = uf.findSet(i);
+            g.putIfAbsent(parent, new PriorityQueue<>());
+            g.get(parent).offer(s.charAt(i));
         }
 
         StringBuilder smallestString = new StringBuilder();
         for(int i = 0; i < n; i++) {
-            smallestString.append(g.get(uf.findSet(i)).poll());
+            int parent = uf.findSet(i);
+            smallestString.append(g.get(parent).poll());
         }
-        
+
         return smallestString.toString();
     }
 }
 
-/* UnionFind */
 class Node {
     int data, rank;
     Node parent;
 }
 
 class UnionFind {
-
-    Map<Integer, Node> map;
-
+    private Map<Integer, Node> map;
+    
     public UnionFind() {
         this.map = new HashMap<>();
     }
@@ -63,14 +59,14 @@ class UnionFind {
     }
 
     public void union(int a, int b) {
-        Node pA = map.get(a) == null ? null : findSet(map.get(a));
-        Node pB = map.get(b) == null ? null : findSet(map.get(b));
+        Node pA = findSet(map.get(a));
+        Node pB = findSet(map.get(b));
 
         if(pA == pB) return;
-        
+
         if(pA.rank >= pB.rank) {
             pB.parent = pA;
-            pA.rank = pA.rank > pB.rank ? pA.rank : pA.rank + 1;
+            pA.rank = pA.rank > pB.rank ? pA.rank : pA.rank ++;
         } else {
             pA.parent = pB;
             pB.rank++;
