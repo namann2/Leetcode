@@ -56,6 +56,7 @@
 | [0971-shortest-bridge](https://github.com/namann2/Leetcode/tree/master/0971-shortest-bridge) |
 | [1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/namann2/Leetcode/tree/master/1218-lowest-common-ancestor-of-deepest-leaves) |
 | [1308-smallest-string-with-swaps](https://github.com/namann2/Leetcode/tree/master/1308-smallest-string-with-swaps) |
+| [1492-time-needed-to-inform-all-employees](https://github.com/namann2/Leetcode/tree/master/1492-time-needed-to-inform-all-employees) |
 | [1493-frog-position-after-t-seconds](https://github.com/namann2/Leetcode/tree/master/1493-frog-position-after-t-seconds) |
 | [2035-count-sub-islands](https://github.com/namann2/Leetcode/tree/master/2035-count-sub-islands) |
 | [2206-detonate-the-maximum-bombs](https://github.com/namann2/Leetcode/tree/master/2206-detonate-the-maximum-bombs) |
@@ -191,6 +192,7 @@
 | [1008-binary-tree-cameras](https://github.com/namann2/Leetcode/tree/master/1008-binary-tree-cameras) |
 | [1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/namann2/Leetcode/tree/master/1218-lowest-common-ancestor-of-deepest-leaves) |
 | [1308-smallest-string-with-swaps](https://github.com/namann2/Leetcode/tree/master/1308-smallest-string-with-swaps) |
+| [1492-time-needed-to-inform-all-employees](https://github.com/namann2/Leetcode/tree/master/1492-time-needed-to-inform-all-employees) |
 | [1493-frog-position-after-t-seconds](https://github.com/namann2/Leetcode/tree/master/1493-frog-position-after-t-seconds) |
 | [1780-lowest-common-ancestor-of-a-binary-tree-ii](https://github.com/namann2/Leetcode/tree/master/1780-lowest-common-ancestor-of-a-binary-tree-ii) |
 | [1816-lowest-common-ancestor-of-a-binary-tree-iv](https://github.com/namann2/Leetcode/tree/master/1816-lowest-common-ancestor-of-a-binary-tree-iv) |
@@ -231,6 +233,7 @@
 | [0988-flip-equivalent-binary-trees](https://github.com/namann2/Leetcode/tree/master/0988-flip-equivalent-binary-trees) |
 | [1008-binary-tree-cameras](https://github.com/namann2/Leetcode/tree/master/1008-binary-tree-cameras) |
 | [1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/namann2/Leetcode/tree/master/1218-lowest-common-ancestor-of-deepest-leaves) |
+| [1492-time-needed-to-inform-all-employees](https://github.com/namann2/Leetcode/tree/master/1492-time-needed-to-inform-all-employees) |
 | [1493-frog-position-after-t-seconds](https://github.com/namann2/Leetcode/tree/master/1493-frog-position-after-t-seconds) |
 | [1780-lowest-common-ancestor-of-a-binary-tree-ii](https://github.com/namann2/Leetcode/tree/master/1780-lowest-common-ancestor-of-a-binary-tree-ii) |
 | [1790-lowest-common-ancestor-of-a-binary-tree-iii](https://github.com/namann2/Leetcode/tree/master/1790-lowest-common-ancestor-of-a-binary-tree-iii) |
