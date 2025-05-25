@@ -25,6 +25,7 @@
 | [0833-bus-routes](https://github.com/namann2/Leetcode/tree/master/0833-bus-routes) |
 | [0925-construct-binary-tree-from-preorder-and-postorder-traversal](https://github.com/namann2/Leetcode/tree/master/0925-construct-binary-tree-from-preorder-and-postorder-traversal) |
 | [0971-shortest-bridge](https://github.com/namann2/Leetcode/tree/master/0971-shortest-bridge) |
+| [0989-largest-component-size-by-common-factor](https://github.com/namann2/Leetcode/tree/master/0989-largest-component-size-by-common-factor) |
 | [1308-smallest-string-with-swaps](https://github.com/namann2/Leetcode/tree/master/1308-smallest-string-with-swaps) |
 | [2035-count-sub-islands](https://github.com/namann2/Leetcode/tree/master/2035-count-sub-islands) |
 | [2206-detonate-the-maximum-bombs](https://github.com/namann2/Leetcode/tree/master/2206-detonate-the-maximum-bombs) |
@@ -158,6 +159,7 @@
 | [0106-construct-binary-tree-from-inorder-and-postorder-traversal](https://github.com/namann2/Leetcode/tree/master/0106-construct-binary-tree-from-inorder-and-postorder-traversal) |
 | [0833-bus-routes](https://github.com/namann2/Leetcode/tree/master/0833-bus-routes) |
 | [0925-construct-binary-tree-from-preorder-and-postorder-traversal](https://github.com/namann2/Leetcode/tree/master/0925-construct-binary-tree-from-preorder-and-postorder-traversal) |
+| [0989-largest-component-size-by-common-factor](https://github.com/namann2/Leetcode/tree/master/0989-largest-component-size-by-common-factor) |
 | [1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/namann2/Leetcode/tree/master/1218-lowest-common-ancestor-of-deepest-leaves) |
 | [1308-smallest-string-with-swaps](https://github.com/namann2/Leetcode/tree/master/1308-smallest-string-with-swaps) |
 | [1790-lowest-common-ancestor-of-a-binary-tree-iii](https://github.com/namann2/Leetcode/tree/master/1790-lowest-common-ancestor-of-a-binary-tree-iii) |
@@ -258,6 +260,7 @@
 |  |
 | ------- |
 | [0399-evaluate-division](https://github.com/namann2/Leetcode/tree/master/0399-evaluate-division) |
+| [0989-largest-component-size-by-common-factor](https://github.com/namann2/Leetcode/tree/master/0989-largest-component-size-by-common-factor) |
 | [1144-optimize-water-distribution-in-a-village](https://github.com/namann2/Leetcode/tree/master/1144-optimize-water-distribution-in-a-village) |
 | [1308-smallest-string-with-swaps](https://github.com/namann2/Leetcode/tree/master/1308-smallest-string-with-swaps) |
 | [2035-count-sub-islands](https://github.com/namann2/Leetcode/tree/master/2035-count-sub-islands) |
@@ -281,6 +284,7 @@
 |  |
 | ------- |
 | [0679-24-game](https://github.com/namann2/Leetcode/tree/master/0679-24-game) |
+| [0989-largest-component-size-by-common-factor](https://github.com/namann2/Leetcode/tree/master/0989-largest-component-size-by-common-factor) |
 | [2206-detonate-the-maximum-bombs](https://github.com/namann2/Leetcode/tree/master/2206-detonate-the-maximum-bombs) |
 ## Binary Tree
 |  |
@@ -354,4 +358,8 @@
 |  |
 | ------- |
 | [1144-optimize-water-distribution-in-a-village](https://github.com/namann2/Leetcode/tree/master/1144-optimize-water-distribution-in-a-village) |
+## Number Theory
+|  |
+| ------- |
+| [0989-largest-component-size-by-common-factor](https://github.com/namann2/Leetcode/tree/master/0989-largest-component-size-by-common-factor) |
 <!---LeetCode Topics End-->
