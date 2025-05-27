@@ -131,6 +131,7 @@
 | [0022-generate-parentheses](https://github.com/namann2/Leetcode/tree/master/0022-generate-parentheses) |
 | [0070-climbing-stairs](https://github.com/namann2/Leetcode/tree/master/0070-climbing-stairs) |
 | [0091-decode-ways](https://github.com/namann2/Leetcode/tree/master/0091-decode-ways) |
+| [0343-integer-break](https://github.com/namann2/Leetcode/tree/master/0343-integer-break) |
 | [0465-optimal-account-balancing](https://github.com/namann2/Leetcode/tree/master/0465-optimal-account-balancing) |
 | [0473-matchsticks-to-square](https://github.com/namann2/Leetcode/tree/master/0473-matchsticks-to-square) |
 | [0698-partition-to-k-equal-sum-subsets](https://github.com/namann2/Leetcode/tree/master/0698-partition-to-k-equal-sum-subsets) |
@@ -290,6 +291,7 @@
 |  |
 | ------- |
 | [0070-climbing-stairs](https://github.com/namann2/Leetcode/tree/master/0070-climbing-stairs) |
+| [0343-integer-break](https://github.com/namann2/Leetcode/tree/master/0343-integer-break) |
 | [0679-24-game](https://github.com/namann2/Leetcode/tree/master/0679-24-game) |
 | [0989-largest-component-size-by-common-factor](https://github.com/namann2/Leetcode/tree/master/0989-largest-component-size-by-common-factor) |
 | [2206-detonate-the-maximum-bombs](https://github.com/namann2/Leetcode/tree/master/2206-detonate-the-maximum-bombs) |
