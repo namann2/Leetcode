@@ -1,24 +1,23 @@
 class Solution {
     public int maxProfit(int k, int[] prices) {
         int n = prices.length;
-        int[][][]dp = new int[n+1][2][k+1];
-        // TC : O(n * k)
-        // SC : O(nk)
-        for(int index = n - 1; index >= 0; index --) {
-            for(int canBuy = 0; canBuy < 2; canBuy ++) {
-                for(int trans = 1; trans <= k; trans ++) {
-                    if(canBuy == 1) {
-                        int buy = -prices[index] + dp[index+1][0][trans];
-                        int notBuy = dp[index+1][1][trans];
-                        dp[index][canBuy][trans] = Math.max(buy, notBuy);
+        int[][][]dp = new int[n+1][k+1][2];
+
+        for(int day = n-1; day >= 0; day--) {
+            for(int transaction = 1; transaction <= k; transaction++) {
+                for(int option = 0; option <= 1; option++) {
+                    if(option == 1) {
+                        int buy = -prices[day] +  dp[day+1][transaction][0];
+                        int dontBuy = dp[day+1][transaction][1];
+                        dp[day][transaction][option] = Math.max(buy, dontBuy);
                     } else {
-                        int sell = prices[index] + dp[index+1][1][trans-1];
-                        int notSell = dp[index+1][0][trans];
-                        dp[index][canBuy][trans] = Math.max(sell, notSell);
+                        int sell = prices[day] + dp[day+1][transaction-1][1];
+                        int dontSell = dp[day+1][transaction][0];
+                        dp[day][transaction][option] = Math.max(sell, dontSell);
                     }
                 }
             }
         }
-        return dp[0][1][k];
+        return dp[0][k][1];
     }
 }
