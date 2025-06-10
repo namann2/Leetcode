@@ -1,26 +1,21 @@
 class Solution {
     public int maxProfit(int[] prices) {
         int n = prices.length;
-        int[][]dp = new int[n+1][2];
-        for(int[] row : dp)
-            Arrays.fill(row, -1);
-        return maxProfit(prices, 0, n, 1, 1, dp);
-    }
-    private int maxProfit(int[] prices, int index, int n, int canBuy, int coolDown, int[][]dp) {
-        // base case
-        if(index >= n) return 0;
-        if(dp[index][canBuy] != -1)
-            return dp[index][canBuy];
-        
-        // main logic
-        if(canBuy == 1) {
-            int buy = -prices[index] + maxProfit(prices, index + 1, n, 0, coolDown, dp);
-            int notBuy = maxProfit(prices, index + 1, n, 1, coolDown, dp);
-            return dp[index][canBuy] = Math.max(buy, notBuy);
-        } else {
-            int sell = prices[index] + maxProfit(prices, index + 1 + coolDown, n, 1, coolDown, dp);
-            int notSell = maxProfit(prices, index + 1, n, 0, coolDown, dp);
-            return dp[index][canBuy] = Math.max(sell, notSell);
+        // option = 1(buy), 0(sell)
+        int[][]dp = new int[n+2][2];
+        for(int day = n-1; day >= 0; day--) {
+            for(int option = 0; option <= 1; option++) {
+                if(option == 1) {
+                    int buy = -prices[day] + dp[day+1][0];
+                    int dontBuy = dp[day+1][1];
+                    dp[day][option] = Math.max(buy, dontBuy);
+                } else {
+                    int sell = prices[day] + dp[day+2][1];
+                    int dontSell = dp[day+1][0];
+                    dp[day][option] = Math.max(sell, dontSell);
+                }
+            }
         }
+        return dp[0][1];
     }
 }
