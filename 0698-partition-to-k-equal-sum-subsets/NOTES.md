@@ -165,7 +165,7 @@ We have used an extra array of size N to mark the already used elements.
 And the recursive tree makes at most N calls at one time, so the recursive stack also takes O(N) space.
 
 
-## Solution 3 : Dynamic Programming
+## Solution 3 : Optimal Backtracking
 ```
 class Solution {
     public boolean canPartitionKSubsets(int[] nums, int k) {
