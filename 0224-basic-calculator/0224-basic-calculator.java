@@ -1,7 +1,7 @@
 class Solution {
     public int calculate(String s) {
         int n = s.length();
-        Stack<Integer> stack = new Stack<>();
+        Stack<int[]> stack = new Stack<>();
         int result = 0, sign = 1;
         for(int i = 0; i < n; i++) {
             char curr = s.charAt(i);
@@ -13,37 +13,25 @@ class Solution {
                     i++;
                 }
                 i--;
-                updateStack(stack, number, sign);
+                result += (sign * number);
                 sign = 1;
             } else if(curr == '+') {
                 sign = 1;
             } else if(curr == '-') {
                 sign = -1;
             } else if(curr == '(') {
-                // find the corresponding closing paranthesis
-                int cursor = i, open = 0, close = 0;
-                while(cursor < n) {
-                    if(s.charAt(cursor) == '(') open++;
-                    else if(s.charAt(cursor) == ')') close++;
-                    if(open == close) break;
-                    cursor++;
-                }
-                int number = calculate(s.substring(i+1, cursor));
-                updateStack(stack, number, sign);
+                updateStack(stack, result, sign);
                 sign = 1;
-                i = cursor;
+                result = 0;
+            } else if(curr == ')') {
+                result = stack.peek()[0] + (stack.pop()[1] * result);
             }
-        }
-
-        while(!stack.isEmpty()) {
-            result += stack.pop();
         }
         return result;
     }
 
     // helper function
-    private void updateStack(Stack<Integer> stack, int number, int sign) {
-        if(sign == 1) stack.push(number);
-        else stack.push(-number);
+    private void updateStack(Stack<int[]> stack, int number, int sign) {
+        stack.push(new int[]{number, sign});
     }
 }
