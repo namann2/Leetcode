@@ -1,32 +1,44 @@
 class Solution {
     public int calculate(String s) {
-        // convert to postfix and then solve
-        Deque<Integer> stack = new ArrayDeque<>();
-        int n = s.length(), ans = 0;
+        int n = s.length();
+        int result = 0;
         char sign = '+';
+        Stack<Integer> stack = new Stack<>();
         for(int i = 0; i < n; i++) {
             char curr = s.charAt(i);
             if(Character.isDigit(curr)) {
-                int num = 0;
+                int number = 0;
+                // 23 / 4 - 4
+                // r = 0, sign = +
+                // S = 23
                 while(i < n && Character.isDigit(s.charAt(i))) {
-                    num = num * 10 + (s.charAt(i) - '0');
+                    number = number * 10 + (s.charAt(i) - '0');
                     i++;
                 }
-                updateStack(stack, num, sign);
                 i--;
-                sign = '+';
-            } else if(curr == ' ') continue;
-            else sign = curr;
+                switch(sign) {
+                    case '+':
+                        stack.push(number);
+                        break;
+                    case '-':
+                        stack.push(-number);
+                        break;
+                    case '/':
+                        stack.push(stack.pop() / number);
+                        break;
+                    case '*':
+                        stack.push(stack.pop() * number);
+                        break;
+                }
+            } else if(isSymbol(curr)) sign = curr;
         }
-        while(!stack.isEmpty()) {
-            ans += stack.removeLast();
-        }
-        return ans;
+
+        while(!stack.isEmpty()) result += stack.pop();
+        return result;
     }
-    private void updateStack(Deque<Integer> stack, int num, char sign) {
-        if(sign == '*') stack.addLast(stack.removeLast() * num);
-        else if(sign == '/') stack.addLast(stack.removeLast() / num);
-        else if(sign == '+') stack.addLast(num);
-        else stack.addLast(-num);
+
+    // helper function
+    private boolean isSymbol(char ch) {
+        return ch == '+' || ch == '-' || ch == '/' || ch == '*';
     }
 }
