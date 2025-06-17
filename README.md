@@ -131,6 +131,7 @@
 | [0269-alien-dictionary](https://github.com/namann2/Leetcode/tree/master/0269-alien-dictionary) |
 | [0301-remove-invalid-parentheses](https://github.com/namann2/Leetcode/tree/master/0301-remove-invalid-parentheses) |
 | [0399-evaluate-division](https://github.com/namann2/Leetcode/tree/master/0399-evaluate-division) |
+| [0785-basic-calculator-iii](https://github.com/namann2/Leetcode/tree/master/0785-basic-calculator-iii) |
 | [1308-smallest-string-with-swaps](https://github.com/namann2/Leetcode/tree/master/1308-smallest-string-with-swaps) |
 | [2220-find-all-possible-recipes-from-given-supplies](https://github.com/namann2/Leetcode/tree/master/2220-find-all-possible-recipes-from-given-supplies) |
 | [2364-longest-path-with-different-adjacent-characters](https://github.com/namann2/Leetcode/tree/master/2364-longest-path-with-different-adjacent-characters) |
@@ -312,6 +313,7 @@
 | [0227-basic-calculator-ii](https://github.com/namann2/Leetcode/tree/master/0227-basic-calculator-ii) |
 | [0343-integer-break](https://github.com/namann2/Leetcode/tree/master/0343-integer-break) |
 | [0679-24-game](https://github.com/namann2/Leetcode/tree/master/0679-24-game) |
+| [0785-basic-calculator-iii](https://github.com/namann2/Leetcode/tree/master/0785-basic-calculator-iii) |
 | [0989-largest-component-size-by-common-factor](https://github.com/namann2/Leetcode/tree/master/0989-largest-component-size-by-common-factor) |
 | [2206-detonate-the-maximum-bombs](https://github.com/namann2/Leetcode/tree/master/2206-detonate-the-maximum-bombs) |
 ## Binary Tree
@@ -351,6 +353,7 @@
 | [0145-binary-tree-postorder-traversal](https://github.com/namann2/Leetcode/tree/master/0145-binary-tree-postorder-traversal) |
 | [0224-basic-calculator](https://github.com/namann2/Leetcode/tree/master/0224-basic-calculator) |
 | [0227-basic-calculator-ii](https://github.com/namann2/Leetcode/tree/master/0227-basic-calculator-ii) |
+| [0785-basic-calculator-iii](https://github.com/namann2/Leetcode/tree/master/0785-basic-calculator-iii) |
 ## Divide and Conquer
 |  |
 | ------- |
@@ -397,4 +400,5 @@
 |  |
 | ------- |
 | [0224-basic-calculator](https://github.com/namann2/Leetcode/tree/master/0224-basic-calculator) |
+| [0785-basic-calculator-iii](https://github.com/namann2/Leetcode/tree/master/0785-basic-calculator-iii) |
 <!---LeetCode Topics End-->
