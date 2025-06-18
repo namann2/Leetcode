@@ -19,7 +19,8 @@ class Solution {
         }
         Integer[][] dp = new Integer[n][requiredTarget + 1];
         int countOfSubsets = findSumWays(nonZeros, nonZeroCount - 1, requiredTarget, dp);
-        return countOfSubsets * (1 << zeros);
+        // This accounts for each zero potentially being `+0` or `-0`.
+        return countOfSubsets * (1 << zeros); // Math.pow(2, zeros);
     }
 
     // helper function
