@@ -30,6 +30,7 @@
 | [0611-valid-triangle-number](https://github.com/namann2/Leetcode/tree/master/0611-valid-triangle-number) |
 | [0679-24-game](https://github.com/namann2/Leetcode/tree/master/0679-24-game) |
 | [0698-partition-to-k-equal-sum-subsets](https://github.com/namann2/Leetcode/tree/master/0698-partition-to-k-equal-sum-subsets) |
+| [0740-delete-and-earn](https://github.com/namann2/Leetcode/tree/master/0740-delete-and-earn) |
 | [0747-min-cost-climbing-stairs](https://github.com/namann2/Leetcode/tree/master/0747-min-cost-climbing-stairs) |
 | [0833-bus-routes](https://github.com/namann2/Leetcode/tree/master/0833-bus-routes) |
 | [0925-construct-binary-tree-from-preorder-and-postorder-traversal](https://github.com/namann2/Leetcode/tree/master/0925-construct-binary-tree-from-preorder-and-postorder-traversal) |
@@ -155,6 +156,7 @@
 | [0473-matchsticks-to-square](https://github.com/namann2/Leetcode/tree/master/0473-matchsticks-to-square) |
 | [0494-target-sum](https://github.com/namann2/Leetcode/tree/master/0494-target-sum) |
 | [0698-partition-to-k-equal-sum-subsets](https://github.com/namann2/Leetcode/tree/master/0698-partition-to-k-equal-sum-subsets) |
+| [0740-delete-and-earn](https://github.com/namann2/Leetcode/tree/master/0740-delete-and-earn) |
 | [0747-min-cost-climbing-stairs](https://github.com/namann2/Leetcode/tree/master/0747-min-cost-climbing-stairs) |
 | [0803-cheapest-flights-within-k-stops](https://github.com/namann2/Leetcode/tree/master/0803-cheapest-flights-within-k-stops) |
 | [1008-binary-tree-cameras](https://github.com/namann2/Leetcode/tree/master/1008-binary-tree-cameras) |
@@ -184,6 +186,7 @@
 | [0017-letter-combinations-of-a-phone-number](https://github.com/namann2/Leetcode/tree/master/0017-letter-combinations-of-a-phone-number) |
 | [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/namann2/Leetcode/tree/master/0105-construct-binary-tree-from-preorder-and-inorder-traversal) |
 | [0106-construct-binary-tree-from-inorder-and-postorder-traversal](https://github.com/namann2/Leetcode/tree/master/0106-construct-binary-tree-from-inorder-and-postorder-traversal) |
+| [0740-delete-and-earn](https://github.com/namann2/Leetcode/tree/master/0740-delete-and-earn) |
 | [0833-bus-routes](https://github.com/namann2/Leetcode/tree/master/0833-bus-routes) |
 | [0925-construct-binary-tree-from-preorder-and-postorder-traversal](https://github.com/namann2/Leetcode/tree/master/0925-construct-binary-tree-from-preorder-and-postorder-traversal) |
 | [0989-largest-component-size-by-common-factor](https://github.com/namann2/Leetcode/tree/master/0989-largest-component-size-by-common-factor) |
