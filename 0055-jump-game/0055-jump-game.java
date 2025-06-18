@@ -1,28 +1,12 @@
-/*
-
-Much simpler and better solution : 
 class Solution {
     public boolean canJump(int[] nums) {
         int n = nums.length;
-        int farthest = 0;
-        for(int i = 0; i <= farthest && i < n; i++) {
-            if(i + nums[i] > farthest) {
-                farthest = i + nums[i];
+        int farthest = n-1, canReachEndFrom = n-1;
+        for(int standingAt = n-2; standingAt >= 0; standingAt--) {
+            if(standingAt + nums[standingAt] >= canReachEndFrom) {
+                canReachEndFrom = standingAt;
             }
         }
-        return farthest >= n-1;
-    }
-}
-*/
-
-class Solution {
-    public boolean canJump(int[] nums) {
-        int n = nums.length;
-        int lastGoodPosition = n-1;
-        for(int i=n-2;i>=0;i--) {
-            if(nums[i] + i >= lastGoodPosition)
-                lastGoodPosition = i;
-        }
-        return lastGoodPosition == 0;
+        return canReachEndFrom == 0;
     }
 }
