@@ -10,6 +10,7 @@
 | [0040-combination-sum-ii](https://github.com/namann2/Leetcode/tree/master/0040-combination-sum-ii) |
 | [0046-permutations](https://github.com/namann2/Leetcode/tree/master/0046-permutations) |
 | [0051-n-queens](https://github.com/namann2/Leetcode/tree/master/0051-n-queens) |
+| [0055-jump-game](https://github.com/namann2/Leetcode/tree/master/0055-jump-game) |
 | [0078-subsets](https://github.com/namann2/Leetcode/tree/master/0078-subsets) |
 | [0090-subsets-ii](https://github.com/namann2/Leetcode/tree/master/0090-subsets-ii) |
 | [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/namann2/Leetcode/tree/master/0105-construct-binary-tree-from-preorder-and-inorder-traversal) |
@@ -142,6 +143,7 @@
 |  |
 | ------- |
 | [0022-generate-parentheses](https://github.com/namann2/Leetcode/tree/master/0022-generate-parentheses) |
+| [0055-jump-game](https://github.com/namann2/Leetcode/tree/master/0055-jump-game) |
 | [0070-climbing-stairs](https://github.com/namann2/Leetcode/tree/master/0070-climbing-stairs) |
 | [0091-decode-ways](https://github.com/namann2/Leetcode/tree/master/0091-decode-ways) |
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/namann2/Leetcode/tree/master/0121-best-time-to-buy-and-sell-stock) |
@@ -378,6 +380,7 @@
 ## Greedy
 |  |
 | ------- |
+| [0055-jump-game](https://github.com/namann2/Leetcode/tree/master/0055-jump-game) |
 | [0122-best-time-to-buy-and-sell-stock-ii](https://github.com/namann2/Leetcode/tree/master/0122-best-time-to-buy-and-sell-stock-ii) |
 | [0611-valid-triangle-number](https://github.com/namann2/Leetcode/tree/master/0611-valid-triangle-number) |
 | [3151-minimum-processing-time](https://github.com/namann2/Leetcode/tree/master/3151-minimum-processing-time) |
