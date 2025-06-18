@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/delete-and-earn/">740. Delete and Earn</a></h2><h3>Medium</h3><hr><div><p>You are given an integer array <code>nums</code>. You want to maximize the number of points you get by performing the following operation any number of times:</p>
+<h2><a href="https://leetcode.com/problems/delete-and-earn">740. Delete and Earn</a></h2><h3>Medium</h3><hr><p>You are given an integer array <code>nums</code>. You want to maximize the number of points you get by performing the following operation any number of times:</p>
 
 <ul>
 	<li>Pick any <code>nums[i]</code> and delete it to earn <code>nums[i]</code> points. Afterwards, you must delete <b>every</b> element equal to <code>nums[i] - 1</code> and <strong>every</strong> element equal to <code>nums[i] + 1</code>.</li>
@@ -9,7 +9,8 @@
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<pre><strong>Input:</strong> nums = [3,4,2]
+<pre>
+<strong>Input:</strong> nums = [3,4,2]
 <strong>Output:</strong> 6
 <strong>Explanation:</strong> You can perform the following operations:
 - Delete 4 to earn 4 points. Consequently, 3 is also deleted. nums = [2].
@@ -19,10 +20,11 @@ You earn a total of 6 points.
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre><strong>Input:</strong> nums = [2,2,3,3,3,4]
+<pre>
+<strong>Input:</strong> nums = [2,2,3,3,3,4]
 <strong>Output:</strong> 9
 <strong>Explanation:</strong> You can perform the following operations:
-- Delete a 3 to earn 3 points. All 2's and 4's are also deleted. nums = [3,3].
+- Delete a 3 to earn 3 points. All 2&#39;s and 4&#39;s are also deleted. nums = [3,3].
 - Delete a 3 again to earn 3 points. nums = [3].
 - Delete a 3 once more to earn 3 points. nums = [].
 You earn a total of 9 points.</pre>
@@ -34,4 +36,3 @@ You earn a total of 9 points.</pre>
 	<li><code>1 &lt;= nums.length &lt;= 2 * 10<sup>4</sup></code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
-</div>
