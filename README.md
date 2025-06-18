@@ -6,6 +6,7 @@
 ## Array
 |  |
 | ------- |
+| [0011-container-with-most-water](https://github.com/namann2/Leetcode/tree/master/0011-container-with-most-water) |
 | [0039-combination-sum](https://github.com/namann2/Leetcode/tree/master/0039-combination-sum) |
 | [0040-combination-sum-ii](https://github.com/namann2/Leetcode/tree/master/0040-combination-sum-ii) |
 | [0046-permutations](https://github.com/namann2/Leetcode/tree/master/0046-permutations) |
@@ -371,6 +372,7 @@
 ## Two Pointers
 |  |
 | ------- |
+| [0011-container-with-most-water](https://github.com/namann2/Leetcode/tree/master/0011-container-with-most-water) |
 | [0611-valid-triangle-number](https://github.com/namann2/Leetcode/tree/master/0611-valid-triangle-number) |
 | [1790-lowest-common-ancestor-of-a-binary-tree-iii](https://github.com/namann2/Leetcode/tree/master/1790-lowest-common-ancestor-of-a-binary-tree-iii) |
 ## Binary Search
@@ -380,6 +382,7 @@
 ## Greedy
 |  |
 | ------- |
+| [0011-container-with-most-water](https://github.com/namann2/Leetcode/tree/master/0011-container-with-most-water) |
 | [0055-jump-game](https://github.com/namann2/Leetcode/tree/master/0055-jump-game) |
 | [0122-best-time-to-buy-and-sell-stock-ii](https://github.com/namann2/Leetcode/tree/master/0122-best-time-to-buy-and-sell-stock-ii) |
 | [0611-valid-triangle-number](https://github.com/namann2/Leetcode/tree/master/0611-valid-triangle-number) |
