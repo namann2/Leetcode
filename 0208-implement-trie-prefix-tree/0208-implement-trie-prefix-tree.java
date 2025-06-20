@@ -1,23 +1,25 @@
 class Node {
     Map<Character, Node> children;
     boolean isEnd;
-    
-    Node() {
+
+    public Node() {
         this.children = new HashMap<>();
+        this.isEnd = false;
     }
 }
 
 class Trie {
 
     private Node root;
+
     public Trie() {
-        root = new Node();
+        this.root = new Node();    
     }
     
     public void insert(String word) {
-        Node curr = root;
-        int n = word.length();
-        for(int i = 0; i < n; i++) {
+        Node curr = this.root;
+        int wordLength = word.length();
+        for(int i = 0; i < wordLength; i++) {
             char ch = word.charAt(i);
             if(!curr.children.containsKey(ch))
                 curr.children.put(ch, new Node());
@@ -27,24 +29,22 @@ class Trie {
     }
     
     public boolean search(String word) {
-        Node curr = root;
-        int n = word.length();
-        for(int i = 0; i < n; i++) {
+        Node curr = this.root;
+        int wordLength = word.length();
+        for(int i = 0; i < wordLength; i++) {
             char ch = word.charAt(i);
-            if(!curr.children.containsKey(ch))
-                return false;
+            if(!curr.children.containsKey(ch)) return false;
             curr = curr.children.get(ch);
         }
         return curr.isEnd;
     }
     
     public boolean startsWith(String prefix) {
-        Node curr = root;
-        int n = prefix.length();
-        for(int i = 0; i < n; i++) {
+        Node curr = this.root;
+        int prefixLength = prefix.length();
+        for(int i = 0; i < prefixLength; i++) {
             char ch = prefix.charAt(i);
-            if(!curr.children.containsKey(ch))
-                return false;
+            if(!curr.children.containsKey(ch)) return false;
             curr = curr.children.get(ch);
         }
         return true;
