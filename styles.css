@@ -5,9 +5,9 @@
     --success-color: #10b981;
     --warning-color: #f59e0b;
     --danger-color: #ef4444;
-    --background: #ffffff;
-    --surface: #f8fafc;
-    --surface-hover: #f1f5f9;
+    --background: #fafafa;
+    --surface: #ffffff;
+    --surface-hover: #f8fafc;
     --border: #e2e8f0;
     --text-primary: #0f172a;
     --text-secondary: #475569;
@@ -648,6 +648,15 @@ body {
     margin-bottom: 1rem;
 }
 
+.problem-title-section h1 a {
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.problem-title-section h1 a:hover {
+    color: var(--primary-color);
+}
+
 .problem-meta-info {
     display: flex;
     gap: 1rem;
@@ -716,18 +725,181 @@ body {
     color: var(--text-primary);
 }
 
-.problem-content-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+.problem-content-layout {
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
     margin-bottom: 2rem;
 }
 
-.problem-description,
-.solution-section {
+.problem-description-section {
+    width: 100%;
+}
+
+.solution-section-full {
+    width: 100%;
+}
+
+.solution-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.notes-toggle-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.notes-toggle-btn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+/* Notes Popup Styles */
+.notes-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notes-popup-content {
+    background: white;
+    border-radius: var(--radius-lg);
+    width: 90%;
+    max-width: 800px;
+    max-height: 80vh;
+    box-shadow: var(--shadow-lg);
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+}
+
+.notes-popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 2px solid var(--border);
+    background: var(--surface);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.notes-popup-header h3 {
+    margin: 0;
+    color: var(--primary-color);
+    font-size: 1.25rem;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+    padding: 0.25rem;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+    background: var(--surface-hover);
+    color: var(--primary-color);
+}
+
+.notes-popup-body {
+    padding: 1.5rem;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.notes-content {
+    line-height: 1.7;
+    color: var(--text-primary);
+}
+
+.notes-content h1,
+.notes-content h2,
+.notes-content h3,
+.notes-content h4,
+.notes-content h5,
+.notes-content h6 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+}
+
+.notes-content h1:first-child,
+.notes-content h2:first-child,
+.notes-content h3:first-child {
+    margin-top: 0;
+}
+
+.notes-content p {
+    margin-bottom: 1rem;
+}
+
+.notes-content ul,
+.notes-content ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.notes-content li {
+    margin-bottom: 0.5rem;
+}
+
+.notes-content code {
+    background: var(--surface);
+    padding: 0.125rem 0.25rem;
+    border-radius: 4px;
+    font-family: 'Monaco', 'Menlo', monospace;
+    font-size: 0.875rem;
+}
+
+.notes-content pre {
+    background: #2d3748;
+    color: #e2e8f0;
+    padding: 1rem;
+    border-radius: var(--radius);
+    overflow-x: auto;
+    margin-bottom: 1rem;
+}
+
+.notes-content blockquote {
+    border-left: 4px solid var(--primary-color);
+    padding-left: 1rem;
+    margin: 1rem 0;
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+.notes-content a {
+    color: white;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.notes-content a:hover {
+    color: var(--primary-color);
 }
 
 .content-section {
@@ -836,11 +1008,29 @@ body {
     gap: 1rem;
 }
 
+.image-container {
+    text-align: center;
+}
+
 .problem-image {
     border-radius: var(--radius);
     max-width: 100%;
     height: auto;
     box-shadow: var(--shadow-sm);
+    border: 2px solid var(--border);
+    transition: all 0.2s ease;
+}
+
+.problem-image:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-md);
+}
+
+.image-caption {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-style: italic;
 }
 
 /* Responsive Design for Problem Page */

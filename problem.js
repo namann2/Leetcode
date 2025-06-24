@@ -86,10 +86,19 @@ class ProblemPage {
             // Look for different types of files
             const javaFile = folderContents.find(file => file.name.endsWith('.java'));
             const readmeFile = folderContents.find(file => file.name.toLowerCase() === 'readme.md');
-            const notesFile = folderContents.find(file => file.name.toLowerCase().includes('notes'));
+            const notesFile = folderContents.find(file => 
+                file.name.toLowerCase().includes('notes') || 
+                file.name.toLowerCase() === 'notes.md' ||
+                file.name.toLowerCase() === 'note.md' ||
+                file.name.toLowerCase().includes('approach') ||
+                file.name.toLowerCase().includes('solution')
+            );
             const imageFiles = folderContents.filter(file => 
                 file.name.match(/\.(png|jpg|jpeg|gif|svg)$/i)
             );
+
+            console.log('Found files:', folderContents.map(f => f.name));
+            console.log('Notes file found:', notesFile?.name);
 
             // Fetch and display solution code
             if (javaFile) {
@@ -140,21 +149,31 @@ class ProblemPage {
                 const parsedContent = this.parseMarkdown(content);
                 document.getElementById('problemDescription').innerHTML = parsedContent;
                 
-                // Show description section
-                document.getElementById('problemDescription').parentElement.style.display = 'block';
+                // Show description section - it's already visible by default
+                // Remove the loading state
+                const loadingDiv = document.querySelector('#problemDescription .loading');
+                if (loadingDiv) {
+                    loadingDiv.remove();
+                }
             }
         } catch (error) {
             console.error('Error loading problem description:', error);
+            document.getElementById('problemDescription').innerHTML = `
+                <p>Problem description not available. <a href="${this.problem.githubUrl}" target="_blank">View on GitHub</a> for details.</p>
+            `;
         }
     }
 
     async loadNotes(notesFile) {
         try {
             const content = await this.githubAPI.fetchFileContent(`${this.problem.slug}/${notesFile.name}`);
-            if (content) {
+            if (content && content.trim()) {
                 const parsedContent = this.parseMarkdown(content);
                 document.getElementById('problemNotes').innerHTML = parsedContent;
-                document.getElementById('notesSection').style.display = 'block';
+                document.getElementById('notesToggle').style.display = 'block';
+                console.log('Notes loaded successfully:', notesFile.name);
+            } else {
+                console.log('Notes file is empty or could not be loaded');
             }
         } catch (error) {
             console.error('Error loading notes:', error);
@@ -162,11 +181,17 @@ class ProblemPage {
     }
 
     loadImages(imageFiles) {
-        const imagesContainer = document.getElementById('problemImages');
-        imagesContainer.innerHTML = imageFiles.map(image => `
-            <img src="${image.download_url}" alt="${image.name}" class="problem-image" loading="lazy">
-        `).join('');
-        document.getElementById('imagesSection').style.display = 'block';
+        if (imageFiles && imageFiles.length > 0) {
+            const imagesContainer = document.getElementById('problemImages');
+            imagesContainer.innerHTML = imageFiles.map(image => `
+                <div class="image-container">
+                    <img src="${image.download_url}" alt="${image.name}" class="problem-image" loading="lazy" 
+                         onerror="this.parentElement.innerHTML='<p>Image failed to load: ${image.name}</p>'">
+                    <p class="image-caption">${image.name}</p>
+                </div>
+            `).join('');
+            document.getElementById('imagesSection').style.display = 'block';
+        }
     }
 
     parseMarkdown(markdown) {
@@ -184,6 +209,14 @@ class ProblemPage {
             .replace(/```([\s\S]*?)```/gim, '<pre><code>$1</code></pre>')
             // Inline code
             .replace(/`([^`]*)`/gim, '<code>$1</code>')
+            // Images (handle before links)
+            .replace(/!\[([^\]]*)\]\(([^\)]*)\)/gim, (match, alt, src) => {
+                // Convert relative paths to absolute GitHub URLs
+                if (!src.startsWith('http')) {
+                    src = `https://raw.githubusercontent.com/namann2/Leetcode/master/${this.problem.slug}/${src}`;
+                }
+                return `<img src="${src}" alt="${alt}" class="problem-image" loading="lazy" style="max-width: 100%; height: auto; margin: 1rem 0;">`;
+            })
             // Links
             .replace(/\[([^\]]*)\]\(([^\)]*)\)/gim, '<a href="$2" target="_blank">$1</a>')
             // Line breaks
@@ -211,6 +244,39 @@ class ProblemPage {
                 const lang = e.target.dataset.lang;
                 this.switchLanguage(lang);
             });
+        });
+
+        // Notes popup functionality
+        const notesToggle = document.getElementById('notesToggle');
+        const notesPopup = document.getElementById('notesPopup');
+        const closeNotes = document.getElementById('closeNotes');
+
+        if (notesToggle) {
+            notesToggle.addEventListener('click', () => {
+                notesPopup.style.display = 'flex';
+            });
+        }
+
+        if (closeNotes) {
+            closeNotes.addEventListener('click', () => {
+                notesPopup.style.display = 'none';
+            });
+        }
+
+        // Close popup when clicking outside
+        if (notesPopup) {
+            notesPopup.addEventListener('click', (e) => {
+                if (e.target === notesPopup) {
+                    notesPopup.style.display = 'none';
+                }
+            });
+        }
+
+        // Close popup with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && notesPopup.style.display === 'flex') {
+                notesPopup.style.display = 'none';
+            }
         });
     }
 
@@ -266,6 +332,23 @@ class GitHubAPI {
             console.error('Error fetching file content:', error);
             return null;
         }
+    }
+}
+
+// Global function for toggling expandable sections
+function toggleSection(contentId) {
+    const content = document.getElementById(contentId);
+    const header = content.previousElementSibling;
+    const icon = header.querySelector('.expand-icon');
+    
+    if (content.classList.contains('collapsed')) {
+        content.classList.remove('collapsed');
+        header.classList.remove('collapsed');
+        icon.textContent = '▼';
+    } else {
+        content.classList.add('collapsed');
+        header.classList.add('collapsed');
+        icon.textContent = '▶';
     }
 }
 

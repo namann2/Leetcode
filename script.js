@@ -23,26 +23,40 @@ class LeetCodeSolutions {
 
     async fetchLeetCodeProfile() {
         try {
-            // Note: LeetCode doesn't provide a public API, so we'll use placeholder data
-            // In a real implementation, you might use a proxy service or scraping
+            // Calculate dynamic stats based on repository data
+            const totalSolved = this.problems.length;
+            const easySolved = this.problems.filter(p => p.difficulty === 'Easy').length;
+            const mediumSolved = this.problems.filter(p => p.difficulty === 'Medium').length;
+            const hardSolved = this.problems.filter(p => p.difficulty === 'Hard').length;
+
             const profileData = {
-                totalSolved: this.problems.length, // Use repository count as fallback
-                easySolved: this.problems.filter(p => p.difficulty === 'Easy').length,
-                mediumSolved: this.problems.filter(p => p.difficulty === 'Medium').length,
-                hardSolved: this.problems.filter(p => p.difficulty === 'Hard').length,
+                totalSolved: totalSolved,
+                easySolved: easySolved,
+                mediumSolved: mediumSolved,
+                hardSolved: hardSolved,
                 ranking: 'N/A',
                 contestsAttended: 0
             };
 
             this.updateLeetCodeStats(profileData);
+            
+            // Update the header stats to show repository count
+            document.getElementById('totalProblems').textContent = this.problems.length;
+            document.getElementById('totalTopics').textContent = this.topics.size;
+            
         } catch (error) {
             console.error('Error fetching LeetCode profile:', error);
             // Use repository data as fallback
+            const totalSolved = this.problems.length;
+            const easySolved = this.problems.filter(p => p.difficulty === 'Easy').length;
+            const mediumSolved = this.problems.filter(p => p.difficulty === 'Medium').length;
+            const hardSolved = this.problems.filter(p => p.difficulty === 'Hard').length;
+
             const profileData = {
-                totalSolved: this.problems.length,
-                easySolved: this.problems.filter(p => p.difficulty === 'Easy').length,
-                mediumSolved: this.problems.filter(p => p.difficulty === 'Medium').length,
-                hardSolved: this.problems.filter(p => p.difficulty === 'Hard').length,
+                totalSolved: totalSolved,
+                easySolved: easySolved,
+                mediumSolved: mediumSolved,
+                hardSolved: hardSolved,
                 ranking: 'N/A',
                 contestsAttended: 0
             };
@@ -86,6 +100,8 @@ class LeetCodeSolutions {
             const githubAPI = new GitHubAPI('namann2', 'Leetcode');
             const contents = await githubAPI.fetchRepositoryContents();
             
+            console.log('GitHub API Response:', contents);
+            
             // Filter directories that match LeetCode problem pattern (4-digit number prefix)
             const problemFolders = contents.filter(item => 
                 item.type === 'dir' && 
@@ -121,9 +137,71 @@ class LeetCodeSolutions {
 
         } catch (error) {
             console.error('Error fetching from GitHub API:', error);
-            // Fallback to empty array if API fails
-            return [];
+            console.log('Falling back to sample data...');
+            // Fallback to sample data for testing
+            const sampleProblems = this.getSampleProblems();
+            console.log('Sample problems loaded:', sampleProblems.length);
+            return sampleProblems;
         }
+    }
+
+    getSampleProblems() {
+        // Sample problems for testing when GitHub API fails
+        const sampleProblems = [
+            {
+                number: 1,
+                title: "Two Sum",
+                difficulty: "Easy",
+                topics: ["Array", "Hash Table"],
+                githubUrl: "https://github.com/namann2/Leetcode/tree/master/0001-two-sum",
+                slug: "0001-two-sum"
+            },
+            {
+                number: 2,
+                title: "Add Two Numbers",
+                difficulty: "Medium",
+                topics: ["Linked List", "Math", "Recursion"],
+                githubUrl: "https://github.com/namann2/Leetcode/tree/master/0002-add-two-numbers",
+                slug: "0002-add-two-numbers"
+            },
+            {
+                number: 3,
+                title: "Longest Substring Without Repeating Characters",
+                difficulty: "Medium",
+                topics: ["Hash Table", "String", "Sliding Window"],
+                githubUrl: "https://github.com/namann2/Leetcode/tree/master/0003-longest-substring-without-repeating-characters",
+                slug: "0003-longest-substring-without-repeating-characters"
+            },
+            {
+                number: 4,
+                title: "Median of Two Sorted Arrays",
+                difficulty: "Hard",
+                topics: ["Array", "Binary Search", "Divide and Conquer"],
+                githubUrl: "https://github.com/namann2/Leetcode/tree/master/0004-median-of-two-sorted-arrays",
+                slug: "0004-median-of-two-sorted-arrays"
+            },
+            {
+                number: 5,
+                title: "Longest Palindromic Substring",
+                difficulty: "Medium",
+                topics: ["String", "Dynamic Programming"],
+                githubUrl: "https://github.com/namann2/Leetcode/tree/master/0005-longest-palindromic-substring",
+                slug: "0005-longest-palindromic-substring"
+            }
+        ];
+
+        // Process topics for sample data
+        sampleProblems.forEach(problem => {
+            problem.topics.forEach(topic => {
+                if (!this.topics.has(topic)) {
+                    this.topics.set(topic, 0);
+                }
+                this.topics.set(topic, this.topics.get(topic) + 1);
+            });
+        });
+
+        this.filteredProblems = [...sampleProblems];
+        return sampleProblems;
     }
 
     parseProblemFolder(folderName) {
@@ -371,8 +449,8 @@ class LeetCodeSolutions {
             return;
         }
 
-        problemsList.innerHTML = this.filteredProblems.map(problem => `
-            <div class="problem-card" onclick="this.openProblem('${problem.slug}')">
+        problemsList.innerHTML = this.filteredProblems.map((problem, index) => `
+            <div class="problem-card" data-index="${index}">
                 <div class="problem-header">
                     <span class="problem-title">
                         ${problem.title}

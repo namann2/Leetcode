@@ -56,9 +56,9 @@
                 </div>
 
                 <!-- Problem Content -->
-                <div class="problem-content-grid">
-                    <!-- Problem Description -->
-                    <div class="problem-description">
+                <div class="problem-content-layout">
+                    <!-- Problem Description (Full Width) -->
+                    <div class="problem-description-section">
                         <div class="content-section">
                             <h2>Problem Description</h2>
                             <div id="problemDescription" class="description-content">
@@ -68,30 +68,17 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Examples Section -->
-                        <div class="content-section" id="examplesSection" style="display: none;">
-                            <h2>Examples</h2>
-                            <div id="problemExamples"></div>
-                        </div>
-
-                        <!-- Constraints Section -->
-                        <div class="content-section" id="constraintsSection" style="display: none;">
-                            <h2>Constraints</h2>
-                            <div id="problemConstraints"></div>
-                        </div>
-
-                        <!-- Notes Section -->
-                        <div class="content-section" id="notesSection" style="display: none;">
-                            <h2>Notes</h2>
-                            <div id="problemNotes"></div>
-                        </div>
                     </div>
 
-                    <!-- Solution Code -->
-                    <div class="solution-section">
+                    <!-- Solution Section (Full Width) -->
+                    <div class="solution-section-full">
                         <div class="content-section">
-                            <h2>Solution</h2>
+                            <div class="solution-header">
+                                <h2>Solution</h2>
+                                <button id="notesToggle" class="notes-toggle-btn" style="display: none;">
+                                    📝 View Notes
+                                </button>
+                            </div>
                             <div class="solution-tabs">
                                 <button class="tab-btn active" data-lang="java">Java</button>
                                 <button class="tab-btn" data-lang="python" style="display: none;">Python</button>
@@ -141,6 +128,19 @@
             </div>
         </div>
     </footer>
+
+    <!-- Notes Popup -->
+    <div id="notesPopup" class="notes-popup" style="display: none;">
+        <div class="notes-popup-content">
+            <div class="notes-popup-header">
+                <h3>📝 Notes</h3>
+                <button id="closeNotes" class="close-btn">×</button>
+            </div>
+            <div class="notes-popup-body">
+                <div id="problemNotes" class="notes-content"></div>
+            </div>
+        </div>
+    </div>
 
     <script src="problem.js"></script>
 </body>
