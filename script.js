@@ -14,10 +14,49 @@ class LeetCodeSolutions {
     async init() {
         this.showLoading();
         await this.fetchProblems();
+        await this.fetchLeetCodeProfile();
         this.setupEventListeners();
         this.renderTopics();
         this.renderProblems();
         this.updateStats();
+    }
+
+    async fetchLeetCodeProfile() {
+        try {
+            // Note: LeetCode doesn't provide a public API, so we'll use placeholder data
+            // In a real implementation, you might use a proxy service or scraping
+            const profileData = {
+                totalSolved: this.problems.length, // Use repository count as fallback
+                easySolved: this.problems.filter(p => p.difficulty === 'Easy').length,
+                mediumSolved: this.problems.filter(p => p.difficulty === 'Medium').length,
+                hardSolved: this.problems.filter(p => p.difficulty === 'Hard').length,
+                ranking: 'N/A',
+                contestsAttended: 0
+            };
+
+            this.updateLeetCodeStats(profileData);
+        } catch (error) {
+            console.error('Error fetching LeetCode profile:', error);
+            // Use repository data as fallback
+            const profileData = {
+                totalSolved: this.problems.length,
+                easySolved: this.problems.filter(p => p.difficulty === 'Easy').length,
+                mediumSolved: this.problems.filter(p => p.difficulty === 'Medium').length,
+                hardSolved: this.problems.filter(p => p.difficulty === 'Hard').length,
+                ranking: 'N/A',
+                contestsAttended: 0
+            };
+            this.updateLeetCodeStats(profileData);
+        }
+    }
+
+    updateLeetCodeStats(data) {
+        document.getElementById('leetcodeTotal').textContent = data.totalSolved;
+        document.getElementById('leetcodeEasy').textContent = data.easySolved;
+        document.getElementById('leetcodeMedium').textContent = data.mediumSolved;
+        document.getElementById('leetcodeHard').textContent = data.hardSolved;
+        document.getElementById('leetcodeRank').textContent = data.ranking;
+        document.getElementById('leetcodeContests').textContent = data.contestsAttended;
     }
 
     showLoading() {
@@ -333,11 +372,11 @@ class LeetCodeSolutions {
         }
 
         problemsList.innerHTML = this.filteredProblems.map(problem => `
-            <div class="problem-card">
+            <div class="problem-card" onclick="this.openProblem('${problem.slug}')">
                 <div class="problem-header">
-                    <a href="${problem.githubUrl}" target="_blank" class="problem-title">
+                    <span class="problem-title">
                         ${problem.title}
-                    </a>
+                    </span>
                     <div class="problem-number">#${problem.number}</div>
                 </div>
                 <div class="difficulty-badge difficulty-${problem.difficulty.toLowerCase()}">
@@ -350,12 +389,28 @@ class LeetCodeSolutions {
                 </div>
                 <div class="problem-meta">
                     <span>Java Solution</span>
-                    <a href="${problem.githubUrl}" target="_blank" class="github-link">
+                    <a href="${problem.githubUrl}" target="_blank" class="github-link" onclick="event.stopPropagation()">
                         View on GitHub →
                     </a>
                 </div>
             </div>
         `).join('');
+
+        // Add click listeners to problem cards
+        document.querySelectorAll('.problem-card').forEach((card, index) => {
+            card.addEventListener('click', (e) => {
+                if (e.target.classList.contains('github-link')) return;
+                const problem = this.filteredProblems[index];
+                this.openProblem(problem);
+            });
+        });
+    }
+
+    openProblem(problem) {
+        // Store problem data in localStorage for the problem page
+        localStorage.setItem('currentProblem', JSON.stringify(problem));
+        // Navigate to problem page
+        window.location.href = `problem.html?slug=${problem.slug}`;
     }
 
     updateStats() {

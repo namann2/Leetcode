@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="problemTitle">Problem - LeetCode Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html" style="color: white; text-decoration: none;">
+                        <h1>LeetCode Solutions</h1>
+                        <p>by Naman Gupta</p>
+                    </a>
+                </div>
+                <div class="problem-nav">
+                    <a href="index.html" class="nav-link">← Back to Problems</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="problem-container">
+                <!-- Problem Header -->
+                <div class="problem-detail-header">
+                    <div class="problem-title-section">
+                        <h1 id="problemDetailTitle">Loading...</h1>
+                        <div class="problem-meta-info">
+                            <span class="problem-number-badge" id="problemNumberBadge">#0</span>
+                            <span class="difficulty-badge" id="problemDifficultyBadge">Medium</span>
+                        </div>
+                    </div>
+                    <div class="problem-actions">
+                        <a href="#" id="githubLink" target="_blank" class="action-btn github-btn">
+                            📁 View on GitHub
+                        </a>
+                        <a href="#" id="leetcodeLink" target="_blank" class="action-btn leetcode-btn">
+                            🔗 View on LeetCode
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Problem Topics -->
+                <div class="problem-topics-section">
+                    <h3>Topics</h3>
+                    <div id="problemTopics" class="problem-topics"></div>
+                </div>
+
+                <!-- Problem Content -->
+                <div class="problem-content-grid">
+                    <!-- Problem Description -->
+                    <div class="problem-description">
+                        <div class="content-section">
+                            <h2>Problem Description</h2>
+                            <div id="problemDescription" class="description-content">
+                                <div class="loading">
+                                    <div class="spinner"></div>
+                                    <span>Loading problem description...</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Examples Section -->
+                        <div class="content-section" id="examplesSection" style="display: none;">
+                            <h2>Examples</h2>
+                            <div id="problemExamples"></div>
+                        </div>
+
+                        <!-- Constraints Section -->
+                        <div class="content-section" id="constraintsSection" style="display: none;">
+                            <h2>Constraints</h2>
+                            <div id="problemConstraints"></div>
+                        </div>
+
+                        <!-- Notes Section -->
+                        <div class="content-section" id="notesSection" style="display: none;">
+                            <h2>Notes</h2>
+                            <div id="problemNotes"></div>
+                        </div>
+                    </div>
+
+                    <!-- Solution Code -->
+                    <div class="solution-section">
+                        <div class="content-section">
+                            <h2>Solution</h2>
+                            <div class="solution-tabs">
+                                <button class="tab-btn active" data-lang="java">Java</button>
+                                <button class="tab-btn" data-lang="python" style="display: none;">Python</button>
+                                <button class="tab-btn" data-lang="cpp" style="display: none;">C++</button>
+                            </div>
+                            <div class="solution-content">
+                                <pre id="solutionCode"><code class="language-java">// Loading solution...</code></pre>
+                            </div>
+                        </div>
+
+                        <!-- Complexity Analysis -->
+                        <div class="content-section" id="complexitySection" style="display: none;">
+                            <h2>Complexity Analysis</h2>
+                            <div id="complexityAnalysis">
+                                <div class="complexity-item">
+                                    <strong>Time Complexity:</strong> <span id="timeComplexity">O(?)</span>
+                                </div>
+                                <div class="complexity-item">
+                                    <strong>Space Complexity:</strong> <span id="spaceComplexity">O(?)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Approach Section -->
+                        <div class="content-section" id="approachSection" style="display: none;">
+                            <h2>Approach</h2>
+                            <div id="problemApproach"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Images Section -->
+                <div class="content-section" id="imagesSection" style="display: none;">
+                    <h2>Diagrams & Images</h2>
+                    <div id="problemImages" class="images-grid"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Naman Gupta. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="https://github.com/namann2/Leetcode" target="_blank">GitHub Repository</a>
+                <a href="https://leetcode.com/u/Kaustubh_22/" target="_blank">LeetCode Profile</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="problem.js"></script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 :root {
-    --primary-color: #2563eb;
-    --primary-hover: #1d4ed8;
+    --primary-color: #dc143c;
+    --primary-hover: #b91c3c;
     --secondary-color: #64748b;
     --success-color: #10b981;
     --warning-color: #f59e0b;
@@ -92,6 +92,110 @@ body {
 .main {
     padding: 2rem 0;
     min-height: calc(100vh - 200px);
+}
+
+/* Profile Overview Section */
+.profile-overview {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-md);
+    border: 2px solid var(--primary-color);
+}
+
+.overview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--border);
+}
+
+.overview-header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.profile-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+}
+
+.profile-link:hover {
+    text-decoration: underline;
+    transform: translateX(2px);
+}
+
+.overview-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.overview-card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+}
+
+.overview-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+    border-color: var(--primary-color);
+}
+
+.overview-icon {
+    font-size: 1.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(220, 20, 60, 0.1);
+}
+
+.overview-icon.easy {
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.overview-icon.medium {
+    background: rgba(245, 158, 11, 0.1);
+}
+
+.overview-icon.hard {
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.overview-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.overview-number {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1;
+}
+
+.overview-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
 }
 
 .controls {
@@ -504,6 +608,261 @@ body {
     }
 }
 
+/* Problem Page Styles */
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(-2px);
+}
+
+.problem-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.problem-detail-header {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.problem-title-section h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.problem-meta-info {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.problem-number-badge {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.problem-actions {
+    display: flex;
+    gap: 1rem;
+    flex-shrink: 0;
+}
+
+.action-btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.github-btn {
+    background: #24292e;
+    color: white;
+}
+
+.github-btn:hover {
+    background: #1a1e22;
+    transform: translateY(-2px);
+}
+
+.leetcode-btn {
+    background: #ffa116;
+    color: white;
+}
+
+.leetcode-btn:hover {
+    background: #ff8c00;
+    transform: translateY(-2px);
+}
+
+.problem-topics-section {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.problem-topics-section h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.problem-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.problem-description,
+.solution-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.content-section {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.content-section h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border);
+}
+
+.description-content {
+    line-height: 1.7;
+    color: var(--text-primary);
+}
+
+.description-content p {
+    margin-bottom: 1rem;
+}
+
+.description-content ul,
+.description-content ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.description-content li {
+    margin-bottom: 0.5rem;
+}
+
+.description-content code {
+    background: var(--surface);
+    padding: 0.125rem 0.25rem;
+    border-radius: 4px;
+    font-family: 'Monaco', 'Menlo', monospace;
+    font-size: 0.875rem;
+}
+
+.solution-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.tab-btn {
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--border);
+    background: var(--surface);
+    color: var(--text-secondary);
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.tab-btn.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.tab-btn:hover:not(.active) {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.solution-content {
+    position: relative;
+}
+
+.solution-content pre {
+    background: #2d3748;
+    color: #e2e8f0;
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    overflow-x: auto;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.solution-content code {
+    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+}
+
+.complexity-item {
+    padding: 0.75rem;
+    background: var(--surface);
+    border-radius: var(--radius);
+    margin-bottom: 0.5rem;
+}
+
+.complexity-item:last-child {
+    margin-bottom: 0;
+}
+
+.images-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.problem-image {
+    border-radius: var(--radius);
+    max-width: 100%;
+    height: auto;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Responsive Design for Problem Page */
+@media (max-width: 768px) {
+    .problem-detail-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .problem-actions {
+        flex-direction: column;
+    }
+    
+    .problem-content-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .action-btn {
+        justify-content: center;
+    }
+}
+
 /* Dark mode support */
 @media (prefers-color-scheme: dark) {
     :root {
@@ -527,6 +886,12 @@ body {
     }
     
     .problems-section {
+        background: var(--surface);
+    }
+    
+    .problem-detail-header,
+    .problem-topics-section,
+    .content-section {
         background: var(--surface);
     }
 }
