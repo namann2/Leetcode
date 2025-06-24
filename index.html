@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeetCode Solutions - Naman Gupta</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>LeetCode Solutions</h1>
+                    <p>by Naman Gupta</p>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalProblems">0</span>
+                        <span class="stat-label">Problems Solved</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalTopics">0</span>
+                        <span class="stat-label">Topics Covered</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="controls">
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search problems by name or number..." class="search-input">
+                </div>
+                <div class="filter-container">
+                    <select id="topicFilter" class="filter-select">
+                        <option value="">All Topics</option>
+                    </select>
+                    <select id="difficultyFilter" class="filter-select">
+                        <option value="">All Difficulties</option>
+                        <option value="Easy">Easy</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Hard">Hard</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="content-grid">
+                <aside class="sidebar">
+                    <div class="topics-section">
+                        <h3>Topics</h3>
+                        <div id="topicsList" class="topics-list"></div>
+                    </div>
+                </aside>
+
+                <section class="problems-section">
+                    <div class="section-header">
+                        <h2>Problems</h2>
+                        <span id="problemCount" class="problem-count">0 problems</span>
+                    </div>
+                    <div id="problemsList" class="problems-grid"></div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Naman Gupta. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="https://github.com/namann2/Leetcode" target="_blank">GitHub Repository</a>
+                <a href="https://leetcode.com/u/Kaustubh_22/" target="_blank">LeetCode Profile</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
