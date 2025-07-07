@@ -137,6 +137,7 @@
 | [0301-remove-invalid-parentheses](https://github.com/namann2/Leetcode/tree/master/0301-remove-invalid-parentheses) |
 | [0399-evaluate-division](https://github.com/namann2/Leetcode/tree/master/0399-evaluate-division) |
 | [0785-basic-calculator-iii](https://github.com/namann2/Leetcode/tree/master/0785-basic-calculator-iii) |
+| [1250-longest-common-subsequence](https://github.com/namann2/Leetcode/tree/master/1250-longest-common-subsequence) |
 | [1308-smallest-string-with-swaps](https://github.com/namann2/Leetcode/tree/master/1308-smallest-string-with-swaps) |
 | [2220-find-all-possible-recipes-from-given-supplies](https://github.com/namann2/Leetcode/tree/master/2220-find-all-possible-recipes-from-given-supplies) |
 | [2364-longest-path-with-different-adjacent-characters](https://github.com/namann2/Leetcode/tree/master/2364-longest-path-with-different-adjacent-characters) |
@@ -164,6 +165,7 @@
 | [0747-min-cost-climbing-stairs](https://github.com/namann2/Leetcode/tree/master/0747-min-cost-climbing-stairs) |
 | [0803-cheapest-flights-within-k-stops](https://github.com/namann2/Leetcode/tree/master/0803-cheapest-flights-within-k-stops) |
 | [1008-binary-tree-cameras](https://github.com/namann2/Leetcode/tree/master/1008-binary-tree-cameras) |
+| [1250-longest-common-subsequence](https://github.com/namann2/Leetcode/tree/master/1250-longest-common-subsequence) |
 ## Backtracking
 |  |
 | ------- |
