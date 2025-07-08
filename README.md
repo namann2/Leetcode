@@ -143,6 +143,7 @@
 | [1308-smallest-string-with-swaps](https://github.com/namann2/Leetcode/tree/master/1308-smallest-string-with-swaps) |
 | [2220-find-all-possible-recipes-from-given-supplies](https://github.com/namann2/Leetcode/tree/master/2220-find-all-possible-recipes-from-given-supplies) |
 | [2364-longest-path-with-different-adjacent-characters](https://github.com/namann2/Leetcode/tree/master/2364-longest-path-with-different-adjacent-characters) |
+| [2444-longest-ideal-subsequence](https://github.com/namann2/Leetcode/tree/master/2444-longest-ideal-subsequence) |
 | [3732-calculate-score-after-performing-instructions](https://github.com/namann2/Leetcode/tree/master/3732-calculate-score-after-performing-instructions) |
 ## Dynamic Programming
 |  |
@@ -170,6 +171,7 @@
 | [1008-binary-tree-cameras](https://github.com/namann2/Leetcode/tree/master/1008-binary-tree-cameras) |
 | [1105-uncrossed-lines](https://github.com/namann2/Leetcode/tree/master/1105-uncrossed-lines) |
 | [1250-longest-common-subsequence](https://github.com/namann2/Leetcode/tree/master/1250-longest-common-subsequence) |
+| [2444-longest-ideal-subsequence](https://github.com/namann2/Leetcode/tree/master/2444-longest-ideal-subsequence) |
 ## Backtracking
 |  |
 | ------- |
@@ -206,6 +208,7 @@
 | [1790-lowest-common-ancestor-of-a-binary-tree-iii](https://github.com/namann2/Leetcode/tree/master/1790-lowest-common-ancestor-of-a-binary-tree-iii) |
 | [1816-lowest-common-ancestor-of-a-binary-tree-iv](https://github.com/namann2/Leetcode/tree/master/1816-lowest-common-ancestor-of-a-binary-tree-iv) |
 | [2220-find-all-possible-recipes-from-given-supplies](https://github.com/namann2/Leetcode/tree/master/2220-find-all-possible-recipes-from-given-supplies) |
+| [2444-longest-ideal-subsequence](https://github.com/namann2/Leetcode/tree/master/2444-longest-ideal-subsequence) |
 | [2461-amount-of-time-for-binary-tree-to-be-infected](https://github.com/namann2/Leetcode/tree/master/2461-amount-of-time-for-binary-tree-to-be-infected) |
 | [3732-calculate-score-after-performing-instructions](https://github.com/namann2/Leetcode/tree/master/3732-calculate-score-after-performing-instructions) |
 ## Bit Manipulation
