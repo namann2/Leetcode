@@ -22,6 +22,7 @@
 | [0188-best-time-to-buy-and-sell-stock-iv](https://github.com/namann2/Leetcode/tree/master/0188-best-time-to-buy-and-sell-stock-iv) |
 | [0216-combination-sum-iii](https://github.com/namann2/Leetcode/tree/master/0216-combination-sum-iii) |
 | [0269-alien-dictionary](https://github.com/namann2/Leetcode/tree/master/0269-alien-dictionary) |
+| [0300-longest-increasing-subsequence](https://github.com/namann2/Leetcode/tree/master/0300-longest-increasing-subsequence) |
 | [0309-best-time-to-buy-and-sell-stock-with-cooldown](https://github.com/namann2/Leetcode/tree/master/0309-best-time-to-buy-and-sell-stock-with-cooldown) |
 | [0322-coin-change](https://github.com/namann2/Leetcode/tree/master/0322-coin-change) |
 | [0399-evaluate-division](https://github.com/namann2/Leetcode/tree/master/0399-evaluate-division) |
@@ -154,6 +155,7 @@
 | [0122-best-time-to-buy-and-sell-stock-ii](https://github.com/namann2/Leetcode/tree/master/0122-best-time-to-buy-and-sell-stock-ii) |
 | [0123-best-time-to-buy-and-sell-stock-iii](https://github.com/namann2/Leetcode/tree/master/0123-best-time-to-buy-and-sell-stock-iii) |
 | [0188-best-time-to-buy-and-sell-stock-iv](https://github.com/namann2/Leetcode/tree/master/0188-best-time-to-buy-and-sell-stock-iv) |
+| [0300-longest-increasing-subsequence](https://github.com/namann2/Leetcode/tree/master/0300-longest-increasing-subsequence) |
 | [0309-best-time-to-buy-and-sell-stock-with-cooldown](https://github.com/namann2/Leetcode/tree/master/0309-best-time-to-buy-and-sell-stock-with-cooldown) |
 | [0322-coin-change](https://github.com/namann2/Leetcode/tree/master/0322-coin-change) |
 | [0343-integer-break](https://github.com/namann2/Leetcode/tree/master/0343-integer-break) |
@@ -384,6 +386,7 @@
 ## Binary Search
 |  |
 | ------- |
+| [0300-longest-increasing-subsequence](https://github.com/namann2/Leetcode/tree/master/0300-longest-increasing-subsequence) |
 | [0611-valid-triangle-number](https://github.com/namann2/Leetcode/tree/master/0611-valid-triangle-number) |
 ## Greedy
 |  |
