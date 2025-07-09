@@ -41,6 +41,7 @@
 | [0989-largest-component-size-by-common-factor](https://github.com/namann2/Leetcode/tree/master/0989-largest-component-size-by-common-factor) |
 | [1087-longest-arithmetic-subsequence](https://github.com/namann2/Leetcode/tree/master/1087-longest-arithmetic-subsequence) |
 | [1105-uncrossed-lines](https://github.com/namann2/Leetcode/tree/master/1105-uncrossed-lines) |
+| [1129-longest-string-chain](https://github.com/namann2/Leetcode/tree/master/1129-longest-string-chain) |
 | [1308-smallest-string-with-swaps](https://github.com/namann2/Leetcode/tree/master/1308-smallest-string-with-swaps) |
 | [2035-count-sub-islands](https://github.com/namann2/Leetcode/tree/master/2035-count-sub-islands) |
 | [2206-detonate-the-maximum-bombs](https://github.com/namann2/Leetcode/tree/master/2206-detonate-the-maximum-bombs) |
@@ -140,6 +141,7 @@
 | [0301-remove-invalid-parentheses](https://github.com/namann2/Leetcode/tree/master/0301-remove-invalid-parentheses) |
 | [0399-evaluate-division](https://github.com/namann2/Leetcode/tree/master/0399-evaluate-division) |
 | [0785-basic-calculator-iii](https://github.com/namann2/Leetcode/tree/master/0785-basic-calculator-iii) |
+| [1129-longest-string-chain](https://github.com/namann2/Leetcode/tree/master/1129-longest-string-chain) |
 | [1250-longest-common-subsequence](https://github.com/namann2/Leetcode/tree/master/1250-longest-common-subsequence) |
 | [1308-smallest-string-with-swaps](https://github.com/namann2/Leetcode/tree/master/1308-smallest-string-with-swaps) |
 | [2220-find-all-possible-recipes-from-given-supplies](https://github.com/namann2/Leetcode/tree/master/2220-find-all-possible-recipes-from-given-supplies) |
@@ -172,6 +174,7 @@
 | [1008-binary-tree-cameras](https://github.com/namann2/Leetcode/tree/master/1008-binary-tree-cameras) |
 | [1087-longest-arithmetic-subsequence](https://github.com/namann2/Leetcode/tree/master/1087-longest-arithmetic-subsequence) |
 | [1105-uncrossed-lines](https://github.com/namann2/Leetcode/tree/master/1105-uncrossed-lines) |
+| [1129-longest-string-chain](https://github.com/namann2/Leetcode/tree/master/1129-longest-string-chain) |
 | [1250-longest-common-subsequence](https://github.com/namann2/Leetcode/tree/master/1250-longest-common-subsequence) |
 | [2444-longest-ideal-subsequence](https://github.com/namann2/Leetcode/tree/master/2444-longest-ideal-subsequence) |
 ## Backtracking
@@ -206,6 +209,7 @@
 | [0925-construct-binary-tree-from-preorder-and-postorder-traversal](https://github.com/namann2/Leetcode/tree/master/0925-construct-binary-tree-from-preorder-and-postorder-traversal) |
 | [0989-largest-component-size-by-common-factor](https://github.com/namann2/Leetcode/tree/master/0989-largest-component-size-by-common-factor) |
 | [1087-longest-arithmetic-subsequence](https://github.com/namann2/Leetcode/tree/master/1087-longest-arithmetic-subsequence) |
+| [1129-longest-string-chain](https://github.com/namann2/Leetcode/tree/master/1129-longest-string-chain) |
 | [1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/namann2/Leetcode/tree/master/1218-lowest-common-ancestor-of-deepest-leaves) |
 | [1308-smallest-string-with-swaps](https://github.com/namann2/Leetcode/tree/master/1308-smallest-string-with-swaps) |
 | [1790-lowest-common-ancestor-of-a-binary-tree-iii](https://github.com/namann2/Leetcode/tree/master/1790-lowest-common-ancestor-of-a-binary-tree-iii) |
@@ -315,6 +319,7 @@
 |  |
 | ------- |
 | [0611-valid-triangle-number](https://github.com/namann2/Leetcode/tree/master/0611-valid-triangle-number) |
+| [1129-longest-string-chain](https://github.com/namann2/Leetcode/tree/master/1129-longest-string-chain) |
 | [1308-smallest-string-with-swaps](https://github.com/namann2/Leetcode/tree/master/1308-smallest-string-with-swaps) |
 | [3151-minimum-processing-time](https://github.com/namann2/Leetcode/tree/master/3151-minimum-processing-time) |
 ## Memoization
@@ -388,6 +393,7 @@
 | ------- |
 | [0011-container-with-most-water](https://github.com/namann2/Leetcode/tree/master/0011-container-with-most-water) |
 | [0611-valid-triangle-number](https://github.com/namann2/Leetcode/tree/master/0611-valid-triangle-number) |
+| [1129-longest-string-chain](https://github.com/namann2/Leetcode/tree/master/1129-longest-string-chain) |
 | [1790-lowest-common-ancestor-of-a-binary-tree-iii](https://github.com/namann2/Leetcode/tree/master/1790-lowest-common-ancestor-of-a-binary-tree-iii) |
 ## Binary Search
 |  |
