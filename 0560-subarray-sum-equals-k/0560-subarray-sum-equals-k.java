@@ -1,22 +1,16 @@
 class Solution {
     public int subarraySum(int[] nums, int k) {
-        Map<Integer,Integer> map = new HashMap<>();
-        map.put(0, 1);
         int n = nums.length;
-        int sum = 0, ans = 0;
-        
-        for(int i = 0; i < n; i++) {
-            sum += nums[i];
-            int req = sum - k;
-            if(map.containsKey(req)) ans += map.get(req);
-            map.put(sum, map.getOrDefault(sum, 0) + 1);
+        int end = 0, begin = 0, freq = 0, sum = 0;
+        Map<Integer, Integer> sumCountMap = new HashMap<>();
+        sumCountMap.put(0, 1);
+        while(end < n) {
+            sum += nums[end];
+            // if sum - k is already seen
+            freq += sumCountMap.getOrDefault(sum - k, 0);
+            sumCountMap.put(sum, sumCountMap.getOrDefault(sum, 0) + 1);
+            end++;
         }
-        return ans;
+        return freq;
     }
 }
-
-//   1 1 1, k = 2
-// 0 1 2 3
-
-// ans = 0,1
-// map {0 : 1, 1 : 1}
