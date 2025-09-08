@@ -30,6 +30,7 @@
 | [0465-optimal-account-balancing](https://github.com/namann2/Leetcode/tree/master/0465-optimal-account-balancing) |
 | [0473-matchsticks-to-square](https://github.com/namann2/Leetcode/tree/master/0473-matchsticks-to-square) |
 | [0494-target-sum](https://github.com/namann2/Leetcode/tree/master/0494-target-sum) |
+| [0560-subarray-sum-equals-k](https://github.com/namann2/Leetcode/tree/master/0560-subarray-sum-equals-k) |
 | [0611-valid-triangle-number](https://github.com/namann2/Leetcode/tree/master/0611-valid-triangle-number) |
 | [0679-24-game](https://github.com/namann2/Leetcode/tree/master/0679-24-game) |
 | [0698-partition-to-k-equal-sum-subsets](https://github.com/namann2/Leetcode/tree/master/0698-partition-to-k-equal-sum-subsets) |
@@ -208,6 +209,7 @@
 | [0106-construct-binary-tree-from-inorder-and-postorder-traversal](https://github.com/namann2/Leetcode/tree/master/0106-construct-binary-tree-from-inorder-and-postorder-traversal) |
 | [0208-implement-trie-prefix-tree](https://github.com/namann2/Leetcode/tree/master/0208-implement-trie-prefix-tree) |
 | [0438-find-all-anagrams-in-a-string](https://github.com/namann2/Leetcode/tree/master/0438-find-all-anagrams-in-a-string) |
+| [0560-subarray-sum-equals-k](https://github.com/namann2/Leetcode/tree/master/0560-subarray-sum-equals-k) |
 | [0740-delete-and-earn](https://github.com/namann2/Leetcode/tree/master/0740-delete-and-earn) |
 | [0833-bus-routes](https://github.com/namann2/Leetcode/tree/master/0833-bus-routes) |
 | [0925-construct-binary-tree-from-preorder-and-postorder-traversal](https://github.com/namann2/Leetcode/tree/master/0925-construct-binary-tree-from-preorder-and-postorder-traversal) |
@@ -451,4 +453,8 @@
 |  |
 | ------- |
 | [0438-find-all-anagrams-in-a-string](https://github.com/namann2/Leetcode/tree/master/0438-find-all-anagrams-in-a-string) |
+## Prefix Sum
+|  |
+| ------- |
+| [0560-subarray-sum-equals-k](https://github.com/namann2/Leetcode/tree/master/0560-subarray-sum-equals-k) |
 <!---LeetCode Topics End-->
