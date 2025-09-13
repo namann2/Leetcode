@@ -142,6 +142,7 @@
 | [0227-basic-calculator-ii](https://github.com/namann2/Leetcode/tree/master/0227-basic-calculator-ii) |
 | [0269-alien-dictionary](https://github.com/namann2/Leetcode/tree/master/0269-alien-dictionary) |
 | [0301-remove-invalid-parentheses](https://github.com/namann2/Leetcode/tree/master/0301-remove-invalid-parentheses) |
+| [0340-longest-substring-with-at-most-k-distinct-characters](https://github.com/namann2/Leetcode/tree/master/0340-longest-substring-with-at-most-k-distinct-characters) |
 | [0399-evaluate-division](https://github.com/namann2/Leetcode/tree/master/0399-evaluate-division) |
 | [0438-find-all-anagrams-in-a-string](https://github.com/namann2/Leetcode/tree/master/0438-find-all-anagrams-in-a-string) |
 | [0712-minimum-ascii-delete-sum-for-two-strings](https://github.com/namann2/Leetcode/tree/master/0712-minimum-ascii-delete-sum-for-two-strings) |
@@ -210,6 +211,7 @@
 | [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/namann2/Leetcode/tree/master/0105-construct-binary-tree-from-preorder-and-inorder-traversal) |
 | [0106-construct-binary-tree-from-inorder-and-postorder-traversal](https://github.com/namann2/Leetcode/tree/master/0106-construct-binary-tree-from-inorder-and-postorder-traversal) |
 | [0208-implement-trie-prefix-tree](https://github.com/namann2/Leetcode/tree/master/0208-implement-trie-prefix-tree) |
+| [0340-longest-substring-with-at-most-k-distinct-characters](https://github.com/namann2/Leetcode/tree/master/0340-longest-substring-with-at-most-k-distinct-characters) |
 | [0438-find-all-anagrams-in-a-string](https://github.com/namann2/Leetcode/tree/master/0438-find-all-anagrams-in-a-string) |
 | [0560-subarray-sum-equals-k](https://github.com/namann2/Leetcode/tree/master/0560-subarray-sum-equals-k) |
 | [0740-delete-and-earn](https://github.com/namann2/Leetcode/tree/master/0740-delete-and-earn) |
@@ -456,6 +458,7 @@
 ## Sliding Window
 |  |
 | ------- |
+| [0340-longest-substring-with-at-most-k-distinct-characters](https://github.com/namann2/Leetcode/tree/master/0340-longest-substring-with-at-most-k-distinct-characters) |
 | [0438-find-all-anagrams-in-a-string](https://github.com/namann2/Leetcode/tree/master/0438-find-all-anagrams-in-a-string) |
 | [0713-subarray-product-less-than-k](https://github.com/namann2/Leetcode/tree/master/0713-subarray-product-less-than-k) |
 ## Prefix Sum
