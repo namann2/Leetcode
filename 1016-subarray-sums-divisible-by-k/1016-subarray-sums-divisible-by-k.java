@@ -6,16 +6,16 @@ class Solution {
         */
         int n = nums.length;
         // remainder, frequency of the remainder ending at index i
-        Map<Long, Integer> remainderFrequency = new HashMap<>();
+        int[] remainderFrequency = new int[10001];
         // for the cases remainder = 0
-        remainderFrequency.put(0l, 1);
-        long sum = 0l;
+        remainderFrequency[0] = 1;
+        int sum = 0;
         int answer = 0;
         for(int i = 0; i < n; i++) {
             sum += nums[i];
-            long remainder = (sum % k + k) % k; // for negative sum values => sum % k would result neg remainder
-            answer += remainderFrequency.getOrDefault(remainder, 0);
-            remainderFrequency.put(remainder, remainderFrequency.getOrDefault(remainder, 0) + 1);
+            int remainder = (sum % k + k) % k; // for negative sum values => sum % k would result neg remainder
+            answer += remainderFrequency[remainder];
+            remainderFrequency[remainder]++;
         }
         return answer;
     }
