@@ -31,6 +31,10 @@ So, we can say if we want to find the longest or maximum with a condition limite
 1. a while loop would potentially shrinking the window by many positions in a single iteration of the outer loop.
 2. Since we only care about the max length, any smaller window within it would become irrelevant
 
+
+Clarifying Question ?
+1. Why did we not update the maxFreq while shrinking the window ?
+   > If maxFrequ drops while we shrink the window, the maximum possible valid window size we can achieve right now also drops. We don't care about smaller windows because they can never beat our recorded maxLength. 
 ```
 class Solution {
     public int characterReplacement(String s, int k) {
