@@ -1,3 +1,10 @@
+/*
+Total Number of Nodes = 9ck (we have 9 numbers to choose from but we can only pick k numbers, hence, the number of total nodes in the recursive tree is limited by the k)
+cost_per_node = k (copying k numbers into final list)
+
+Hence, Total Complexity = O((9ck) * k)
+*/
+
 class Solution {
     public List<List<Integer>> combinationSum3(int k, int n) {
         List<List<Integer>> answer = new ArrayList<>();
